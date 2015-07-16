@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>B/S Note 6.27 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这几天B/S的代码进度加快了很多，所天也和老师展示过初期的成果，但这个东西作为前端的一个作品想继续完善下去。
+写代码的时候学到了好多姿势，前几天就想写博客记录一下，太忙忘了。
+
+&amp;nbsp;
+新添加的功能：
+1.视频 / 图片 / 文本 模板的展示
+2.拖动上色（引用别人写的一个给予interact.js的模块）
+3.提供下载
+4.增加markdown输入支持
+5.提供服务端保存
+
+nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="B/S Note 6.27">
+<meta property="og:url" content="http://yoursite.com/2015/06/27/bs-note-6-27/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="这几天B/S的代码进度加快了很多，所天也和老师展示过初期的成果，但这个东西作为前端的一个作品想继续完善下去。
+写代码的时候学到了好多姿势，前几天就想写博客记录一下，太忙忘了。
+
+&amp;nbsp;
+新添加的功能：
+1.视频 / 图片 / 文本 模板的展示
+2.拖动上色（引用别人写的一个给予interact.js的模块）
+3.提供下载
+4.增加markdown输入支持
+5.提供服务端保存
+
+nodejs">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_161.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_162.png">
+<meta property="og:updated_time" content="2015-07-16T16:19:32.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="B/S Note 6.27">
+<meta name="twitter:description" content="这几天B/S的代码进度加快了很多，所天也和老师展示过初期的成果，但这个东西作为前端的一个作品想继续完善下去。
+写代码的时候学到了好多姿势，前几天就想写博客记录一下，太忙忘了。
+
+&amp;nbsp;
+新添加的功能：
+1.视频 / 图片 / 文本 模板的展示
+2.拖动上色（引用别人写的一个给予interact.js的模块）
+3.提供下载
+4.增加markdown输入支持
+5.提供服务端保存
+
+nodejs">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="http://fonts.useso.com/css?family=Raleway:400,500,700&amp;subset=latin,latin-ext" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">WyTiny</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Lkx</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Zec_iiii</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">WyTiny</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">WyTiny</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-bs-note-6-27" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/27/bs-note-6-27/" class="article-date">
+  	<time datetime="2015-06-27T01:06:55.000Z" itemprop="datePublished">2015-06-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      B/S Note 6.27
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/NodeJs/">NodeJs</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这几天B/S的代码进度加快了很多，所天也和老师展示过初期的成果，但这个东西作为前端的一个作品想继续完善下去。</p>
+<p>写代码的时候学到了好多姿势，前几天就想写博客记录一下，太忙忘了。</p>
+<hr>
+<p>&nbsp;</p>
+<p>新添加的功能：</p>
+<p>1.视频 / 图片 / 文本 模板的展示</p>
+<p>2.拖动上色（引用别人写的一个给予interact.js的模块）</p>
+<p>3.提供下载</p>
+<p>4.增加markdown输入支持</p>
+<p>5.提供服务端保存</p>
+<hr>
+<h3 id="nodejs_压缩文件">nodejs 压缩文件</h3><p>可以使用操作系统的命令，为防止操作系统依赖，使用npm的包。</p>
+<p>选择了几个包最后用的是archive</p>
+<p>git地址:<a href="https://github.com/archiverjs/node-archiver" target="_blank" rel="external">https://github.com/archiverjs/node-archiver</a></p>
+<p>npm install archive即可（比较慢的话使用淘宝的npm镜像）</p>
+<p>使用流程是：</p>
+<blockquote>
+<p>var fs = require(‘fs’);<br>var archiver = require(‘archiver);<br>var archive = archiver.create(‘zip’, {}); //确定格式<br>var output = fs.createWriteStream(zipPath); //创建zip，这个zipPath其实是路径+文件名<br>archive.pipe(output); //管道<br>archive.bulk([<br>    {src: [‘xxx’]},<br>    {expand: true, cwd: ‘xxx’, src:[‘xxx’], dest: ‘xx’},<br>    xxx<br>]);<br>archive.finalize();</p>
+</blockquote>
+<p>路径可以使用相对或绝对路径，src: [‘pp/**’]表示压缩当前目录下pp文件夹内所有内容。</p>
+<p>cwd: ‘xxx’表示使用路径xxx，src [‘xxx’]表示使用之前那个路径下面的xxx路径，dest: ‘xx’ 表示在压缩包的路径头。</p>
+<p>目标是让用户能下载网页结果，以zip包的形式。</p>
+<p>前端js不能下载文件，所以使用添加透明表单发送post请求接收数据，后端组装压缩包传送回来。</p>
+<p>后端写在/ExMint/routes/editor.js中，路由为/editor/download</p>
+<p>这里出现了node比较翔的两点：路径 / 异步</p>
+<p>折腾快一个小时发现这里的默认相对路径竟然不是js文件所在的routes文件夹，而是项目的根目录！</p>
+<p>此外在服务器压缩完毕前，由于异步，response直接开始返回zip包，所以返回的都是坏掉的zip</p>
+<p>看了下archive源码，原来以为可以使用这样的形式解决：</p>
+<blockquote>
+<p>if(archive.finalize()){<br>    //xxx<br>    //这里写res的返回<br>}<br></p>
+</blockquote>
+<p>但是回来的还是坏的，然后也没看到源码里写过回调…</p>
+<p>目前的解决方式是比较丑陋的使用setTimeout(function(){}, xxx);这个如果服务器压缩慢了也是会返回不完整zip的，所以还是有问题….只能作为临时解决方案。</p>
+<p>贴下代码：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_161.png" alt=""></p>
+<p>感谢这篇博客：<a href="http://hzxiaosheng.github.io/work/2014/03/09/download-and-upload-file-with-nodejs/" target="_blank" rel="external">http://hzxiaosheng.github.io/work/2014/03/09/download-and-upload-file-with-nodejs/</a></p>
+<hr>
+<h3 id=""> </h3><h3 id="同步文件">同步文件</h3><p>其实只是保存文件在服务器。</p>
+<p>也是ajax的post请求实现的，传输了resultBoard中的html数据，服务端在此时拼接html，从ejs模板中加载头，并传入数据，而后写文件。</p>
+<p>这里的路径经常出错，其实可以使用绝对路径解决这个事，为了确保代码移植性，是用__dirname然后做处理的…（这个父目录获取方式有点怪）</p>
+<p>读写文件时要加上utf8，否则ejs或是其他文件会出现十六进制的输出，而不是字符串。</p>
+<p>直接贴代码吧：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_162.png" alt=""></p>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<h3 id="-1"> </h3><h3 id="markdown支持">markdown支持</h3><p>这个使用markdown-js包，数据传给后端, var output = require(‘markdown-js’).makeHtml(data), 然后用res.send(output)发送回来就行。</p>
+<p>以后的优化是让这个在前端实现。</p>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 id="代码优化">代码优化</h3><p>分离了js中的冗长html</p>
+<p>将所有的segment块类放在一个ejs里面，面板的ejs在底下include一个，设置成不显示，需要加载时用jquery选择html片段</p>
+<p>至于resultBoard的展示采用比较愚蠢的方法（觉得比较简洁= =）。每次刷新时，获取每个segment里面的输入信息，post到后端，后端开一个post请求的路由，也是渲染部分ejs送回，但总感觉这样post请求太多不怎么好… 虽然理想的目标是在前端组装页面……</p>
+<p>&nbsp;</p>
+<hr>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>先到这儿吧。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/06/21/rpi-lab8-led-matrix/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RPi Lab8 LED Matrix</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="bs-note-6-27" data-title="B/S Note 6.27" data-url="http://yoursite.com/2015/06/27/bs-note-6-27/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 WyTiny
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

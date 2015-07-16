@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>RPi Lab8 LED Matrix | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这个实验还是挺麻烦的..
+感谢Just_CJ大人的指导
+&amp;nbsp;
+LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应行列，而是打乱的。
+以有型号的那一面为正面，左到右编号1-8, 另一面右到左编号9-16
+应该按照下面的管脚图：
+
+使用python写脚本，逻辑是开一个线程刷新LED显示，主线程死循环：每次等待接收一个输入字符然后将其转换成ascii编号，以这个编号作为索引在font文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RPi Lab8 LED Matrix">
+<meta property="og:url" content="http://yoursite.com/2015/06/21/rpi-lab8-led-matrix/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="这个实验还是挺麻烦的..
+感谢Just_CJ大人的指导
+&amp;nbsp;
+LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应行列，而是打乱的。
+以有型号的那一面为正面，左到右编号1-8, 另一面右到左编号9-16
+应该按照下面的管脚图：
+
+使用python写脚本，逻辑是开一个线程刷新LED显示，主线程死循环：每次等待接收一个输入字符然后将其转换成ascii编号，以这个编号作为索引在font文">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_141.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_143.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_142.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_145.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_146.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_149.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_150.png">
+<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RPi Lab8 LED Matrix">
+<meta name="twitter:description" content="这个实验还是挺麻烦的..
+感谢Just_CJ大人的指导
+&amp;nbsp;
+LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应行列，而是打乱的。
+以有型号的那一面为正面，左到右编号1-8, 另一面右到左编号9-16
+应该按照下面的管脚图：
+
+使用python写脚本，逻辑是开一个线程刷新LED显示，主线程死循环：每次等待接收一个输入字符然后将其转换成ascii编号，以这个编号作为索引在font文">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="http://fonts.useso.com/css?family=Raleway:400,500,700&amp;subset=latin,latin-ext" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">WyTiny</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Lkx</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Zec_iiii</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">WyTiny</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">WyTiny</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-rpi-lab8-led-matrix" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/21/rpi-lab8-led-matrix/" class="article-date">
+  	<time datetime="2015-06-21T02:50:54.000Z" itemprop="datePublished">2015-06-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RPi Lab8 LED Matrix
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个实验还是挺麻烦的..</p>
+<p>感谢Just_CJ大人的指导</p>
+<p>&nbsp;</p>
+<h2 id="LED矩阵显示">LED矩阵显示</h2><p>8*8数码管的管脚图很不一样，上下两排不是对应行列，而是打乱的。</p>
+<p>以有型号的那一面为正面，左到右编号1-8, 另一面右到左编号9-16</p>
+<p>应该按照下面的管脚图：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_141.png" alt=""></p>
+<p>使用python写脚本，逻辑是开一个线程刷新LED显示，主线程死循环：每次等待接收一个输入字符然后将其转换成ascii编号，以这个编号作为索引在font文件中找到矩阵的值，并修改全局的二位数组，显示子线程的是按照这个二位数组显示的，所以屏幕会更新。（字库是网上找来的）</p>
+<p>部分代码截图：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_143.png" alt=""></p>
+<p><span class="token p">row和col的GPIO引脚分配：</span></p>
+<p><span class="token p">led_col = [24, 17, 27, 15, 10, 18, 8, 7]</span></p>
+<p><span class="token p">led_row = [14, 25, 11, 23, 3, 9, 4, 22]</span></p>
+<p>&nbsp;</p>
+<p>显示结果，这个字库能显示所有ascii：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_142.png" alt=""></p>
+<p>&nbsp;</p>
+<h2 id="编写驱动程序">编写驱动程序</h2><p>原想升级树莓派内核（sudo rpi-update）结果发现空间不够…再次启动树莓派也败了</p>
+<p>目测是boot的59mb被写入升级到一半的东西..</p>
+<p>好在原有的boot在另一个8G分区上有个备份——boot.bak，然后手动删除59mb分区所有内容似乎不行，最后是SD卡插回PC，用mkfs -t vfat /dev/xxxx格式化，然后再把bak中的内容加回来</p>
+<p>目前只能在原内核3.6.11+上工作</p>
+<p>&nbsp;</p>
+<p>git上可以下到各个内核版本的代码，换上原来的.config（rpi目录下/proc/config.gz）加上 github.com/raspberrypi/firmware 中弄下来的Modules.symvers，</p>
+<p>注意makefile中内核版本编号是否匹配树莓派的uname -r ，并且在Makefile两百行左右的位置修改，换成自己的交叉编译gcc</p>
+<p>再依次执行：</p>
+<pre>make oldconfig
+make prepare
+make modules_prepare
+</pre>
+
+<p>修改自己写的驱动程序makefile，使用交叉编译工具..还有内核代码路径</p>
+<p>make完毕后用modinfo检查下版本，确保一致</p>
+<p>也可以用modprobe中的—dump-versions参数检查ko的各种参数</p>
+<p><del datetime="2015-06-21T06:56:45+00:00">编译后将ko传到rpi安装，然并卵..（两个内核版本相同然而还是死在了module_layout版本检查上）</del></p>
+<p>&nbsp;</p>
+<p>上述方案在纠结10小时后彻底绝望，其实说到底是自己太懒，一直在回避重新编译3.6.y的内核，想着用现有的Modules.symvers</p>
+<p>最终各种问题都归结到Modules.symvers提供的错误参数，只修改module_layout不能解决问题…</p>
+<p>老老实实重编3.6.y内核</p>
+<p>make -j4</p>
+<p>1个小时都不到就完成了….</p>
+<p>有了正确的Modules.symvers，重新make模块代码，世界清净了（早编译就没这么多麻烦，唉…）</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_145.png" alt=""></p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_146.png" alt=""></p>
+<h2 id="使用网络控制LED">使用网络控制LED</h2><p>使用python脚本，流动显示代码形如：</p>
+<pre>def process_data(data):
+    str = data+' '
+    pre_mat = 8*[8*[0]]
+    for i in range(len(str)):
+        cur_mat = disp.get_result(ord(str[i]))
+        for j in range(8):
+            for k in range(8):
+                disp.result[k] = pre_mat[k][j:8]+cur_mat[k][0:j] # shift
+            time.sleep(0.1)
+pre_mat = cur_mat
+</pre>
+
+<p>socket接收和显示的代码较为简单，就不贴了</p>
+<p>大致就是rpi一直循环，等待消息，收到消息后修改disp线程中的变量，然后返回成功信息</p>
+<p>pc发送完之后一直循环</p>
+<p>输入wytiny:</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_149.png" alt=""></p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_150.png" alt=""></p>
+<p>&nbsp;</p>
+<p>视频地址：</p>
+<p><a href="http://v.youku.com/v_show/id_XMTI2NzI5OTM2NA==.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XMTI2NzI5OTM2NA==.html</a></p>
+<p>单手操作比较捉鸡，画质感人</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/27/bs-note-6-27/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          B/S Note 6.27
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/16/ming/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ming</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="rpi-lab8-led-matrix" data-title="RPi Lab8 LED Matrix" data-url="http://yoursite.com/2015/06/21/rpi-lab8-led-matrix/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 WyTiny
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
