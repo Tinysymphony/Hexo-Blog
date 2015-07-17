@@ -95,6 +95,8 @@
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
+							<li><a href="http://www.wytiny.com">TinyMint</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
@@ -108,7 +110,13 @@
 					        
 								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
 					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/45963589/" title="douban">douban</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gamil.com" title="mail">mail</a>
+					        
 								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
 					        
 						</div>
 					</nav>
@@ -174,6 +182,8 @@
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
+					<li><a href="http://www.wytiny.com">TinyMint</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
@@ -188,7 +198,13 @@
 			        
 						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
 			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/45963589/" title="douban">douban</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gamil.com" title="mail">mail</a>
+			        
 						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
 			        
 				</div>
 			</nav>
@@ -196,6 +212,74 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-rpi-gpio" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/03/rpi-gpio/" class="article-date">
+  	<time datetime="2015-06-03T01:30:03.000Z" itemprop="datePublished">2015-06-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/03/rpi-gpio/">RPi-GPIO</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Lab6 轮盘游戏机 <del datetime="2015-06-03T00:43:13+00:00">（轮盘是啥？）</del></p>
+<p>大致就是把树莓派上面原有的两排针脚当作信号输入/输出口，用高低电压使数码管发光这样…忽略原有的功能.</p>
+<p>网上有两个库比较好用的，一个是python 的GPIO库，一个是wiringPi，前者不用编译比较方便，后者是c语言嗯。</p>
+<p>按13年前人经验使用后者：</p>
+<blockquote>
+<p>git clone git://git.drogon.net/wiringPi<br>cd xxxxx<br>./build</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gpio/">gpio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpi/">rpi</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Embedded-System/">Embedded System</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/03/rpi-gpio/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-nginx-init" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -535,68 +619,6 @@
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-python-image-numpy-notes" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/03/30/python-image-numpy-notes/" class="article-date">
-  	<time datetime="2015-03-29T17:16:46.000Z" itemprop="datePublished">2015-03-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/python-image-numpy-notes/">Python Image | numpy Notes</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说人话">说人话</h3><p>今天在看数字水印的内容，还是数学苦手。不过尝试了下python的两个包，一个是图片处理的Image，还有方便数学运算的numpy（建议sudo apt-get install python-numpy获取）</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/03/30/python-image-numpy-notes/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
