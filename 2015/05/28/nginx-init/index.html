@@ -23,7 +23,7 @@ wget获取nginx-1.8.0
 ./configure后输入pcre的路径避免吃翔…而后愉快make &amp;amp; make install
 &amp;nbsp;
 1.8.0的配置文件比无脑apt-get获取的1.4.7要简明些，按默认值设定稍微修改（加端口，加域名，换根目录和index），很快就能跑网站，最">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+<meta property="og:updated_time" content="2015-07-17T01:32:05.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx Init">
 <meta name="twitter:description" content="还是想让Apache下岗，折腾nginx…
@@ -136,7 +136,7 @@ wget获取nginx-1.8.0
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -239,6 +239,10 @@ wget获取nginx-1.8.0
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
@@ -259,8 +263,8 @@ wget获取nginx-1.8.0
 <p>&nbsp;</p>
 <p>1.8.0的配置文件比无脑apt-get获取的1.4.7要简明些，按默认值设定稍微修改（加端口，加域名，换根目录和index），很快就能跑网站，最早成功的是<a href="http://www.wytiny.com" target="_blank" rel="external">www.wytiny.com</a></p>
 <p>主要的问题在高贵的php，想做80端口下根据域名转发至不同目录，一个去正在做的B/S，一个去wp博客这样。无脑继续复制一段server出来，稍作修改，根据网上的博客，里面有这样一段东西：</p>
-<p><pre>location ~ .php$ {</pre></p>
-<h1 id="fastcgi_pass_unix:/var/run/php5-fpm-sock;">fastcgi_pass unix:/var/run/php5-fpm.sock;</h1><p>fastcgi_pass localhost:9000;<br>include fastcgi_params;<br>fastcgi_index index.php;<br><span style="color: #ff6600;">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br>}<br><br>因为刚开始找不到9000端口的开启（php5-fpm没有默认这么做，默认是通过上面的sock转发php），所以我注释了9000那行，后续的不变，然后各种姿势开不出博客。</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">location ~ \.php$ </span><span class="expression">&#123;</span><br><span class="line"><span class="begin-block">#fastcgi</span>_<span class="variable">pass</span> <span class="variable">unix</span>:<span class="end-block">/var</span><span class="end-block">/run</span><span class="end-block">/php</span>5<span class="variable">-fpm.sock</span>;</span><br><span class="line"><span class="variable">fastcgi</span>_<span class="variable">pass</span> <span class="variable">localhost</span>:9000;</span><br><span class="line"><span class="variable">include</span> <span class="variable">fastcgi</span>_<span class="variable">params</span>;</span><br><span class="line"><span class="variable">fastcgi</span>_<span class="variable">index</span> <span class="variable">index.php</span>;</span><br><span class="line">&lt;<span class="variable">span</span> <span class="variable">style</span>=<span class="string">"color: #ff6600;"</span>&gt;<span class="variable">fastcgi</span>_<span class="variable">param</span> <span class="variable">SCRIPT</span>_<span class="variable">FILENAME</span> $<span class="variable">document</span>_<span class="variable">root</span>$<span class="variable">fastcgi</span>_<span class="variable">script</span>_<span class="variable">name</span>;&lt;<span class="end-block">/span</span>&gt;</span><br><span class="line">&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<p>因为刚开始找不到9000端口的开启（php5-fpm没有默认这么做，默认是通过上面的sock转发php），所以我注释了9000那行，后续的不变，然后各种姿势开不出博客。</p>
 <p>解决方法是把sock换成了端口，随大流也用9000</p>
 <p>橙色那行也很重要，是确定文件路径的，之前复制了个野鸡博客的配置，结果这行document他写的是/script，一个绝对路径的根目录！！！眼瞎进弯路 ===&gt; File not found</p>
 <p>&nbsp;</p>

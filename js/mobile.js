@@ -139,6 +139,13 @@ define([], function(){
 		}
 	}
 
+	var setTitleFont = function() {
+		var title = $(".js-mobile-header");
+		var author = $(".header-author");
+		title.css("font-family", "'Raleway'");
+		author.css("font-family", "'Raleway'");
+	}
+
 	return{
 		init: function(){
 			//构造函数需要的参数
@@ -149,6 +156,7 @@ define([], function(){
 			combine();
 			bindDOM();
 			resetTags();
+			setTitleFont();
 		}
 	}
 })

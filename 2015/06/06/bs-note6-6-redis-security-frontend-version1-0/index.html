@@ -7,28 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。
 本机上试了下：
-redis-cli -h xxx.xxx.xxx.xxx果然keys *能看到所有数据，还是太naive…
-redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）
-追加修改到nodejs的re">
+
+redis-cli -h xxx.xxx.xxx.xxx
+
+果然keys *能看到所有数据，还是太naive…
+redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B/S Note6.6 Redis Security | Frontend version1.0">
 <meta property="og:url" content="http://yoursite.com/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/index.html">
 <meta property="og:site_name" content="TinySymphony">
 <meta property="og:description" content="想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。
 本机上试了下：
-redis-cli -h xxx.xxx.xxx.xxx果然keys *能看到所有数据，还是太naive…
-redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）
-追加修改到nodejs的re">
+
+redis-cli -h xxx.xxx.xxx.xxx
+
+果然keys *能看到所有数据，还是太naive…
+redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）">
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_121.png">
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_122.png">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+<meta property="og:updated_time" content="2015-07-17T01:27:01.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B/S Note6.6 Redis Security | Frontend version1.0">
 <meta name="twitter:description" content="想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。
 本机上试了下：
-redis-cli -h xxx.xxx.xxx.xxx果然keys *能看到所有数据，还是太naive…
-redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）
-追加修改到nodejs的re">
+
+redis-cli -h xxx.xxx.xxx.xxx
+
+果然keys *能看到所有数据，还是太naive…
+redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -132,7 +138,7 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -235,6 +241,10 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Database/">Database</a><a class="article-category-link" href="/categories/Database/Fronter/">Fronter</a>
@@ -249,12 +259,17 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
       
         <p>想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。</p>
 <p>本机上试了下：</p>
-<p><pre>redis-cli -h xxx.xxx.xxx.xxx</pre><br>果然keys *能看到所有数据，还是太naive…</p>
+<blockquote>
+<p>redis-cli -h xxx.xxx.xxx.xxx</p>
+</blockquote>
+<p>果然keys *能看到所有数据，还是太naive…</p>
 <p>redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 <del datetime="2015-06-05T23:52:09+00:00">（但是每次访问都要加个端口太麻烦了所以偷懒没改）</del></p>
+<a id="more"></a>
 <p>追加修改到nodejs的redis 数据库连接：</p>
-<p><pre>var redisPassword = “yourpassword”;</pre></p>
-<p>var redisOptions = {auth_pass: redisPassword};</p>
-<p>var db = require(‘redis’).createClient(6379, “127.0.0.1”, redisOptions);<br>这样就没问题啦</p>
+<blockquote>
+<p>var redisPassword = “yourpassword”;<br>var redisOptions = {auth_pass: redisPassword};<br>var db = require(‘redis’).createClient(6379, “127.0.0.1”, redisOptions);</p>
+</blockquote>
+<p>这样就没问题啦</p>
 <hr>
 <p>&nbsp;</p>
 <p>昨天完成用户登陆后的dashboard前端第一版~</p>
@@ -285,11 +300,11 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
     
 <nav id="article-nav">
   
-    <a href="/2015/06/16/ming/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/06/21/rpi-lab8-led-matrix/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Ming
+          RPi Lab8 LED Matrix
         
       </div>
     </a>

@@ -32,7 +32,7 @@ LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应�
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_146.png">
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_149.png">
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_150.png">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+<meta property="og:updated_time" content="2015-07-17T01:38:53.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RPi Lab8 LED Matrix">
 <meta name="twitter:description" content="这个实验还是挺麻烦的..
@@ -146,7 +146,7 @@ LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应�
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -249,6 +249,10 @@ LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应�
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpi/">rpi</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
@@ -269,6 +273,7 @@ LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应�
 <p>应该按照下面的管脚图：</p>
 <p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_141.png" alt=""></p>
 <p>使用python写脚本，逻辑是开一个线程刷新LED显示，主线程死循环：每次等待接收一个输入字符然后将其转换成ascii编号，以这个编号作为索引在font文件中找到矩阵的值，并修改全局的二位数组，显示子线程的是按照这个二位数组显示的，所以屏幕会更新。（字库是网上找来的）</p>
+<a id="more"></a>
 <p>部分代码截图：</p>
 <p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_143.png" alt=""></p>
 <p><span class="token p">row和col的GPIO引脚分配：</span></p>
@@ -286,11 +291,9 @@ LED矩阵显示8*8数码管的管脚图很不一样，上下两排不是对应�
 <p>git上可以下到各个内核版本的代码，换上原来的.config（rpi目录下/proc/config.gz）加上 github.com/raspberrypi/firmware 中弄下来的Modules.symvers，</p>
 <p>注意makefile中内核版本编号是否匹配树莓派的uname -r ，并且在Makefile两百行左右的位置修改，换成自己的交叉编译gcc</p>
 <p>再依次执行：</p>
-<pre>make oldconfig
-make prepare
-make modules_prepare
-</pre>
-
+<blockquote>
+<p>make oldconfig<br>make prepare<br>make modules_prepare</p>
+</blockquote>
 <p>修改自己写的驱动程序makefile，使用交叉编译工具..还有内核代码路径</p>
 <p>make完毕后用modinfo检查下版本，确保一致</p>
 <p>也可以用modprobe中的—dump-versions参数检查ko的各种参数</p>
@@ -305,18 +308,7 @@ make modules_prepare
 <p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_145.png" alt=""></p>
 <p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_146.png" alt=""></p>
 <h2 id="使用网络控制LED">使用网络控制LED</h2><p>使用python脚本，流动显示代码形如：</p>
-<pre>def process_data(data):
-    str = data+' '
-    pre_mat = 8*[8*[0]]
-    for i in range(len(str)):
-        cur_mat = disp.get_result(ord(str[i]))
-        for j in range(8):
-            for k in range(8):
-                disp.result[k] = pre_mat[k][j:8]+cur_mat[k][0:j] # shift
-            time.sleep(0.1)
-pre_mat = cur_mat
-</pre>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_data</span><span class="params">(data)</span>:</span></span><br><span class="line">    str = data+<span class="string">' '</span></span><br><span class="line">    pre_mat = <span class="number">8</span>*[<span class="number">8</span>*[<span class="number">0</span>]]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(str)):</span><br><span class="line">        cur_mat = disp.get_result(ord(str[i]))</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">                disp.result[k] = pre_mat[k][j:<span class="number">8</span>]+cur_mat[k][<span class="number">0</span>:j] <span class="comment"># shift</span></span><br><span class="line">            time.sleep(<span class="number">0.1</span>)</span><br><span class="line">pre_mat = cur_mat</span><br></pre></td></tr></table></figure>
 <p>socket接收和显示的代码较为简单，就不贴了</p>
 <p>大致就是rpi一直循环，等待消息，收到消息后修改disp线程中的变量，然后返回成功信息</p>
 <p>pc发送完之后一直循环</p>
@@ -347,8 +339,8 @@ pre_mat = cur_mat
     </a>
   
   
-    <a href="/2015/06/16/ming/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ming</div>
+    <a href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">B/S Note6.6 Redis Security | Frontend version1.0</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

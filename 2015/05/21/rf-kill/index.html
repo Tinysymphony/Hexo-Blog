@@ -15,7 +15,7 @@
 <meta property="og:description" content="自从上次重装以来一直有个问题，开机的时候无线网卡不能开启，虽然在bios里已经设置无线开启，但每次开机总要重新按一次硬件开关才能打开无线。
 之前试过iwconfig看到wlan0是能搜到的，但使用ifconfig wlan0 up时就吃翔报错:SIOCSIFFLAGS: Operation not possible due to RF-kill
 用硬件开启无线后，使用ifconfig wlan0">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+<meta property="og:updated_time" content="2015-07-17T01:36:55.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RF-kill & psk">
 <meta name="twitter:description" content="自从上次重装以来一直有个问题，开机的时候无线网卡不能开启，虽然在bios里已经设置无线开启，但每次开机总要重新按一次硬件开关才能打开无线。
@@ -124,7 +124,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -242,6 +242,7 @@
         <p>自从上次重装以来一直有个问题，开机的时候无线网卡不能开启，虽然在bios里已经设置无线开启，但每次开机总要重新按一次硬件开关才能打开无线。</p>
 <p>之前试过iwconfig看到wlan0是能搜到的，但使用<span style="color: #008080;">ifconfig wlan0 up</span>时就吃翔<br>报错:<span style="color: #ff6600;">SIOCSIFFLAGS: Operation not possible due to RF-kill</span></p>
 <p>用硬件开启无线后，使用<span style="color: #008080;">ifconfig wlan0 down</span>是正常的（虽然图形界面里面没更新，但wlan0可以被关掉）</p>
+<a id="more"></a>
 <p>&nbsp;</p>
 <p>查了下rfkill这个命令，大致是设置电脑无线电设备是否能硬件/软件阻断。软件阻断为yes就导致无法通过命令行启动该设备。</p>
 <p>但奇怪的是所有设备的软件阻断都是no，而且使用下面的指令先开启后关闭阻断也是有效的，可之前的报错一直无法解决。</p>
@@ -264,11 +265,15 @@ rfkill unblock all</code></p>
 <p>偷懒用的图形界面还是要还的..</p>
 <p>记一下方法：</p>
 <p>搜索到wlan0开启后获取wpa的psk（preshared key）</p>
-<pre>wpa_passphrase &lt;ssid&gt; &lt;password&gt;</pre>
-
+<blockquote>
+<p>wpa_passphrase &lt;ssid&gt; &lt;password&gt;</p>
+</blockquote>
 <p>得到的内容存到/etc/wpa_supplicant/wpa_supplicant.conf</p>
 <p>并修改interface文件为：</p>
-<p><pre class="prettyprint cpp">allow-hotplug wlan0<br>auto wlan0<br>iface wlan0 inet dhcp<br>pre-up wpa_supplicant -B w -D wext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf<br>post-down killall -q wpa_supplicant<br></pre><br>最后ifup wlan0搞定</p>
+<blockquote>
+<p>allow-hotplug wlan0<br>auto wlan0<br>iface wlan0 inet dhcp<br>pre-up wpa_supplicant -B w -D wext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf<br>post-down killall -q wpa_supplicant<br></p>
+</blockquote>
+<p>最后ifup wlan0搞定</p>
 
       
     </div>

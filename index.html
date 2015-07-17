@@ -117,7 +117,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -197,6 +197,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/07/17/Hexo/" class="article-date">
+  	<time datetime="2015-07-17T02:11:40.000Z" itemprop="datePublished">2015-07-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/17/Hexo/">Hexo! Linode!</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Hexo!">Hexo!</h4><p>对富文本编辑器还是很恐惧，wp对markdown不怎么友好，迁移博客的想法越来越强烈….并且对digtal ocean的高ping值也开始不耐烦，想给域名另找婆家。</p>
+<p>看了下hexo的文件感觉这应该是挺符合我胃口的，nodejs，markdown，cli，最主要的是找到了一个挺好看的主题yilia <del>（说好的自己写主题呢！）</del></p>
+<p>官方文档很清晰，估计是湾湾人作者的原因，中文文档也很舒服。</p>
+<p>稍微改了下主题的字体和几个链接，就放上来了。</p>
+<p>详细的配置可以在_config.yml中设置。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lindoe/">lindoe</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/07/17/Hexo/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-bs-note-6-27" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -225,65 +287,6 @@
       
         <p>这几天B/S的代码进度加快了很多，所天也和老师展示过初期的成果，但这个东西作为前端的一个作品想继续完善下去。</p>
 <p>写代码的时候学到了好多姿势，前几天就想写博客记录一下，太忙忘了。</p>
-<hr>
-<p>&nbsp;</p>
-<p>新添加的功能：</p>
-<p>1.视频 / 图片 / 文本 模板的展示</p>
-<p>2.拖动上色（引用别人写的一个给予interact.js的模块）</p>
-<p>3.提供下载</p>
-<p>4.增加markdown输入支持</p>
-<p>5.提供服务端保存</p>
-<hr>
-<h3 id="nodejs_压缩文件">nodejs 压缩文件</h3><p>可以使用操作系统的命令，为防止操作系统依赖，使用npm的包。</p>
-<p>选择了几个包最后用的是archive</p>
-<p>git地址:<a href="https://github.com/archiverjs/node-archiver" target="_blank" rel="external">https://github.com/archiverjs/node-archiver</a></p>
-<p>npm install archive即可（比较慢的话使用淘宝的npm镜像）</p>
-<p>使用流程是：</p>
-<blockquote>
-<p>var fs = require(‘fs’);<br>var archiver = require(‘archiver);<br>var archive = archiver.create(‘zip’, {}); //确定格式<br>var output = fs.createWriteStream(zipPath); //创建zip，这个zipPath其实是路径+文件名<br>archive.pipe(output); //管道<br>archive.bulk([<br>    {src: [‘xxx’]},<br>    {expand: true, cwd: ‘xxx’, src:[‘xxx’], dest: ‘xx’},<br>    xxx<br>]);<br>archive.finalize();</p>
-</blockquote>
-<p>路径可以使用相对或绝对路径，src: [‘pp/**’]表示压缩当前目录下pp文件夹内所有内容。</p>
-<p>cwd: ‘xxx’表示使用路径xxx，src [‘xxx’]表示使用之前那个路径下面的xxx路径，dest: ‘xx’ 表示在压缩包的路径头。</p>
-<p>目标是让用户能下载网页结果，以zip包的形式。</p>
-<p>前端js不能下载文件，所以使用添加透明表单发送post请求接收数据，后端组装压缩包传送回来。</p>
-<p>后端写在/ExMint/routes/editor.js中，路由为/editor/download</p>
-<p>这里出现了node比较翔的两点：路径 / 异步</p>
-<p>折腾快一个小时发现这里的默认相对路径竟然不是js文件所在的routes文件夹，而是项目的根目录！</p>
-<p>此外在服务器压缩完毕前，由于异步，response直接开始返回zip包，所以返回的都是坏掉的zip</p>
-<p>看了下archive源码，原来以为可以使用这样的形式解决：</p>
-<blockquote>
-<p>if(archive.finalize()){<br>    //xxx<br>    //这里写res的返回<br>}<br></p>
-</blockquote>
-<p>但是回来的还是坏的，然后也没看到源码里写过回调…</p>
-<p>目前的解决方式是比较丑陋的使用setTimeout(function(){}, xxx);这个如果服务器压缩慢了也是会返回不完整zip的，所以还是有问题….只能作为临时解决方案。</p>
-<p>贴下代码：</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_161.png" alt=""></p>
-<p>感谢这篇博客：<a href="http://hzxiaosheng.github.io/work/2014/03/09/download-and-upload-file-with-nodejs/" target="_blank" rel="external">http://hzxiaosheng.github.io/work/2014/03/09/download-and-upload-file-with-nodejs/</a></p>
-<hr>
-<h3 id=""> </h3><h3 id="同步文件">同步文件</h3><p>其实只是保存文件在服务器。</p>
-<p>也是ajax的post请求实现的，传输了resultBoard中的html数据，服务端在此时拼接html，从ejs模板中加载头，并传入数据，而后写文件。</p>
-<p>这里的路径经常出错，其实可以使用绝对路径解决这个事，为了确保代码移植性，是用__dirname然后做处理的…（这个父目录获取方式有点怪）</p>
-<p>读写文件时要加上utf8，否则ejs或是其他文件会出现十六进制的输出，而不是字符串。</p>
-<p>直接贴代码吧：</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_162.png" alt=""></p>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-<h3 id="-1"> </h3><h3 id="markdown支持">markdown支持</h3><p>这个使用markdown-js包，数据传给后端, var output = require(‘markdown-js’).makeHtml(data), 然后用res.send(output)发送回来就行。</p>
-<p>以后的优化是让这个在前端实现。</p>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h3 id="代码优化">代码优化</h3><p>分离了js中的冗长html</p>
-<p>将所有的segment块类放在一个ejs里面，面板的ejs在底下include一个，设置成不显示，需要加载时用jquery选择html片段</p>
-<p>至于resultBoard的展示采用比较愚蠢的方法（觉得比较简洁= =）。每次刷新时，获取每个segment里面的输入信息，post到后端，后端开一个post请求的路由，也是渲染部分ejs送回，但总感觉这样post请求太多不怎么好… 虽然理想的目标是在前端组装页面……</p>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>先到这儿吧。</p>
-
       
     </div>
     
@@ -296,6 +299,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/27/bs-note-6-27/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -345,72 +352,16 @@
 <p>应该按照下面的管脚图：</p>
 <p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_141.png" alt=""></p>
 <p>使用python写脚本，逻辑是开一个线程刷新LED显示，主线程死循环：每次等待接收一个输入字符然后将其转换成ascii编号，以这个编号作为索引在font文件中找到矩阵的值，并修改全局的二位数组，显示子线程的是按照这个二位数组显示的，所以屏幕会更新。（字库是网上找来的）</p>
-<p>部分代码截图：</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_143.png" alt=""></p>
-<p><span class="token p">row和col的GPIO引脚分配：</span></p>
-<p><span class="token p">led_col = [24, 17, 27, 15, 10, 18, 8, 7]</span></p>
-<p><span class="token p">led_row = [14, 25, 11, 23, 3, 9, 4, 22]</span></p>
-<p>&nbsp;</p>
-<p>显示结果，这个字库能显示所有ascii：</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_142.png" alt=""></p>
-<p>&nbsp;</p>
-<h2 id="编写驱动程序">编写驱动程序</h2><p>原想升级树莓派内核（sudo rpi-update）结果发现空间不够…再次启动树莓派也败了</p>
-<p>目测是boot的59mb被写入升级到一半的东西..</p>
-<p>好在原有的boot在另一个8G分区上有个备份——boot.bak，然后手动删除59mb分区所有内容似乎不行，最后是SD卡插回PC，用mkfs -t vfat /dev/xxxx格式化，然后再把bak中的内容加回来</p>
-<p>目前只能在原内核3.6.11+上工作</p>
-<p>&nbsp;</p>
-<p>git上可以下到各个内核版本的代码，换上原来的.config（rpi目录下/proc/config.gz）加上 github.com/raspberrypi/firmware 中弄下来的Modules.symvers，</p>
-<p>注意makefile中内核版本编号是否匹配树莓派的uname -r ，并且在Makefile两百行左右的位置修改，换成自己的交叉编译gcc</p>
-<p>再依次执行：</p>
-<pre>make oldconfig
-make prepare
-make modules_prepare
-</pre>
-
-<p>修改自己写的驱动程序makefile，使用交叉编译工具..还有内核代码路径</p>
-<p>make完毕后用modinfo检查下版本，确保一致</p>
-<p>也可以用modprobe中的—dump-versions参数检查ko的各种参数</p>
-<p><del datetime="2015-06-21T06:56:45+00:00">编译后将ko传到rpi安装，然并卵..（两个内核版本相同然而还是死在了module_layout版本检查上）</del></p>
-<p>&nbsp;</p>
-<p>上述方案在纠结10小时后彻底绝望，其实说到底是自己太懒，一直在回避重新编译3.6.y的内核，想着用现有的Modules.symvers</p>
-<p>最终各种问题都归结到Modules.symvers提供的错误参数，只修改module_layout不能解决问题…</p>
-<p>老老实实重编3.6.y内核</p>
-<p>make -j4</p>
-<p>1个小时都不到就完成了….</p>
-<p>有了正确的Modules.symvers，重新make模块代码，世界清净了（早编译就没这么多麻烦，唉…）</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_145.png" alt=""></p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_146.png" alt=""></p>
-<h2 id="使用网络控制LED">使用网络控制LED</h2><p>使用python脚本，流动显示代码形如：</p>
-<pre>def process_data(data):
-    str = data+' '
-    pre_mat = 8*[8*[0]]
-    for i in range(len(str)):
-        cur_mat = disp.get_result(ord(str[i]))
-        for j in range(8):
-            for k in range(8):
-                disp.result[k] = pre_mat[k][j:8]+cur_mat[k][0:j] # shift
-            time.sleep(0.1)
-pre_mat = cur_mat
-</pre>
-
-<p>socket接收和显示的代码较为简单，就不贴了</p>
-<p>大致就是rpi一直循环，等待消息，收到消息后修改disp线程中的变量，然后返回成功信息</p>
-<p>pc发送完之后一直循环</p>
-<p>输入wytiny:</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_149.png" alt=""></p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_150.png" alt=""></p>
-<p>&nbsp;</p>
-<p>视频地址：</p>
-<p><a href="http://v.youku.com/v_show/id_XMTI2NzI5OTM2NA==.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XMTI2NzI5OTM2NA==.html</a></p>
-<p>单手操作比较捉鸡，画质感人</p>
-<p>&nbsp;</p>
-
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpi/">rpi</a></li></ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
@@ -418,60 +369,9 @@ pre_mat = cur_mat
 
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-ming" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/16/ming/" class="article-date">
-  	<time datetime="2015-06-16T06:28:37.000Z" itemprop="datePublished">2015-06-16</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/16/ming/">Ming</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&gt;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
-	</div>
-
-
+        <p class="article-more-link">
+          <a  href="/2015/06/21/rpi-lab8-led-matrix/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -515,46 +415,31 @@ pre_mat = cur_mat
       
         <p>想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。</p>
 <p>本机上试了下：</p>
-<p><pre>redis-cli -h xxx.xxx.xxx.xxx</pre><br>果然keys *能看到所有数据，还是太naive…</p>
+<blockquote>
+<p>redis-cli -h xxx.xxx.xxx.xxx</p>
+</blockquote>
+<p>果然keys *能看到所有数据，还是太naive…</p>
 <p>redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 <del datetime="2015-06-05T23:52:09+00:00">（但是每次访问都要加个端口太麻烦了所以偷懒没改）</del></p>
-<p>追加修改到nodejs的redis 数据库连接：</p>
-<p><pre>var redisPassword = “yourpassword”;</pre></p>
-<p>var redisOptions = {auth_pass: redisPassword};</p>
-<p>var db = require(‘redis’).createClient(6379, “127.0.0.1”, redisOptions);<br>这样就没问题啦</p>
-<hr>
-<p>&nbsp;</p>
-<p>昨天完成用户登陆后的dashboard前端第一版~</p>
-<p><del datetime="2015-06-05T23:52:09+00:00">东拼西凑各种模仿的悲惨前端初学者</del></p>
-<p>先放图（最近在用七牛做图床感觉良好）</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_121.png" alt=""></p>
-<p>&nbsp;</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_122.png" alt=""></p>
-<p>&nbsp;</p>
-<p>其实在纠结要不要用bootsrap/foundation之流的框架</p>
-<p>感觉学的时候应该自己写写看这些自适应还有流行的网格布局<del datetime="2015-06-05T23:52:09+00:00">（因为课程作业想省个时间）</del></p>
-<p>左边是自己写的简陋navigation，右边用了bootstrap的网格</p>
-<p>Mints界面：</p>
-<p>每一个网页设计作品是采用自Codrops的一个购物模板，原来是商品Orz….</p>
-<p>上面三个是自己提供的网页模板，相当于用户教学，下方的add按钮可以让用户自己选择模板并编辑</p>
-<p>Account Info界面：</p>
-<p>input栏是采用Codrops上一个日本大神的作品（贪婪地把一系列的input css都放到项目中..）</p>
-<p>修改个人信息以及密码啥的…</p>
-<p>还需要追加头像更换什么的功能</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Database/">Database</a><a class="article-category-link" href="/categories/Database/Fronter/">Fronter</a>
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -603,79 +488,26 @@ pre_mat = cur_mat
 <p>目标：开发一个在线编辑网站，让用户能凭借现有模板，上传/输入自己想展示的内容，快速制作网页。并且提供网页的html/js/css下载，或者外链，适合各种设备端的显示。</p>
 <p>后端使用Nodejs Express.</p>
 <p>前端自己瞎写+模仿+混合foundation框架，总之学一学.</p>
-<p>用户验证数据库使用Nosql的Redis ( 主要是因为买了本书上有这个教程 =  =).</p>
-<p>用户数据预计会使用mysql。</p>
-<p>服务器会使用Nginx反响代理Nodejs<del datetime="2015-06-04T15:40:41+00:00">（并不懂调优，一个尝试而已）</del></p>
-<hr>
-<p>&nbsp;</p>
-<p>今天把www.wytiny.com指向node程序端口</p>
-<p>nginx.conf的http段里面加了下面的内容，让*wytiny.me的域名指向node的运行端口：</p>
-<pre>upstream nodejs__upstream {
-        server 127.0.0.1:myport;
-        keepalive 64;
-}
-server {
-        listen 80;
-        server_name *.wytiny.com wytiny.com;
-        access_log /var/log/nginx/mylogfile.log;
-        location / {
-                proxy_set_header   X-Real-IP            $remote_addr;
-                proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-                proxy_set_header   Host                   $http_host;
-                proxy_set_header   X-NginX-Proxy    true;
-                proxy_set_header   Connection "";
-                proxy_http_version 1.1;
-                proxy_pass         http://nodejs__upstream;
-        }
-}
-
-</pre>
-
-<hr>
-<p>而后是用forever启动node（刚学的姿势），就是在vps部署node时需要让程序一直运行并且崩溃后能自动重启：</p>
-<p><pre>npm install forever -g  #安装全局的forever<br>forever start -l xxx.log -o xxxOut.log -e xxxErr.log xxx.js  #输出内容转到日志<br>forever list #可以看后台运行的node<br>forever stop xxx #关闭<br>forever restart xxx #重启<br></pre><br>挺好用的.</p>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>目前对关系型数据库的理解是：一堆相同形状格式的东西放在一个小袋子（表）里面，然后小袋子都在一个大袋子（库）里面。</p>
-<p>非关系型是：任何形状大小的东西全丢进一个袋子，找的时候搜整个大袋子。</p>
-<p>&nbsp;</p>
-<p>关于Redis</p>
-<p>Redis是内存中的非关系型数据库，所以断电或者强制退出程序时数据会丢失，这就不可靠了。</p>
-<p>作为Nosql的特性：牺牲可靠性换性能。</p>
-<p>Redis是设置一定时间写回数据到外部存储，设定在其安装文件redis.conf里。</p>
-<p>里面save A B 是指每A秒至少有B次写入操作时，写回。</p>
-<p>同样可以找到dump.rdb的路径和文件名设置，这个相当于备份文件。</p>
-<p>还有种AOF方式这里先不谈..</p>
-<p>&nbsp;</p>
-<p>一开始使用就吃了写回的亏..</p>
-<p>查看了下启动redis-server的报错，主要有这几个问题：</p>
-<p>XXXXX文件操作失败  #root启动即可</p>
-<p>/etc/sysctl.conf 中 vm.overcommit_memory=0 #设置成1让内核可以分配所有内存，不顾当前内存状态</p>
-<p>XXXXX写回文件未指定，数据可能丢失  #用redis-server /path/to/conf的方式使conf生效</p>
-<p>其实最后我加了个alias改写了指定conf启动redis的命令，否则每次要打那个路径= =</p>
-<p>&nbsp;</p>
-<p>这样一来redis也可以使用~</p>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-<p>初学ajax，把表单的submit都去掉了，使用jquery中的ajax提交数据。</p>
-<p>但是这样一来在服务端做response的重定向是失败的，不会有任何反应（小白不明）</p>
-<p>目前是让服务端返回一个状态string，然后ajax的success中写跳转逻辑。</p>
-
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Linux/">Linux</a><a class="article-category-link" href="/categories/Linux/NodeJs/">NodeJs</a>
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/05/bs-note-6-4-redisnodejsnginx/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -721,44 +553,19 @@ server {
 <p>大致就是把树莓派上面原有的两排针脚当作信号输入/输出口，用高低电压使数码管发光这样…忽略原有的功能.</p>
 <p>网上有两个库比较好用的，一个是python 的GPIO库，一个是wiringPi，前者不用编译比较方便，后者是c语言嗯。</p>
 <p>按13年前人经验使用后者：</p>
-<p><pre>git clone git://git.drogon.net/wiringPi<br>cd xxxxx<br>./build</pre><br>进入文件夹后用root权限安装，就上面那个build就好了。</p>
-<p>完成后<span style="color: #ff6600;">gpio readall</span>可以直接看端口映射情况，应该这么说，wiringPi里面的pin号和实际的针脚的对应。</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_116.png" alt=""></p>
-<p>Mode 表示输入/输出</p>
-<p>Value则是目前针脚上的数值，一般为低电，高电的应该是输出电源口。</p>
-<p>&nbsp;</p>
-<p>这次实验用的是LG3641BH型号的数码管，去网上查了下针脚设定，画了一下图：</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPic20150602_210527.jpg" alt=""></p>
-<p>Wx是指从左到右第几个数字,dp是指右下角的点,其他七段码。</p>
-<p>数码管连线时，需要用几号控制某段完全随意，记得使用wiringPi调端口为输出模式，HIGH为高电，亮；LOW为低电，暗。</p>
-<p>对照之前实验中树莓派的管脚图,确定连线。其中Wx对应wirngPi的x号接口,a-­5, b-­6, c-­7, d-­8, e­-9, f­-12, g­-11. dp-­13, 要注意找到自己板子上对应端口号的实际针脚。</p>
-<p>开关分别接在0号和11号上，另一端都接在电源口（树莓派上有大概4个电源口的样子，一直输出高电），一个代表开始游戏，一个暂停游戏。即按下时，0号/11号会收到外部输入的高电，可作为程序的判断。只有这两个口是作为输入模式的，并且开关都需要串联电阻，否则按下时会短路。</p>
-<p><del datetime="2015-06-03T00:43:13+00:00">大致连线如下：</del></p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPic20150603_004721.jpg" alt=""></p>
-<p>&nbsp;</p>
-<p>然后就是使用c语言写程序</p>
-<p>最注意的是：<span style="color: #ff6600;">gcc的时候末尾一定加上  -lwiringPi 否则不会自动使用装好的wiringPi.h</span></p>
-<p>程序不贴了，写点大致思路：</p>
-<p>首先引入库，而后定义对应端口方便使用，用数组记录七段码数字。</p>
-<p><pre>#include &lt;wiringPi.h&gt;</pre></p>
-<h1 id="include_&lt;stdio-h&gt;">include &lt;stdio.h&gt;</h1><h1 id="include_&lt;stdlib-h&gt;">include &lt;stdlib.h&gt;</h1><h1 id="define_NUM1_1">define NUM1 1</h1><h1 id="define_NUM2_2">define NUM2 2</h1><h1 id="define_NUM3_3">define NUM3 3</h1><h1 id="define_NUM4_4">define NUM4 4</h1><h1 id="define_BTN1_10">define BTN1 10</h1><h1 id="define_BTN2_0">define BTN2 0</h1><p>char port[8] = {5, 6, 7, 8, 9, 12, 11, 13};</p>
-<p>char num[10][8] = //The increasing number<br>{<br>{0,0,0,0,0,0,1,1}, //0<br>{1,0,0,1,1,1,1,1}, //1<br>{0,0,1,0,0,1,0,1}, //2<br>{0,0,0,0,1,1,0,1}, //3<br>{1,0,0,1,1,0,0,1}, //4<br>{0,1,0,0,1,0,0,1}, //5<br>{0,1,0,0,0,0,0,1}, //6<br>{0,0,0,1,1,1,1,1}, //7<br>{0,0,0,0,0,0,0,1}, //8<br>{0,0,0,0,1,0,0,1} //9<br>};</p>
-<p>//initialize 8-segment led<br> for(pin=0; pin&lt;8; pin++){<br> pinMode(port[pin], OUTPUT);<br> digitalWrite(port[pin], HIGH);<br> }</p>
-<p> //initialize 4 numbers and 2 buttons<br> pinMode(NUM1, OUTPUT);<br> pinMode(NUM2, OUTPUT);<br> pinMode(NUM3, OUTPUT);<br> pinMode(NUM4, OUTPUT);<br> pinMode(BTN1, INPUT);<br> pinMode(BTN2, INPUT);<br><br>开始前先初始化每个针脚的模式，并初始化一些数值</p>
-<p>digitalWrite(pin, LOW/HIGH)设置pin号口为低/高</p>
-<p>digitalRead(pin)获取pin号口目前为高/低，低则为0,高为1, 作为判断</p>
-<p>写死循环一直执行，每次循环读开关状态，根据开关状态选择是否继续跳动数字</p>
-<p>可以设定时间差delay(time)，每次显示一个数字，而后切换显示下一个数字，时间够短的话，视觉误差会让人看到四个是同时显示的。</p>
-<p>至于数字可以使用rand()，或者偷懒直接++</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
+<blockquote>
+<p>git clone git://git.drogon.net/wiringPi<br>cd xxxxx<br>./build</p>
+</blockquote>
       
     </div>
     
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gpio/">gpio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpi/">rpi</a></li></ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Embedded-System/">Embedded System</a>
@@ -766,302 +573,9 @@ server {
 
 
       
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-nginx-init" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/28/nginx-init/" class="article-date">
-  	<time datetime="2015-05-28T06:21:16.000Z" itemprop="datePublished">2015-05-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/28/nginx-init/">Nginx Init</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>还是想让Apache下岗，折腾nginx…</p>
-<p><del datetime="2015-05-28T05:58:16+00:00">第一次配简直和sb一样调了一个上午</del></p>
-<p>稍微记点坑….</p>
-<p>wget获取nginx-1.8.0</p>
-<p>./configure后输入pcre的路径避免吃翔…而后愉快make &amp; make install</p>
-<p>&nbsp;</p>
-<p>1.8.0的配置文件比无脑apt-get获取的1.4.7要简明些，按默认值设定稍微修改（加端口，加域名，换根目录和index），很快就能跑网站，最早成功的是<a href="http://www.wytiny.com" target="_blank" rel="external">www.wytiny.com</a></p>
-<p>主要的问题在高贵的php，想做80端口下根据域名转发至不同目录，一个去正在做的B/S，一个去wp博客这样。无脑继续复制一段server出来，稍作修改，根据网上的博客，里面有这样一段东西：</p>
-<p><pre>location ~ .php$ {</pre></p>
-<h1 id="fastcgi_pass_unix:/var/run/php5-fpm-sock;">fastcgi_pass unix:/var/run/php5-fpm.sock;</h1><p>fastcgi_pass localhost:9000;<br>include fastcgi_params;<br>fastcgi_index index.php;<br><span style="color: #ff6600;">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br>}<br><br>因为刚开始找不到9000端口的开启（php5-fpm没有默认这么做，默认是通过上面的sock转发php），所以我注释了9000那行，后续的不变，然后各种姿势开不出博客。</p>
-<p>解决方法是把sock换成了端口，随大流也用9000</p>
-<p>橙色那行也很重要，是确定文件路径的，之前复制了个野鸡博客的配置，结果这行document他写的是/script，一个绝对路径的根目录！！！眼瞎进弯路 ===&gt; File not found</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-webfont-jquery-notes" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/27/webfont-jquery-notes/" class="article-date">
-  	<time datetime="2015-05-26T16:39:28.000Z" itemprop="datePublished">2015-05-27</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/27/webfont-jquery-notes/">WebFont &amp; jquery notes</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在看一些前端代码时发现有个很奇怪的用法：</p>
-<p><pre>.CloseButton:before {<br>content: “\e005”;<br>}</pre><br>虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。</p>
-<p>后来找了找唯一可能有关联的是头上的：<br><pre>@font-face {<br>    font-family: ‘icomoon’;<br>    src:url(‘./fonts/icomoon.eot’);<br>    src:url(‘./fonts/icomoon.eot?#iefix’) format(‘embedded-opentype’),<br>        url(‘./fonts/icomoon.woff’) format(‘woff’),<br>        url(‘./fonts/icomoon.ttf’) format(‘truetype’),<br>        url(‘./fonts/icomoon.svg#icomoon’) format(‘svg’);<br>    font-weight: normal;<br>    font-style: normal;<br>}</pre><br>看了下这里所引入的字体并不是正常的东西，里面的“字母”是一套logo，然后查了下这类东西叫webfont.<br>将矢量图标做成“字体”，有更好的兼容性（上面使用了不同格式增强对浏览器的支持）。不需要css切图获取icon，矢量也可以随意调整大小。</p>
-<p>引入这个网页图标字体后，可以用字体的方式调用</p>
-<p><pre>.icon{<br>        font-family: ‘MyFont’; /<em> 使用方法如同字体 </em>/<br>        speak:none; /<em> 使屏幕阅读器不读这个字符 </em>/<br>        font-size:14px;<br>        font-variant:normal;<br>        font-weight:normal;<br>        text-transform: none;<br>        …<br>}</pre></p>
-<p>/<em> 如果在头部加icon </em>/<br>.icon_open:before{<br>        content:”\e001”; /<em> 要用到的icon编号 </em>/<br>        …<br>}</p>
-<h2 id=""></h2><p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>初学jquery，因为想做B/S作业的网站。<br>目前也只会用几个简单的操作，连原生js都没好好学真是太急躁。</p>
-<p>记一下好用的几个东西。</p>
-<p>&nbsp;</p>
-<p><strong>1.控制滚轮移动到特定元素</strong></p>
-<p>$(“#your_container”).scrollTop()可以直接设置滚轮的位置</p>
-<p>$(“#your_target”).offset().top能获取到目标到当前点的相对位置</p>
-<p>所以只要设置scrollTop属性的数值为：</p>
-<p><pre>target.offset().top - container.offset().top + container.scrollTop()</pre><br>当然，.offset()前面是选择器获取的元素</p>
-<p>&nbsp;</p>
-<p><strong>2.js辅助自适应</strong></p>
-<p>css自适应一般靠百分比显示，auto!important 或者 min-xxx这样的形式控制</p>
-<p>有时候处理一些坑可以用$(window).resize(function(){ … })这样的形式处理</p>
-<p>&nbsp;</p>
-<p><strong>3.setTimeout玄学</strong></p>
-<p>目前处于想到什么写什么，都去尝试的状态。<br>有次想实现两个div的自动对齐（外面嵌个div都设置100%啥的应该也能解决问题）</p>
-<p>但是想让jquery干这个事，ready和resize里都加了操作，但初次加载时就是不对齐。<br>不太清楚ready的机制，ready里面的那行对齐代码貌似没有执行，其他有效的代码基本都是在一些事件里面的，莫非是这个原因？</p>
-<p>然后试着用setTimeout，在ready后0s/10s执行这段代码，发现初次加载就对了，不过感觉挺蠢的Orz…</p>
-<p>坑还多着呢…（前端学习第2天结束TvT）</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Fronter/">Fronter</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-rf-kill" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/05/21/rf-kill/" class="article-date">
-  	<time datetime="2015-05-21T03:53:25.000Z" itemprop="datePublished">2015-05-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/21/rf-kill/">RF-kill &amp; psk</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>自从上次重装以来一直有个问题，开机的时候无线网卡不能开启，虽然在bios里已经设置无线开启，但每次开机总要重新按一次硬件开关才能打开无线。</p>
-<p>之前试过iwconfig看到wlan0是能搜到的，但使用<span style="color: #008080;">ifconfig wlan0 up</span>时就吃翔<br>报错:<span style="color: #ff6600;">SIOCSIFFLAGS: Operation not possible due to RF-kill</span></p>
-<p>用硬件开启无线后，使用<span style="color: #008080;">ifconfig wlan0 down</span>是正常的（虽然图形界面里面没更新，但wlan0可以被关掉）</p>
-<p>&nbsp;</p>
-<p>查了下rfkill这个命令，大致是设置电脑无线电设备是否能硬件/软件阻断。软件阻断为yes就导致无法通过命令行启动该设备。</p>
-<p>但奇怪的是所有设备的软件阻断都是no，而且使用下面的指令先开启后关闭阻断也是有效的，可之前的报错一直无法解决。</p>
-<p><code>rfkill block all
-rfkill block 0
-rfkill unblock 0
-rfkill unblock all</code></p>
-<p>设置里面是正常的，实际上无法启动硬件设备。并且硬件和软件不同步，就是unblock all后依旧会有硬件阻断为yes的情况。</p>
-<p>在CSDN上看到一篇文章说是bug，根据ubuntu的帮助文档直接</p>
-<p><code>rfkill unblock wifi</code></p>
-<p>是可以启动的（然而rfkill list列表里并没有wifi这个硬件选项）</p>
-<p>尝试了下，开机终于见到wifi信号了…</p>
-<p>而且再次使用rfkill list时发现之前一个叫acer-wireless的项消失了，看来这个才是受害者。</p>
-<p>&nbsp;</p>
-<p>强迫症被治好了一点~</p>
-<p>&nbsp;</p>
-<hr>
-<p>&nbsp;</p>
-<p>开始做第五个实验发现树莓派的无线配置也崩了…</p>
-<p>偷懒用的图形界面还是要还的..</p>
-<p>记一下方法：</p>
-<p>搜索到wlan0开启后获取wpa的psk（preshared key）</p>
-<pre>wpa_passphrase &lt;ssid&gt; &lt;password&gt;</pre>
-
-<p>得到的内容存到/etc/wpa_supplicant/wpa_supplicant.conf</p>
-<p>并修改interface文件为：</p>
-<p><pre class="prettyprint cpp">allow-hotplug wlan0<br>auto wlan0<br>iface wlan0 inet dhcp<br>pre-up wpa_supplicant -B w -D wext -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf<br>post-down killall -q wpa_supplicant<br></pre><br>最后ifup wlan0搞定</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Linux/">Linux</a><a class="article-category-link" href="/categories/Linux/Ubuntu/">Ubuntu</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-cross-compiling" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/04/19/cross-compiling/" class="article-date">
-  	<time datetime="2015-04-19T14:48:09.000Z" itemprop="datePublished">2015-04-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/19/cross-compiling/">Cross Compiling</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>配置树莓派交叉编译环境，可以使用git上的工具包：</p>
-<p><code>git clone git://github.com/raspberrypi/tools.git</code></p>
-<p>而后在~/.bashrc中加入路径：</p>
-<p><code>PATH=$PATH:$HOME/Work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf
--raspbian-x64/bin</code></p>
-<p><code>source .bashrc</code></p>
-<p>这样就可以使用arm-linux-gnueabihf-gcc 进行编译。</p>
-<p>——————————————————————————————————————————</p>
-<p>原来是安装arm-linux-gnueabihf-gcc-4.8包的，利用-mcpu=xxx参数修改目标cpu从而交叉编译，能支持许多版本的cpu.</p>
-<p>但一直没找到合适的，所以换了包。</p>
-<p>ps: −mcpu=cortex−a7可适用于pcDuino</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Embedded-System/">Embedded System</a>
-	</div>
-
-
+        <p class="article-more-link">
+          <a  href="/2015/06/03/rpi-gpio/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -1079,7 +593,7 @@ rfkill unblock all</code></p>
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

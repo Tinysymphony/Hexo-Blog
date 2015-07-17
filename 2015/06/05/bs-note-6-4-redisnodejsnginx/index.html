@@ -11,8 +11,7 @@
 &amp;nbsp;
 目标：开发一个在线编辑网站，让用户能凭借现有模板，上传/输入自己想展示的内容，快速制作网页。并且提供网页的html/js/css下载，或者外链，适合各种设备端的显示。
 后端使用Nodejs Express.
-前端自己瞎写+模仿+混合foundation框架，总之学一学.
-用户验证数据库使用Nosql的Redis ( 主要是因为买了本书上有这">
+前端自己瞎写+模仿+混合foundation框架，总之学一学.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B/S Note 6.4 | Redis+Nodejs+NginX">
 <meta property="og:url" content="http://yoursite.com/2015/06/05/bs-note-6-4-redisnodejsnginx/index.html">
@@ -23,9 +22,8 @@
 &amp;nbsp;
 目标：开发一个在线编辑网站，让用户能凭借现有模板，上传/输入自己想展示的内容，快速制作网页。并且提供网页的html/js/css下载，或者外链，适合各种设备端的显示。
 后端使用Nodejs Express.
-前端自己瞎写+模仿+混合foundation框架，总之学一学.
-用户验证数据库使用Nosql的Redis ( 主要是因为买了本书上有这">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+前端自己瞎写+模仿+混合foundation框架，总之学一学.">
+<meta property="og:updated_time" content="2015-07-17T01:28:31.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B/S Note 6.4 | Redis+Nodejs+NginX">
 <meta name="twitter:description" content="写点B/S大程的开发笔记。
@@ -34,8 +32,7 @@
 &amp;nbsp;
 目标：开发一个在线编辑网站，让用户能凭借现有模板，上传/输入自己想展示的内容，快速制作网页。并且提供网页的html/js/css下载，或者外链，适合各种设备端的显示。
 后端使用Nodejs Express.
-前端自己瞎写+模仿+混合foundation框架，总之学一学.
-用户验证数据库使用Nosql的Redis ( 主要是因为买了本书上有这">
+前端自己瞎写+模仿+混合foundation框架，总之学一学.">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -139,7 +136,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -242,6 +239,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Linux/">Linux</a><a class="article-category-link" href="/categories/Linux/NodeJs/">NodeJs</a>
@@ -261,6 +262,7 @@
 <p>目标：开发一个在线编辑网站，让用户能凭借现有模板，上传/输入自己想展示的内容，快速制作网页。并且提供网页的html/js/css下载，或者外链，适合各种设备端的显示。</p>
 <p>后端使用Nodejs Express.</p>
 <p>前端自己瞎写+模仿+混合foundation框架，总之学一学.</p>
+<a id="more"></a>
 <p>用户验证数据库使用Nosql的Redis ( 主要是因为买了本书上有这个教程 =  =).</p>
 <p>用户数据预计会使用mysql。</p>
 <p>服务器会使用Nginx反响代理Nodejs<del datetime="2015-06-04T15:40:41+00:00">（并不懂调优，一个尝试而已）</del></p>
@@ -268,30 +270,11 @@
 <p>&nbsp;</p>
 <p>今天把www.wytiny.com指向node程序端口</p>
 <p>nginx.conf的http段里面加了下面的内容，让*wytiny.me的域名指向node的运行端口：</p>
-<pre>upstream nodejs__upstream {
-        server 127.0.0.1:myport;
-        keepalive 64;
-}
-server {
-        listen 80;
-        server_name *.wytiny.com wytiny.com;
-        access_log /var/log/nginx/mylogfile.log;
-        location / {
-                proxy_set_header   X-Real-IP            $remote_addr;
-                proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
-                proxy_set_header   Host                   $http_host;
-                proxy_set_header   X-NginX-Proxy    true;
-                proxy_set_header   Connection "";
-                proxy_http_version 1.1;
-                proxy_pass         http://nodejs__upstream;
-        }
-}
-
-</pre>
-
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">upstream</span> nodejs__upstream &#123;</span><br><span class="line">        <span class="title">server</span> <span class="number">127.0.0.1</span>:myport;</span><br><span class="line">        <span class="title">keepalive</span> <span class="number">64</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title">server</span> &#123;</span><br><span class="line">        <span class="title">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="title">server_name</span> <span class="regexp">*.wytiny.com</span> wytiny.com;</span><br><span class="line">        <span class="title">access_log</span> /var/log/nginx/mylogfile.log;</span><br><span class="line">        <span class="title">location</span> / &#123;</span><br><span class="line">                <span class="title">proxy_set_header</span>   X-Real-IP            <span class="variable">$remote_addr</span>;</span><br><span class="line">                <span class="title">proxy_set_header</span>   X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">                <span class="title">proxy_set_header</span>   Host                   <span class="variable">$http_host</span>;</span><br><span class="line">                <span class="title">proxy_set_header</span>   X-NginX-Proxy    <span class="built_in">true</span>;</span><br><span class="line">                <span class="title">proxy_set_header</span>   Connection <span class="string">""</span>;</span><br><span class="line">                <span class="title">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">                <span class="title">proxy_pass</span>         <span class="url">http://nodejs__upstream</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p>而后是用forever启动node（刚学的姿势），就是在vps部署node时需要让程序一直运行并且崩溃后能自动重启：</p>
-<p><pre>npm install forever -g  #安装全局的forever<br>forever start -l xxx.log -o xxxOut.log -e xxxErr.log xxx.js  #输出内容转到日志<br>forever list #可以看后台运行的node<br>forever stop xxx #关闭<br>forever restart xxx #重启<br></pre><br>挺好用的.</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install <span class="keyword">forever</span> -g  <span class="comment">#安装全局的forever</span></span><br><span class="line"><span class="keyword">forever</span> <span class="built_in">start</span> -l xxx.<span class="built_in">log</span> -o xxxOut.<span class="built_in">log</span> -e xxxErr.<span class="built_in">log</span> xxx.js  <span class="comment">#输出内容转到日志</span></span><br><span class="line"><span class="keyword">forever</span> list <span class="comment">#可以看后台运行的node</span></span><br><span class="line"><span class="keyword">forever</span> <span class="built_in">stop</span> xxx <span class="comment">#关闭</span></span><br><span class="line"><span class="keyword">forever</span> restart xxx <span class="comment">#重启</span></span><br></pre></td></tr></table></figure>
+<p>挺好用的.</p>
 <p>&nbsp;</p>
 <hr>
 <p>&nbsp;</p>

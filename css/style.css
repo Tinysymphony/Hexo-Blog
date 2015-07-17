@@ -137,11 +137,19 @@ body,
   height: 100%;
 }
 body {
-  font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background: #fff;
   color: rgba(0,0,0,0.6);
   -webkit-overflow-scrolling: touch;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway";
 }
 h1,
 h2,
@@ -163,6 +171,7 @@ h6 {
   font-size: 1em;
 }
 a {
+  font-family: "Raleway";
   text-decoration: none;
   outline-width: 0;
   color: #258fb8;
@@ -188,6 +197,9 @@ a {
 }
 .hide {
   display: none;
+}
+blockquote {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 @media screen and (max-width: 1040px) {
   .inner {

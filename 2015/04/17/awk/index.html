@@ -8,13 +8,15 @@
   <meta name="description" content="看脚本的时候突然发现了一个貌似看到很多次但都没好好理解的指令awk
 感觉用于文本分析还是比较实用的，做个笔记吧。
 &amp;nbsp;
-格式：awk ‘{pattern + action}’ {files}
+
+awk ‘{pattern + action}’ {files}
+
 pattern为正则，需要//
 &amp;nbsp;
 默认按行分割，而后以空格分割每行，或用制定符号分割
 例如：
 awk -F ‘/’ 表示以/分割
-awk -F ‘:’ ‘{print $2,$3}’ 以:">
+awk -F ‘:’ ‘{print $2,$3}’ 以:分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Awk">
 <meta property="og:url" content="http://yoursite.com/2015/04/17/awk/index.html">
@@ -22,26 +24,30 @@ awk -F ‘:’ ‘{print $2,$3}’ 以:">
 <meta property="og:description" content="看脚本的时候突然发现了一个貌似看到很多次但都没好好理解的指令awk
 感觉用于文本分析还是比较实用的，做个笔记吧。
 &amp;nbsp;
-格式：awk ‘{pattern + action}’ {files}
+
+awk ‘{pattern + action}’ {files}
+
 pattern为正则，需要//
 &amp;nbsp;
 默认按行分割，而后以空格分割每行，或用制定符号分割
 例如：
 awk -F ‘/’ 表示以/分割
-awk -F ‘:’ ‘{print $2,$3}’ 以:">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+awk -F ‘:’ ‘{print $2,$3}’ 以:分">
+<meta property="og:updated_time" content="2015-07-17T01:24:50.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Awk">
 <meta name="twitter:description" content="看脚本的时候突然发现了一个貌似看到很多次但都没好好理解的指令awk
 感觉用于文本分析还是比较实用的，做个笔记吧。
 &amp;nbsp;
-格式：awk ‘{pattern + action}’ {files}
+
+awk ‘{pattern + action}’ {files}
+
 pattern为正则，需要//
 &amp;nbsp;
 默认按行分割，而后以空格分割每行，或用制定符号分割
 例如：
 awk -F ‘/’ 表示以/分割
-awk -F ‘:’ ‘{print $2,$3}’ 以:">
+awk -F ‘:’ ‘{print $2,$3}’ 以:分">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -145,7 +151,7 @@ awk -F ‘:’ ‘{print $2,$3}’ 以:">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -248,6 +254,10 @@ awk -F ‘:’ ‘{print $2,$3}’ 以:">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Linux/">Linux</a>
@@ -263,7 +273,9 @@ awk -F ‘:’ ‘{print $2,$3}’ 以:">
         <p>看脚本的时候突然发现了一个貌似看到很多次但都没好好理解的指令awk</p>
 <p>感觉用于文本分析还是比较实用的，做个笔记吧。</p>
 <p>&nbsp;</p>
-<p>格式：awk ‘{pattern + action}’ {files}</p>
+<blockquote>
+<p>awk ‘{pattern + action}’ {files}</p>
+</blockquote>
 <p>pattern为正则，需要//</p>
 <p>&nbsp;</p>
 <p>默认按行分割，而后以空格分割每行，或用制定符号分割</p>
@@ -286,10 +298,6 @@ awk -F ‘:’ ‘{print $2,$3}’ 以:">
 <p>FNR 当前文件处理过的行数</p>
 <p>NF 每行分割后项数</p>
 <p>FS 设置分隔符，即-F后的参数</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 

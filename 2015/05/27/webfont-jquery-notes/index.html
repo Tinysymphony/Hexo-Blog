@@ -6,21 +6,21 @@
   <title>WebFont &amp; jquery notes | TinySymphony</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在看一些前端代码时发现有个很奇怪的用法：
-.CloseButton:before {content: “\e005”;}虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。
-后来找了找唯一可能有关联的是头上的：@font-face {    font-family: ‘icomoon’;    src:url(‘./font">
+123.CloseButton:before &amp;#123;content: &quot;\e005&quot;;&amp;#125;
+虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebFont & jquery notes">
 <meta property="og:url" content="http://yoursite.com/2015/05/27/webfont-jquery-notes/index.html">
 <meta property="og:site_name" content="TinySymphony">
 <meta property="og:description" content="在看一些前端代码时发现有个很奇怪的用法：
-.CloseButton:before {content: “\e005”;}虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。
-后来找了找唯一可能有关联的是头上的：@font-face {    font-family: ‘icomoon’;    src:url(‘./font">
-<meta property="og:updated_time" content="2015-07-16T15:22:56.298Z">
+123.CloseButton:before &amp;#123;content: &quot;\e005&quot;;&amp;#125;
+虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。">
+<meta property="og:updated_time" content="2015-07-17T01:41:40.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WebFont & jquery notes">
 <meta name="twitter:description" content="在看一些前端代码时发现有个很奇怪的用法：
-.CloseButton:before {content: “\e005”;}虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。
-后来找了找唯一可能有关联的是头上的：@font-face {    font-family: ‘icomoon’;    src:url(‘./font">
+123.CloseButton:before &amp;#123;content: &quot;\e005&quot;;&amp;#125;
+虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -124,7 +124,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 16.67px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -227,6 +227,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frontend/">frontend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Fronter/">Fronter</a>
@@ -240,12 +244,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在看一些前端代码时发现有个很奇怪的用法：</p>
-<p><pre>.CloseButton:before {<br>content: “\e005”;<br>}</pre><br>虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。</p>
-<p>后来找了找唯一可能有关联的是头上的：<br><pre>@font-face {<br>    font-family: ‘icomoon’;<br>    src:url(‘./fonts/icomoon.eot’);<br>    src:url(‘./fonts/icomoon.eot?#iefix’) format(‘embedded-opentype’),<br>        url(‘./fonts/icomoon.woff’) format(‘woff’),<br>        url(‘./fonts/icomoon.ttf’) format(‘truetype’),<br>        url(‘./fonts/icomoon.svg#icomoon’) format(‘svg’);<br>    font-weight: normal;<br>    font-style: normal;<br>}</pre><br>看了下这里所引入的字体并不是正常的东西，里面的“字母”是一套logo，然后查了下这类东西叫webfont.<br>将矢量图标做成“字体”，有更好的兼容性（上面使用了不同格式增强对浏览器的支持）。不需要css切图获取icon，矢量也可以随意调整大小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">.CloseButton</span>:<span class="value">before &#123;</span><br><span class="line">content: <span class="string">"\e005"</span></span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然知道:before和:after相当于添加子节点（伪元素），但这个content和\xxx之类的东西就不知道哪儿冒出来的。</p>
+<a id="more"></a>
+<p>后来找了找唯一可能有关联的是头上的：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@<span class="keyword">font-face</span></span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">font-family</span>:<span class="value"> <span class="string">'icomoon'</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'./fonts/icomoon.eot'</span>)</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">src</span>:<span class="value"><span class="function">url</span>(<span class="string">'./fonts/icomoon.eot?#iefix'</span>) <span class="function">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">		<span class="function">url</span>(<span class="string">'./fonts/icomoon.woff'</span>) <span class="function">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">		<span class="function">url</span>(<span class="string">'./fonts/icomoon.ttf'</span>) <span class="function">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">		<span class="function">url</span>(<span class="string">'./fonts/icomoon.svg#icomoon'</span>) <span class="function">format</span>(<span class="string">'svg'</span>)</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">font-weight</span>:<span class="value"> normal</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">font-style</span>:<span class="value"> normal</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>看了下这里所引入的字体并不是正常的东西，里面的“字母”是一套logo，然后查了下这类东西叫webfont.<br>将矢量图标做成“字体”，有更好的兼容性（上面使用了不同格式增强对浏览器的支持）。不需要css切图获取icon，矢量也可以随意调整大小。</p>
 <p>引入这个网页图标字体后，可以用字体的方式调用</p>
-<p><pre>.icon{<br>        font-family: ‘MyFont’; /<em> 使用方法如同字体 </em>/<br>        speak:none; /<em> 使屏幕阅读器不读这个字符 </em>/<br>        font-size:14px;<br>        font-variant:normal;<br>        font-weight:normal;<br>        text-transform: none;<br>        …<br>}</pre></p>
-<p>/<em> 如果在头部加icon </em>/<br>.icon_open:before{<br>        content:”\e001”; /<em> 要用到的icon编号 </em>/<br>        …<br>}</p>
-<h2 id=""></h2><p>&nbsp;</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.icon&#123;</span><br><span class="line">        font-family: 'MyFont'; /* 使用方法如同字体 */</span><br><span class="line">        speak:none; /* 使屏幕阅读器不读这个字符 */</span><br><span class="line">        font-size:14px;</span><br><span class="line">        font-variant:normal;</span><br><span class="line">        font-weight:normal;</span><br><span class="line">        text-transform: none;</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 如果在头部加icon */</span><br><span class="line">.icon_open:before&#123;</span><br><span class="line">        content:"\e001"; /* 要用到的icon编号 */</span><br><span class="line">        ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>初学jquery，因为想做B/S作业的网站。<br>目前也只会用几个简单的操作，连原生js都没好好学真是太急躁。</p>
 <p>记一下好用的几个东西。</p>
@@ -254,7 +261,10 @@
 <p>$(“#your_container”).scrollTop()可以直接设置滚轮的位置</p>
 <p>$(“#your_target”).offset().top能获取到目标到当前点的相对位置</p>
 <p>所以只要设置scrollTop属性的数值为：</p>
-<p><pre>target.offset().top - container.offset().top + container.scrollTop()</pre><br>当然，.offset()前面是选择器获取的元素</p>
+<blockquote>
+<p>target.offset().top - container.offset().top + container.scrollTop()</p>
+</blockquote>
+<p>当然，.offset()前面是选择器获取的元素</p>
 <p>&nbsp;</p>
 <p><strong>2.js辅助自适应</strong></p>
 <p>css自适应一般靠百分比显示，auto!important 或者 min-xxx这样的形式控制</p>
