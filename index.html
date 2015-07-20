@@ -239,7 +239,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天还是折腾了比较多Mongodb的批量插入，目前还没找到很满意的解决方案，暂时记点坑。(比如那个名为initializeUnorderedBulkOp的操作实际上是对单次操作循环的封装，并没有实现insertMany的效果….）</p>
+        <p>今天还是折腾了比较多Mongodb的批量插入，目前还没找到很满意的解决方案，暂时记点坑。</p>
+<ul>
+<li><p>比如那个名为initializeUnorderedBulkOp的操作实际上是对单次操作循环的封装，并没有实现insertMany的效果….）</p>
+</li>
+<li><p>比如官方文档上说的Unordered操作会比Ordered操作更快，实际上当操作是一样的时候，比如全为insert时，Ordered测试结果反而更好</p>
+</li>
+</ul>
+<blockquote>
+<p>心好累，已经对Mongodb的文档失去信心…</p>
+</blockquote>
       
     </div>
     
