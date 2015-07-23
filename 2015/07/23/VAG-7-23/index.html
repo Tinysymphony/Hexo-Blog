@@ -3,18 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Ubuntu Restoration | TinySymphony</title>
+  <title>VAG 7.23 | TinySymphony</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="近期不慎格式化全盘，大学以来所有的资料基本都丢失，配置完毕的Ubuntu也没有幸免。想了想还是把重新配置的过程再记一边，有备无患。">
+  <meta name="description" content="async.cargoasync包里有个自动做负载的函数，cargo
+具体用法是新建cargo的实例instance，指定任务的执行函数，并且确定负载大小，即worker数目。在每次有任务时可以使用instance.push(data, callback)这样的方式将其送入队列。
+于是用这个改造了下插入函数，先新建一个cargo实例
+12345678910111213141516171819202">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu Restoration">
-<meta property="og:url" content="http://yoursite.com/2015/01/15/ubuntu-restore/index.html">
+<meta property="og:title" content="VAG 7.23">
+<meta property="og:url" content="http://yoursite.com/2015/07/23/VAG-7-23/index.html">
 <meta property="og:site_name" content="TinySymphony">
-<meta property="og:description" content="近期不慎格式化全盘，大学以来所有的资料基本都丢失，配置完毕的Ubuntu也没有幸免。想了想还是把重新配置的过程再记一边，有备无患。">
-<meta property="og:updated_time" content="2015-07-17T01:39:32.961Z">
+<meta property="og:description" content="async.cargoasync包里有个自动做负载的函数，cargo
+具体用法是新建cargo的实例instance，指定任务的执行函数，并且确定负载大小，即worker数目。在每次有任务时可以使用instance.push(data, callback)这样的方式将其送入队列。
+于是用这个改造了下插入函数，先新建一个cargo实例
+12345678910111213141516171819202">
+<meta property="og:updated_time" content="2015-07-23T03:20:34.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu Restoration">
-<meta name="twitter:description" content="近期不慎格式化全盘，大学以来所有的资料基本都丢失，配置完毕的Ubuntu也没有幸免。想了想还是把重新配置的过程再记一边，有备无患。">
+<meta name="twitter:title" content="VAG 7.23">
+<meta name="twitter:description" content="async.cargoasync包里有个自动做负载的函数，cargo
+具体用法是新建cargo的实例instance，指定任务的执行函数，并且确定负载大小，即worker数目。在每次有任务时可以使用instance.push(data, callback)这样的方式将其送入队列。
+于是用这个改造了下插入函数，先新建一个cargo实例
+12345678910111213141516171819202">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -212,11 +221,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-ubuntu-restore" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-VAG-7-23" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/15/ubuntu-restore/" class="article-date">
-  	<time datetime="2015-01-15T15:34:19.000Z" itemprop="datePublished">2015-01-15</time>
+      <a href="/2015/07/23/VAG-7-23/" class="article-date">
+  	<time datetime="2015-07-23T02:58:45.000Z" itemprop="datePublished">2015-07-23</time>
 </a>
     </div>
   
@@ -229,7 +238,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu Restoration
+      VAG 7.23
     </h1>
   
 
@@ -238,14 +247,10 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Backup/">Backup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/async/">async</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
 	</div>
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -253,73 +258,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div>近期不慎格式化全盘，大学以来所有的资料基本都丢失，配置完毕的Ubuntu也没有幸免。想了想还是把重新配置的过程再记一边，有备无患。</div>
-
+        <h3 id="async-cargo">async.cargo</h3><p>async包里有个自动做负载的函数，cargo</p>
+<p>具体用法是新建cargo的实例instance，指定任务的执行函数，并且确定负载大小，即worker数目。在每次有任务时可以使用instance.push(data, callback)这样的方式将其送入队列。</p>
+<p>于是用这个改造了下插入函数，先新建一个cargo实例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> PAY_LOAD = <span class="number">50</span>;</span><br><span class="line"><span class="keyword">var</span> insertedCounter = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//传入的tasks其实是文件路径数组</span></span><br><span class="line"><span class="keyword">var</span> cargo = <span class="keyword">async</span>.cargo(<span class="function"><span class="keyword">function</span> (<span class="params">tasks, callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> Recorder = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    Recorder.records = [];</span><br><span class="line">    <span class="comment">//由于操作是一样的，使用each控制他们的异步</span></span><br><span class="line">    <span class="keyword">async</span>.each(tasks, <span class="function"><span class="keyword">function</span>(<span class="params">task, cb</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//读取数据</span></span><br><span class="line">        fileParser.parseFile(task.filepath, Recorder, cb);</span><br><span class="line">    &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err) callback(err);</span><br><span class="line">        <span class="comment">//读完数据后插入，这里其实有点问题，任务执行了，但回调并没有执行= =</span></span><br><span class="line">        insertOp.manyBulkInsert(Recorder.records, <span class="function"><span class="keyword">function</span>(<span class="params">err, insertedCount</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(err) callback(err);</span><br><span class="line">            insertedCounter += insertedCount;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Total inserted Records : "</span> + insertedCounter);</span><br><span class="line">            callback();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;, PAY_LOAD);</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p><div></div></p>
-<p><div>——————————————————————————————————————————</div></p>
-<p><div></div></p>
-<p><div>查看独显：</div></p>
-<p><div>sudo su</div></p>
-<p><div>cat /sys/kernel/debug/vgaswitcheroo/switch</div></p>
-<p><div>(独显DIS DynOff则忽略，否则换驱动或者尝试命令切换显卡)</div></p>
-<p><div></div></p>
-<p><div>设置亮度，预设亮度，fn调节等</div></p>
-<p><div></div></p>
-<p><div>登陆wifi</div></p>
-<p><div>ntpdate ntp.fudan.edu.cn</div></p>
-<p><div>系统设置-语言-更新支持</div></p>
-<p><div>添加语言：中日英</div></p>
-<p><div>添加输入法：sunpinyin + anthy</div></p>
-<p><div></div></p>
-<p><div>允许第三方源</div></p>
-<p><div>app store中获取：</div></p>
-<p><div>GParted 分区工具</div></p>
-<p><div>Chromium(红杏插件-&gt;登陆zjutiny@gmail)</div></p>
-<p><div>Shutter 截图工具</div></p>
-<p><div>Flash</div></p>
-<p><div>FileZilla ftp传输工具</div></p>
-<p><div>Dosbox</div></p>
-<p><div>GIMP 图像处理软件</div></p>
-<p><div>Amarok 音频播放器</div></p>
-<p><div>Audacity 音频处理软件</div></p>
-<p><div></div></p>
-<p><div>下载软件：</div></p>
-<p><div>wps (可选)</div></p>
-<p><div>Jdk or Jre 1.8.0_25 (配置自行百度)</div></p>
-<p><div>vmware workstation 11 (获取win和linux iso并安装)</div></p>
-<p><div>idea 14 (先设置jdk)</div></p>
-<p><div>eclipse java EE</div></p>
-<p><div>android sdk 23.0.2</div></p>
-<p><div></div></p>
-<p><div>命令行获取：</div></p>
-<p><div>git (设置完毕后，恢复project在~/workspace中)</div></p>
-<p><div>vim (或者clone git 上已经配置完毕的版本)</div></p>
-<p><div>build-essential</div></p>
-<p><div>everpad</div></p>
-<p><div>mysql-server</div></p>
-<p><div>mysql-client</div></p>
-<p><div>php5-mysql</div></p>
-<p><div>php5</div></p>
-<p><div>l2tp插件获取与设置</div></p>
-<p><div></div></p>
-<p><pre lang="java" xml:space="preserve">sudo apt-add-repository ppa:seriy-pr/network-manager-l2tp</pre></p>
-<p><pre lang="java" xml:space="preserve">sudo apt-get update</pre></p>
-<p><pre lang="java" xml:space="preserve">sudo apt-get install network-manager-l2tp-gnome</pre></p>
-<p><pre xml:space="preserve">sudo service xl2tpd stop<br>sudo update-rc.d xl2tpd disable</pre><br></p>
-<p><div>设置默认有线的ip、dns等(确保ping通zju的10.5.1.5)</div></p>
-<p><div></div></p>
-<p><div>vpn-gate:10.5.1.5<br>添加vpn user-number+pwd (去掉PAP)<br>IPV4 自动获取地址(only)<br>添加域:10.5.1.5 / 10.5.1.9<br>添加routine</div></p>
-<p>goagent<br>clone goagent<br>修改local文件夹中的appid<br>启动server文件夹upload.py输入id、gmail、pwd<br>成功后启动local文件夹中的goagent-gtk.py<br>chrome 可用SwitchySharp<br>命名为goagent<br>设置本地127.0.0.1 8087端口<br>勾选Use the same proxy server for all protocols<br>general选项中设置quick switch (添加direct connect和goagent)</p>
-<p><div>GUI更改：</div></p>
-<p><div>壁纸-&gt;makimakima~</div></p>
-<p><div>unity-tweak-tool</div></p>
-<p><div>docky</div></p>
-<p><div>numix / numix icon</div></p>
-<p><div></div></p>
-<p><div></div></p>
-<p><div><a href="http://negativo17.org/complex-setup-with-nvidia-optimus-nouveau-prime-on-fedora-19-2/" target="_blank" rel="external">http://negativo17.org/complex-setup-with-nvidia-optimus-nouveau-prime-on-fedora-19-2/</a></div></p>
-<p><div></div><br>&nbsp;</p>
+<p>在外层遍历完文件后，把每个文件当成一个处理任务push到cargo队列中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span>.each(paths, <span class="function"><span class="keyword">function</span> (<span class="params">file, cb</span>)</span>&#123;</span><br><span class="line">    cargo.push(&#123;filepath: file&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err) cb(err);</span><br><span class="line">        <span class="built_in">console</span>.log(++counter / paths.length * <span class="number">100</span> + <span class="string">" % | "</span> + file + <span class="string">" is inserted."</span>);</span><br><span class="line">        <span class="built_in">console</span>.timeEnd(<span class="string">"UpTime"</span>);</span><br><span class="line">        cb();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) callback(err);</span><br><span class="line">    callback(<span class="literal">null</span>, <span class="string">"Insert Success"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>master上做这个插入性能有下降（大约在25%），node上做下降不明显。好处是：运行的时候再也不会报出out of range的问题，5880万条都是一次性解决。</p>
+<hr>
+<h3 id="Mongodb的内存问题">Mongodb的内存问题</h3><p>之前插完数据后，查看mongod守护进程的内存占用</p>
+<blockquote>
+<p>htop -p `pidof mongod`</p>
+</blockquote>
+<p>发现虚拟内存用了70G，常驻内存45G，当时就吓哭了，貌似数据都被映射在内存中</p>
+<p>然后发现了这篇文章，很好的解释了我的问题：</p>
+<blockquote>
+<p>原文见 &gt;&gt;&gt; <a href="http://huoding.com/2011/08/19/107" target="_blank" rel="external">MongoDB与内存</a></p>
+</blockquote>
+<p>也就是说Mongodb为了操作的性能尽可能地会把数据映射到内存中，内存中的数据就是缓存。这一部分的内存管理不是mongo在做，而是mongo交给操作系统的虚拟内存管理器处理。</p>
+<p>所以如那篇文章所说，最好分离mongo和其他吃内存的应用，让mongo独享一个内存大的服务器。</p>
 
       
     </div>
@@ -329,15 +286,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/01/18/jan-18/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Jan.18
-        
-      </div>
-    </a>
   
+    <a href="/2015/07/21/Mongodb批量插入与索引建立/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mongodb批量插入与索引建立</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -364,7 +317,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ubuntu-restore" data-title="Ubuntu Restoration" data-url="http://yoursite.com/2015/01/15/ubuntu-restore/"></div>
+	<div class="ds-thread" data-thread-key="VAG-7-23" data-title="VAG 7.23" data-url="http://yoursite.com/2015/07/23/VAG-7-23/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
