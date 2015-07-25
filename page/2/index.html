@@ -125,7 +125,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Mongodb/" style="font-size: 10px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 13.33px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 13.33px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 13.33px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
 					</div>
 				</section>
 				
@@ -212,6 +212,74 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-bs-note6-6-redis-security-frontend-version1-0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/" class="article-date">
+  	<time datetime="2015-06-06T00:34:39.000Z" itemprop="datePublished">2015-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/">B/S Note6.6 Redis Security | Frontend version1.0</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。</p>
+<p>本机上试了下：</p>
+<blockquote>
+<p>redis-cli -h xxx.xxx.xxx.xxx</p>
+</blockquote>
+<p>果然keys *能看到所有数据，还是太naive…</p>
+<p>redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 <del datetime="2015-06-05T23:52:09+00:00">（但是每次访问都要加个端口太麻烦了所以偷懒没改）</del></p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Database/">Database</a><a class="article-category-link" href="/categories/Database/Fronter/">Fronter</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-bs-note-6-4-redisnodejsnginx" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -687,68 +755,6 @@
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-python-image-numpy-notes" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/03/30/python-image-numpy-notes/" class="article-date">
-  	<time datetime="2015-03-29T17:16:46.000Z" itemprop="datePublished">2015-03-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/python-image-numpy-notes/">Python Image | numpy Notes</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="说人话">说人话</h3><p>今天在看数字水印的内容，还是数学苦手。不过尝试了下python的两个包，一个是图片处理的Image，还有方便数学运算的numpy（建议sudo apt-get install python-numpy获取）</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/03/30/python-image-numpy-notes/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
