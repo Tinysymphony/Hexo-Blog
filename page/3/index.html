@@ -125,7 +125,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 13.33px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/TinyMint/" style="font-size: 13.33px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 13.33px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 13.33px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 16.67px;">linux</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/tiny/" style="font-size: 13.33px;">tiny</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 12.5px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a>
 					</div>
 				</section>
 				
@@ -212,6 +212,94 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-awk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/04/17/awk/" class="article-date">
+  	<time datetime="2015-04-17T13:32:36.000Z" itemprop="datePublished">2015-04-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/17/awk/">Awk</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>看脚本的时候突然发现了一个貌似看到很多次但都没好好理解的指令awk</p>
+<p>感觉用于文本分析还是比较实用的，做个笔记吧。</p>
+<p>&nbsp;</p>
+<blockquote>
+<p>awk ‘{pattern + action}’ {files}</p>
+</blockquote>
+<p>pattern为正则，需要//</p>
+<p>&nbsp;</p>
+<p>默认按行分割，而后以空格分割每行，或用制定符号分割</p>
+<p>例如：</p>
+<p>awk -F ‘/’ 表示以/分割</p>
+<p>awk -F ‘:’ ‘{print $2,$3}’ 以:分割并输出每行的第二第三个参数，$0表示整行</p>
+<p>awk ‘BEGIN {EXP1} {EXP2} END {EXP3}’ /filepath 对某文件分析前先执行EXP1，而后空格分割每行文本执行EXP2, 最后执行EXP3</p>
+<p>awk ‘/reg1/{EXP1} /reg2/{EXP2} ’ /filepath 对某文件分割，若满足正则1则执行EXP1, 若满足正则2则执行EXP2</p>
+<p>&nbsp;</p>
+<p>比较操作：</p>
+<p>（正则比较使用~和！=）<br>awk ‘(compare1){EXP1} (compare2){EXP2}’ /filepath 满足比较1则执行EXP1,满足比较2则执行EXP2.</p>
+<p>&nbsp;</p>
+<p>每一个项都会有判断和操作，若希望执行完当前忽略其他判断，可在{ }中加 ; next;</p>
+<p>&nbsp;</p>
+<p>{ }中可以使用if(){ }else if(){ }else{ }、for(;;){}</p>
+<p>print XX可以使用 printf “xx”, xx的形式替换</p>
+<p>&nbsp;</p>
+<p>常用内置变量：<br>FILENAME</p>
+<p>NR 处理过的文件行数，多文件叠加</p>
+<p>FNR 当前文件处理过的行数</p>
+<p>NF 每行分割后项数</p>
+<p>FS 设置分隔符，即-F后的参数</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/awk/">awk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Linux/">Linux</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-python-image-numpy-notes" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -674,71 +762,9 @@
 
 
   
-    <article id="post-ubuntu-restore" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/01/15/ubuntu-restore/" class="article-date">
-  	<time datetime="2015-01-15T15:34:19.000Z" itemprop="datePublished">2015-01-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/15/ubuntu-restore/">Ubuntu Restoration</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div>近期不慎格式化全盘，大学以来所有的资料基本都丢失，配置完毕的Ubuntu也没有幸免。想了想还是把重新配置的过程再记一边，有备无患。</div>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Backup/">Backup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/01/15/ubuntu-restore/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>
