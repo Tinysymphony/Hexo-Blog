@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Category: NodeJs | TinySymphony</title>
+  <title>VAG 8.5 | TinySymphony</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们所过的每一天都是余生中最年轻的一天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TinySymphony">
-<meta property="og:url" content="http://yoursite.com/categories/Linux/NodeJs/index.html">
+  <meta name="description" content="在上次做完分布式后插入了8000w+数据量做测试。Mongos会调节所有shard，使每个shard有相同的chunk数目，而不是平衡分片的大小。
+mongodb分片的条件是片键，片键拥有更高的基数时，分片也会越均匀。最近是用时间作为片键，但问题是，时间的基数虽然很大，但是仍然会有chunk太大无法移动的报错。一个解释是，使用的数据在一段时间内比较集中，制造了jumbo chunk原来是愚蠢的我在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VAG 8.5">
+<meta property="og:url" content="http://yoursite.com/2015/08/05/VAG-8-5/index.html">
 <meta property="og:site_name" content="TinySymphony">
-<meta property="og:description" content="我们所过的每一天都是余生中最年轻的一天">
+<meta property="og:description" content="在上次做完分布式后插入了8000w+数据量做测试。Mongos会调节所有shard，使每个shard有相同的chunk数目，而不是平衡分片的大小。
+mongodb分片的条件是片键，片键拥有更高的基数时，分片也会越均匀。最近是用时间作为片键，但问题是，时间的基数虽然很大，但是仍然会有chunk太大无法移动的报错。一个解释是，使用的数据在一段时间内比较集中，制造了jumbo chunk原来是愚蠢的我在">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_002.png">
+<meta property="og:updated_time" content="2015-08-05T06:19:31.688Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TinySymphony">
-<meta name="twitter:description" content="我们所过的每一天都是余生中最年轻的一天">
+<meta name="twitter:title" content="VAG 8.5">
+<meta name="twitter:description" content="在上次做完分布式后插入了8000w+数据量做测试。Mongos会调节所有shard，使每个shard有相同的chunk数目，而不是平衡分片的大小。
+mongodb分片的条件是片键，片键拥有更高的基数时，分片也会越均匀。最近是用时间作为片键，但问题是，时间的基数虽然很大，但是仍然会有chunk太大无法移动的报错。一个解释是，使用的数据在一段时间内比较集中，制造了jumbo chunk原来是愚蠢的我在">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -211,57 +216,128 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-VAG-8-5" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/05/bs-note-6-4-redisnodejsnginx/" class="archive-article-date">
-  	<time datetime="2015-06-04T16:27:10.000Z" itemprop="datePublished">Jun 5</time>
+    <div class="article-meta">
+      <a href="/2015/08/05/VAG-8-5/" class="article-date">
+  	<time datetime="2015-08-05T03:54:57.000Z" itemprop="datePublished">2015-08-05</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/05/bs-note-6-4-redisnodejsnginx/">B/S Note 6.4 | Redis+Nodejs+NginX</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VAG 8.5
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cluster/">Cluster</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongodb/">Mongodb</a></li></ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Linux/">Linux</a><a class="article-category-link" href="/categories/Linux/NodeJs/">NodeJs</a>
-	</div>
+        
 
-
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在上次做完分布式后插入了8000w+数据量做测试。Mongos会调节所有shard，使每个shard有相同的chunk数目，而不是平衡分片的大小。</p>
+<p>mongodb分片的条件是片键，片键拥有更高的基数时，分片也会越均匀。最近是用时间作为片键，但问题是，时间的基数虽然很大，但是仍然会有chunk太大无法移动的报错。<del>一个解释是，使用的数据在一段时间内比较集中，制造了jumbo chunk</del><strong>原来是愚蠢的我在插入的时候不下心重复了部分数据…部分chunk翻倍..白折腾一天..Orz</strong></p>
+<blockquote>
+<p>sh.status({verbose:true})</p>
+</blockquote>
+<p>通过上面的命令可以看清楚分片的情况，具体到片键的哪部分区间被存在哪个shard中，这里的一个区间就是一个chunk</p>
+<p>经过我的测试，只要超过25w条记录的chunk，就会被标记为jumbo，这类的chunk不能进行分割、移动等操作。</p>
+<p>不太明白的是这个jumbo似乎只和量有关，和数据大小似乎没关系。</p>
+<blockquote>
+<p>查询chunk size<br>use config<br>db.settings.find({})</p>
+</blockquote>
+<p>比如mongodb默认的chunk size是64mb，看了stackoverflow的一些回答，说是在chunk还未到达限定值的一半时，chunk split已经开始</p>
+<p>小的chunk size并不能解决分片不均匀的问题，反而会让chunk split更加困难，特别是在大量值落在同一区间时。</p>
+<blockquote>
+<p>详细查看分片状态<br>db.collection.getShardDistribution()</p>
+</blockquote>
+<p>在目前的集群中分布如下<strong>（有部分重复数据时…Orz）</strong>：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_002.png" alt=""></p>
+<p>数据库在空闲时会自动进行均衡，即调整chunk的位置，<code>sh.status()</code>可以看到运行状态，目前主要报错是两种，一种是chunk too big to move, 还有一种是目标分片正在删除chunk无法接受其他分片转移的chunk。目前的数据放在集群里已经两天半，还是在均衡中，chunk移动很缓慢。</p>
+<p>查看了下各个副本集，从数据大小来看都保持了同步，记下几个方法：</p>
+<blockquote>
+<p>数据大小查询<br>db.collection.dataSize() //实际数据大小<br>db.collection.storageSize() //数据分配到的存储空间大小，并未全部使用<br>db.collection.totalIndexSize()  //索引大小<br>db.collection.totalSize() //等于storage和totalIndex的和，数据集合实际占用空间大小</p>
+<p>查看balance状态<br>use config<br>db.locks.find( { _id : “balancer” } ).pretty()<br>开关balancer<br>sh.startBalancer();<br>sh.stopBalancer();</p>
+</blockquote>
+<hr>
+<h1 id="React-js">React.js</h1><p>正在学习….</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/01/Mongo-Cluster-Sharding/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mongo Cluster &amp; Sharding</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="VAG-8-5" data-title="VAG 8.5" data-url="http://yoursite.com/2015/08/05/VAG-8-5/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -287,10 +363,10 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false
 	}
 </script>
