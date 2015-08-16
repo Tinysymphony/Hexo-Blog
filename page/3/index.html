@@ -125,7 +125,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a>
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a>
 					</div>
 				</section>
 				
@@ -212,6 +212,66 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-rf-kill" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/21/rf-kill/" class="article-date">
+  	<time datetime="2015-05-21T03:53:25.000Z" itemprop="datePublished">2015-05-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/21/rf-kill/">RF-kill &amp; psk</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>自从上次重装以来一直有个问题，开机的时候无线网卡不能开启，虽然在bios里已经设置无线开启，但每次开机总要重新按一次硬件开关才能打开无线。</p>
+<p>之前试过iwconfig看到wlan0是能搜到的，但使用<span style="color: #008080;">ifconfig wlan0 up</span>时就吃翔<br>报错:<span style="color: #ff6600;">SIOCSIFFLAGS: Operation not possible due to RF-kill</span></p>
+<p>用硬件开启无线后，使用<span style="color: #008080;">ifconfig wlan0 down</span>是正常的（虽然图形界面里面没更新，但wlan0可以被关掉）</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Linux/">Linux</a><a class="article-category-link" href="/categories/Linux/Ubuntu/">Ubuntu</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/05/21/rf-kill/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-cross-compiling" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -686,70 +746,6 @@
       
         <p class="article-more-link">
           <a  href="/2015/03/22/nodejs-3-22/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-raspberry-pi-e3-82-b2-e3-83-83-e3-83-88-ef-bc-81" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/03/20/raspberry-pi-e3-82-b2-e3-83-83-e3-83-88-ef-bc-81/" class="article-date">
-  	<time datetime="2015-03-20T14:01:56.000Z" itemprop="datePublished">2015-03-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/20/raspberry-pi-e3-82-b2-e3-83-83-e3-83-88-ef-bc-81/">Raspberry Pi ゲット！</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>寝室三人抽签决定三块板子的归属..<del datetime="2015-03-20T13:06:25+00:00">说好的ps3对战呢</del></p>
-<p>您的板子——树莓派——已经上线..</p>
-<p>8G SD 卡上已经装了系统，插入就好<br>通过串口连接PC..白绿黑三线分别对I4,I5,GND..推荐使用红线连接Power口供电，充电口<del datetime="2015-03-20T13:06:25+00:00">配合三棒子的充电器</del>经常接触不良。</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpi/">rpi</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Embedded-System/">Embedded System</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/03/20/raspberry-pi-e3-82-b2-e3-83-83-e3-83-88-ef-bc-81/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

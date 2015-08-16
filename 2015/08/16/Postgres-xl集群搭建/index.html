@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Postgres-xl集群搭建 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这个星期尝试了postgresql的集群搭建，相比之前的MongoDB，感觉麻烦好多，并且目前也没有成功感觉国内外用PG做集群的好少啊，资料少的可怜
+目前查到的有几个方案：GridSQL（已经好长时间没更新），Postgres-XL，pg-pool，plproxy（后两个是备胎）
+总体的感觉是PG相关的文档和教程太少，最终选择了XL作为搭建方向，原因是XL的模型和MongoDB的模型很像，容易理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Postgres-xl集群搭建">
+<meta property="og:url" content="http://yoursite.com/2015/08/16/Postgres-xl集群搭建/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="这个星期尝试了postgresql的集群搭建，相比之前的MongoDB，感觉麻烦好多，并且目前也没有成功感觉国内外用PG做集群的好少啊，资料少的可怜
+目前查到的有几个方案：GridSQL（已经好长时间没更新），Postgres-XL，pg-pool，plproxy（后两个是备胎）
+总体的感觉是PG相关的文档和教程太少，最终选择了XL作为搭建方向，原因是XL的模型和MongoDB的模型很像，容易理解">
+<meta property="og:image" content="http://www.postgres-xl.org/wp-content/uploads/2014/04/xl_cluster_architecture1.jpg">
+<meta property="og:updated_time" content="2015-08-16T11:05:30.011Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Postgres-xl集群搭建">
+<meta name="twitter:description" content="这个星期尝试了postgresql的集群搭建，相比之前的MongoDB，感觉麻烦好多，并且目前也没有成功感觉国内外用PG做集群的好少啊，资料少的可怜
+目前查到的有几个方案：GridSQL（已经好长时间没更新），Postgres-XL，pg-pool，plproxy（后两个是备胎）
+总体的感觉是PG相关的文档和教程太少，最终选择了XL作为搭建方向，原因是XL的模型和MongoDB的模型很像，容易理解">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="http://fonts.useso.com/css?family=Raleway:400,500,700&amp;subset=latin,latin-ext" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">WyTiny</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://www.wytiny.com">TinyMint</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/45963589/" title="douban">douban</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gamil.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Lkx</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Zec_iiii</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">WyTiny</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">WyTiny</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://www.wytiny.com">TinyMint</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/45963589/" title="douban">douban</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gamil.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Postgres-xl集群搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/16/Postgres-xl集群搭建/" class="article-date">
+  	<time datetime="2015-08-16T08:49:58.000Z" itemprop="datePublished">2015-08-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Postgres-xl集群搭建
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Postgresql/">Postgresql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pgxl/">pgxl</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个星期尝试了postgresql的集群搭建，相比之前的MongoDB，感觉麻烦好多，并且目前也没有成功<del>感觉国内外用PG做集群的好少啊，资料少的可怜</del></p>
+<p>目前查到的有几个方案：<strong>GridSQL（已经好长时间没更新），Postgres-XL，pg-pool，plproxy（后两个是备胎）</strong></p>
+<p>总体的感觉是PG相关的文档和教程太少，最终选择了XL作为搭建方向，原因是XL的模型和MongoDB的模型很像，容易理解。但搭建的过程中遇到许多问题，很不舒服，主要缺点是不能在一个上层的入口统一管理。</p>
+<p>PGXL的模型如下：<br><img src="http://www.postgres-xl.org/wp-content/uploads/2014/04/xl_cluster_architecture1.jpg" alt=""></p>
+<ul>
+<li><p>GTM &amp; GTM_Proxy<br>Global Transaction Management全局事务管理<br>在顶层负责管理子节点的事务提交和处理，使得整个集群的行为统一，看上去像是一个数据库。<br>GTM代理是在有多个GTM实例存在时负责分配的</p>
+</li>
+<li><p>Coordinator（C）<br>协调器，Postgres实例，不存储数据，知道所有子节点的位置，是操作数据库的入口。相当于MongoDB中的mongos和config server的结合体。</p>
+</li>
+<li><p>Datanode（D）<br>数据节点，实际测试是只读的，不可操作，也是Postgres实例。</p>
+</li>
+</ul>
+<p>按文档的说明，GTM是需要开在独立的服务器上，如果和Coordinator或者Datanode在一起可能会影响均衡。</p>
+<p>搭建的时候主要参照了官方文档和下面这篇教程</p>
+<blockquote>
+<p><a href="http://valleylord.farbox.com/post/201409-postgres-cluster-xl" target="_blank" rel="external">还算靠谱的教程</a></p>
+</blockquote>
+<a id="more"></a>
+<p>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+<p><strong>简单地记一下这周遇到的问题和解决方法</strong></p>
+<h2 id="安装Postgresql">安装Postgresql</h2><blockquote>
+<p>sudo apt-get install postgresql-9.3 #使用高一点的版本，因为XL目前是基于9.2</p>
+</blockquote>
+<h2 id="安装Postgres-XL">安装Postgres-XL</h2><p>从官网下载tar包正常编译安装即可，但是首先应安装下面的依赖</p>
+<blockquote>
+<p>sudo apt-get install libreadline-dev byacc bison jade sgml-data docbook-dsssl flex zlib</p>
+</blockquote>
+<p><del>大部分不知道是什么用，但是不满足依赖时<code>./configure</code>会报错</del></p>
+<p>默认的安装是在<code>/usr/local/pgsql/</code>中，因此命令是无法直接在shell中使用，需要做个软链接</p>
+<blockquote>
+<p>sudo ln -s /usr/local/pgsql/bin/* /usr/bin</p>
+</blockquote>
+<hr>
+<p>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+<ul>
+<li>新建实例<br>在做的时候我是想着和MongoDB中的概念一一对应，因为MongoDB的集群概念比较直观，并且是很自然的，引入的概念很容易理解。在Mongo集群中的模型是全部以实例形式存在，PG中也应如此。<blockquote>
+<p>initdb -D /path/to/data/file —nodename xxx<br>目标空文件夹中生成各种配置文件，之后的数据也存储在这个目录下<br>postgres -D /path/to/data/file —datanode<br>后面也可以填—coordinator指明这是协调器的实例，附加config_path=xxx可以指定配置文件</p>
+</blockquote>
+</li>
+</ul>
+<p>以上是初始化实例并运行的方式，实际上还需修改postgresql.conf中的各个参数避免冲突，PGXL比较麻烦的是这些配置文件修改要在服务器上一一完成，并且之后的节点初始化也是如此。此外最愚蠢的一点，是需要告诉每个子节点，其兄弟节点的位置（host和端口），更好的设计思想是把这个交给上层的管理节点来做，然而GTM貌似并没有Mongos那么强大的管理能力。</p>
+<p>所以我是写了shell脚本来擦屁股的….</p>
+<blockquote>
+<p><a href="https://github.com/Tinysymphony/lazy-scripts/tree/master/postgresql-xl" target="_blank" rel="external">详见我的lazy-scripts仓库</a></p>
+</blockquote>
+<p>脚本里主要处理了几个问题：</p>
+<ol>
+<li>端口（同服务器上的不同实例应该开在不同端口上）</li>
+<li>互相访问（pg_hba.conf文件中需要添加兄弟节点的信息，能以trust形式互相访问）</li>
+<li>修改pooler端口，大概是连接池，同服务器上的Coordinator和datanode应具有不同的pooler端口</li>
+<li>指明GTM服务器和端口，这在Coordinator和Datanode配置文件中都应该指明，否则报错</li>
+<li>增加共享内存块大小，防止操作系统的限制影响性能，解决方法如下<blockquote>
+<p>FATAL:  could not create shared memory segment<br><code># sysctl -w kernel.shmmax=17179869184</code><br><code># sysctl -w kernel.shmall=4194304</code></p>
+</blockquote>
+</li>
+<li>在每个C或者D实例中声明兄弟节点<br>这里其实有XL的bug，就是节点虽然开在指定的端口，比如（7000），但在如果通过<code>select * from pgxc_node;</code>查看它目前所知道的节点时，它把自身标记为开在localhost5432端口上的一个C或者D，所以需要用<code>alter node</code>这个命令矫正回来。</li>
+</ol>
+<p>下面是我从之前那篇文章中学到的方法，很管用。同时也可以看到PGXL还是挺愚蠢的。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#初始化时删除之前的设置</span><br><span class="line">#删除数据节点</span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_dn7;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_dn8;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_dn10;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_dn11;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_dn12;</span></span><br><span class="line">#删除协调器节点</span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_cd7;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_cd8;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_cd10;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_cd11;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node pg_cd12;</span></span><br><span class="line">#删除组</span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node <span class="keyword">group</span> gp7;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node <span class="keyword">group</span> gp8;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node <span class="keyword">group</span> gp10;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node <span class="keyword">group</span> gp11;</span></span><br><span class="line"><span class="operator"><span class="keyword">drop</span> node <span class="keyword">group</span> gp12;</span></span><br><span class="line">#创建节点，这里必须使用IP，用hosts中的名字无效，太不友好，当需要修改IP时就是一个大坑，特别是服务器多的时候</span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_cd7 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.107'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_cd8 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.108'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_cd10 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.110'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_cd11 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.111'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_cd12 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.112'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line">#修改节点，是为了防止之前的bug</span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_cd7 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.107'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_cd8 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.108'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_cd10 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.110'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_cd11 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.111'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_cd12 <span class="keyword">with</span>(TYPE=coordinator, HOST=<span class="string">'192.168.1.112'</span>, PORT=<span class="number">7002</span>);</span></span><br><span class="line">#创建数据节点</span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_dn7 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.107'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_dn8 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.108'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_dn10 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.110'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_dn11 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.111'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node pg_dn12 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.112'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line">#修改节点时顺便把一个设为主节点，主节点是唯一的</span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_dn7 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.107'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">true</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_dn8 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.108'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_dn10 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.110'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_dn11 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.111'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line"><span class="operator"><span class="keyword">alter</span> node pg_dn12 <span class="keyword">with</span>(TYPE=datanode, HOST=<span class="string">'192.168.1.112'</span>, PORT=<span class="number">7000</span>, <span class="keyword">primary</span>=<span class="literal">false</span>);</span></span><br><span class="line">#创建组，这个应该是分片的组</span><br><span class="line"><span class="operator"><span class="keyword">create</span> node <span class="keyword">group</span> gp7 <span class="keyword">with</span>(pg_dn7);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node <span class="keyword">group</span> gp8 <span class="keyword">with</span>(pg_dn8);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node <span class="keyword">group</span> gp10 <span class="keyword">with</span>(pg_dn10);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node <span class="keyword">group</span> gp11 <span class="keyword">with</span>(pg_dn11);</span></span><br><span class="line"><span class="operator"><span class="keyword">create</span> node <span class="keyword">group</span> gp12 <span class="keyword">with</span>(pg_dn12);</span></span><br><span class="line">#重载设置</span><br><span class="line"><span class="operator"><span class="keyword">select</span> pgxc_pool_reload();</span></span><br><span class="line">#查看该节点已知的兄弟节点</span><br><span class="line"><span class="operator"><span class="keyword">select</span> * <span class="keyword">from</span> pgxc_node;</span></span><br></pre></td></tr></table></figure></p>
+<p>至于上述步骤跳过的后果可以在那篇博客中看到….总之我体验了一大半（官方doc没提这个坑Orz）</p>
+<p>按文档的意思，应用需要操作数据库时应该连接任意一个C节点，因为所有的C知道数据节点的位置，相当于路由器和控制器。但是我在连入7002端口（我自己设定的C端口）时，如果进行操作，会提示这是一个只读的事务，无法操作。（和在D中执行操作一样报错）</p>
+<p>后来谷歌发现了解决方法，就是使用begin和commit包裹自己的指令，并在begin事务时马上设定为可读写模式，这样可以顺利插入，不会出现<code>Insert 0 0</code>或者是<code>read-only</code>的错误</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">BEGIN</span>；</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">TRANSACTION</span> <span class="keyword">READ</span> <span class="keyword">WRITE</span>；</span><br><span class="line">//<span class="keyword">insert</span> xxx ...</span><br><span class="line">//<span class="keyword">update</span> xxx ...</span><br><span class="line">...</span><br><span class="line"><span class="keyword">COMMIT</span>；</span></span><br></pre></td></tr></table></figure>
+<p>如果其中一条失败，则整个回滚，这也是事务的基本概念之一，ACID属性。</p>
+<p>仔细一想GTM是全局事务管理的意思，那么子节点使用事务提交也是很自然的。</p>
+<p>然后目前遭遇的问题是：</p>
+<p>数据是插入了，然而只在C节点中可查询到，其他任何一个D节点中没有数据….那篇教程的结果是，C节点能查到所有数据，D节点只能查到部分数据（默认根据id自动均分）。然而我<strong>并！没！有！看！到！任！何！数！据！节！点！有！数！据！</strong></p>
+<blockquote>
+<p><strong> 已经崩溃 </strong><br>想想之前的MongoDB分布式是一天搞懂并搭建成功的….<br>PG折腾了4、5天还没有什么成果，心好累<br>朕累了，PG跪安吧</p>
+</blockquote>
+<hr>
+<p>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</p>
+<p>记录一下对用户不友好的PG命令</p>
+<p><strong>比如登陆</strong></p>
+<ul>
+<li>psql命令<br>需要-U 指明用户，默认为当前shell用户<br>需要在后面跟上-d 数据库名，默认为和当前shell用户名一样的数据库（没有就报错）<br>需要-h 指明host，默认为localhost<br>需要-p 指明port，默认为5432，当需要使用其他端口号时，一定要有-h 否则出错（本地貌似不管用，特别坑）</li>
+</ul>
+<blockquote>
+<p>光这一个登陆命令我就觉得和mysql，mongodb，redis的体验差太多了，无形增加入门的门槛，没耐心的同学估计很快就弃坑了吧…难怪用的人不多</p>
+</blockquote>
+<p>PG在安装完毕后shell中可以直接使用<code>createdb dropdb createuser</code>等命令直接操作，当然也需要指定实例（host&amp;port）</p>
+<p>记下几个常用的postgresql命令</p>
+<blockquote>
+<p>\du  查看所有用户以及权限<br>create user xxxx [createdb] password xxxxx #有登陆属性<br>alter role xxxx with  xxxxx #修改权限<br>alter role xxxx with password xxxx  #修改密码</p>
+<p>\l 查看数据库信息，可加参数查看特定数据库<br>\q 退出<br>\h 查看所有可用指令<br>select * from pgxc_node; 查看已知节点<br>begin; 开启事务<br>set transaction read write; 设置事务为可读写模式<br>commit; 提交</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/08/05/VAG-8-5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">VAG 8.5</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Postgres-xl集群搭建" data-title="Postgres-xl集群搭建" data-url="http://yoursite.com/2015/08/16/Postgres-xl集群搭建/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 WyTiny
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
