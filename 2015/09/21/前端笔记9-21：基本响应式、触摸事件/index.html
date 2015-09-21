@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Python Image | numpy Notes | TinySymphony</title>
+  <title>前端笔记9.21：响应式和自适应、触摸事件... | TinySymphony</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说人话今天在看数字水印的内容，还是数学苦手。不过尝试了下python的两个包，一个是图片处理的Image，还有方便数学运算的numpy（建议sudo apt-get install python-numpy获取）">
+  <meta name="description" content="pyQuery先讲讲这个python包，可以做到类似jquery的功能
+123456789# 安装：sudo pip install pyQueryfrom pyquery import PyQuery as pqimport urllib2html = urllib2.urlopen(&apos;http://www.wytiny.com&apos;).read() #获取html内容jq = pq(html) #">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python Image | numpy Notes">
-<meta property="og:url" content="http://yoursite.com/2015/03/30/python-image-numpy-notes/index.html">
+<meta property="og:title" content="前端笔记9.21：响应式和自适应、触摸事件...">
+<meta property="og:url" content="http://yoursite.com/2015/09/21/前端笔记9-21：基本响应式、触摸事件/index.html">
 <meta property="og:site_name" content="TinySymphony">
-<meta property="og:description" content="说人话今天在看数字水印的内容，还是数学苦手。不过尝试了下python的两个包，一个是图片处理的Image，还有方便数学运算的numpy（建议sudo apt-get install python-numpy获取）">
-<meta property="og:updated_time" content="2015-07-17T01:33:23.677Z">
+<meta property="og:description" content="pyQuery先讲讲这个python包，可以做到类似jquery的功能
+123456789# 安装：sudo pip install pyQueryfrom pyquery import PyQuery as pqimport urllib2html = urllib2.urlopen(&apos;http://www.wytiny.com&apos;).read() #获取html内容jq = pq(html) #">
+<meta property="og:updated_time" content="2015-09-21T07:13:06.626Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python Image | numpy Notes">
-<meta name="twitter:description" content="说人话今天在看数字水印的内容，还是数学苦手。不过尝试了下python的两个包，一个是图片处理的Image，还有方便数学运算的numpy（建议sudo apt-get install python-numpy获取）">
+<meta name="twitter:title" content="前端笔记9.21：响应式和自适应、触摸事件...">
+<meta name="twitter:description" content="pyQuery先讲讲这个python包，可以做到类似jquery的功能
+123456789# 安装：sudo pip install pyQueryfrom pyquery import PyQuery as pqimport urllib2html = urllib2.urlopen(&apos;http://www.wytiny.com&apos;).read() #获取html内容jq = pq(html) #">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -212,11 +215,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-python-image-numpy-notes" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-前端笔记9-21：基本响应式、触摸事件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/03/30/python-image-numpy-notes/" class="article-date">
-  	<time datetime="2015-03-29T17:16:46.000Z" itemprop="datePublished">2015-03-30</time>
+      <a href="/2015/09/21/前端笔记9-21：基本响应式、触摸事件/" class="article-date">
+  	<time datetime="2015-09-21T00:42:58.000Z" itemprop="datePublished">2015-09-21</time>
 </a>
     </div>
   
@@ -229,7 +232,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Python Image | numpy Notes
+      前端笔记9.21：响应式和自适应、触摸事件...
     </h1>
   
 
@@ -238,14 +241,10 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Responsive-Design/">Responsive Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Touch-Events/">Touch Events</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pyQuery/">pyQuery</a></li></ul>
 	</div>
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/TinyWy/">TinyWy</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -253,41 +252,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="说人话">说人话</h3><p>今天在看数字水印的内容，还是数学苦手。不过尝试了下python的两个包，一个是图片处理的Image，还有方便数学运算的numpy（建议sudo apt-get install python-numpy获取）</p>
+        <h1 id="pyQuery">pyQuery</h1><p>先讲讲这个python包，可以做到类似jquery的功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装：sudo pip install pyQuery</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"><span class="keyword">import</span> urllib2</span><br><span class="line"></span><br><span class="line">html = urllib2.urlopen(<span class="string">'http://www.wytiny.com'</span>).read() <span class="comment">#获取html内容</span></span><br><span class="line">jq = pq(html) <span class="comment">#用PyQuery解析</span></span><br><span class="line"><span class="keyword">print</span> jq(<span class="string">'#id'</span>).text()</span><br><span class="line"><span class="keyword">print</span> jq(<span class="string">'.class div.child&gt;ul'</span>).find(<span class="string">'xxx'</span>)</span><br></pre></td></tr></table></figure>
+<p>和jquery用法相同，还是挺方便写爬虫抓取信息的。</p>
+<h1 id="触摸事件">触摸事件</h1><p>前天更换了TinyMint的主页UI，仿着写了个全屏滚动jquery插件，也用上了。</p>
+<p>但在pad上的触屏滑动并不能带来滚动效果，所以还需要添加一些移动端用的事件绑定，以前没接触过。</p>
 <a id="more"></a>
-<p>Image库处理图片相当方便</p>
-<p>import之后可以这样读写图片文件，同时可以根据后缀自动转换格式：</p>
-<p>img=Image.open(‘xxx.png’)</p>
-<p>img.save(‘newname.jpg’)</p>
-<p>对于黑白图片是只有一个灰度的，而彩色RGB则是三个灰度，Image可以分别提取：</p>
-<p>r,g,b=img.split()</p>
-<p>获取大小：<br>lx, ly=img.size</p>
-<p>提取的每一个原色灰度相当于一个黑白照片</p>
-<p>Image可以使用匿名函数改变所有的像素点, 例如：</p>
-<p>img.point( lambda p :  p * 2 )  #增强每一个点的亮度</p>
-<p>&nbsp;</p>
-<p>常用的变换稍微做个笔记</p>
-<p>img.rotate(arc)</p>
-<p>img.resize((x,y))</p>
-<p>img.show()</p>
-<p>img.crop((x1,y1,x2,y2))</p>
-<p>img.paste(ImageObject, (x1,y1,x2,y2))</p>
-<hr>
-<p>&nbsp;</p>
-<p>numpy配合Image能实现对图片数据的矩阵运算</p>
-<p>（其实一维也能做二维的处理，因为想更直观偷懒所以试试看这个库）</p>
-<p>最简单的获取方式：</p>
-<p>picArray=numpy.array(img)  #提取图片信息到二维矩阵</p>
-<p>picArray.shape  #查看其行列结构</p>
-<p>picArray.size  #项数量</p>
-<p>picArray.ndim  #维度</p>
-<p>picArray.reshape(x,y)  #重构矩阵，在列表转矩阵的时候很好用</p>
-<p>picArray.tolist()  #转列表</p>
-<p>基本了解了下，高深的还不会Orz……</p>
-<p>处理完后可以这样保存：<br>output=Image.fromarray(picArray)</p>
-<p>output.save(‘xxxx.png’)</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<p>触摸基本用三个事件可以搞定：touchstart, touchmove, touchend.</p>
+<p>触摸事件中会额外包含几个值：touches, targetTouches, changedTouches.</p>
+<p>这几个值是指触点列表对象，第一个是屏幕上所有触点，第二个指在dom元素上的触点，第三个指事件涉及到的触点。</p>
+<p>每个包含一些触摸信息，一般情况下使用触点列表targetTouches，并且只要单指操作就够了（即使用元素[0]）</p>
+<p>一般会用的触点属性如下：</p>
+<ul>
+<li>pageX pageY ： 触点相对页面的位置</li>
+<li>screenX screenY ：触点相对屏幕的位置</li>
+<li>identifier ：触点id</li>
+<li>target ：当前dom元素</li>
+</ul>
+<p>我的事件处理写法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Touch = &#123;</span><br><span class="line">  baseX: <span class="number">0</span>,</span><br><span class="line">  baseY: <span class="number">0</span>,</span><br><span class="line">  destX: <span class="number">0</span>,</span><br><span class="line">  destY: <span class="number">0</span>,</span><br><span class="line">  start: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// e.preventDefault();</span></span><br><span class="line">    <span class="keyword">var</span> point = e.targetTouches[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">this</span>.baseX = point.pageX;</span><br><span class="line">    <span class="keyword">this</span>.baseY = point.pageY;</span><br><span class="line">  &#125;,</span><br><span class="line">  move: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// e.preventDefault();</span></span><br><span class="line">    <span class="keyword">var</span> point = e.targetTouches[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">this</span>.destX = point.pageX;</span><br><span class="line">    <span class="keyword">this</span>.destY = point.pageY;</span><br><span class="line">  &#125;,</span><br><span class="line">  end: <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// e.preventDefault();</span></span><br><span class="line">    <span class="keyword">if</span>(settings.direction == <span class="string">"horizontal"</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.destX &gt; <span class="keyword">this</span>.baseX)&#123;</span><br><span class="line">        FSS.moveUp();</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.destX &lt; <span class="keyword">this</span>.baseX)&#123;</span><br><span class="line">        FSS.moveDown();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="keyword">this</span>.destY &gt; <span class="keyword">this</span>.baseY)&#123;</span><br><span class="line">        FSS.moveUp();</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.destY &lt; <span class="keyword">this</span>.baseY) &#123;</span><br><span class="line">        FSS.moveDown();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注：FSS是我写的jQuery插件实例，settings是插件中记录参数设定的对象。</p>
+<p>Touch记录临时位置信息和事件处理函数，判断触点前后位置变化，然后决定是否滑动，以及滑动目标。</p>
+<p>在每一个事件中如果有需要可以使用<code>preventDefault</code>取消默认事件处理。</p>
+<p>我这里注释掉了，因为页面上有需要点击的内容，移动端上的click本身也是一种触摸，如果禁止touch默认处理会让click也失效。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//绑定事件</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'touchstart'</span>, Touch.start);</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'touchmove'</span>, Touch.move);</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'touchend'</span>, Touch.end);</span><br></pre></td></tr></table></figure>
+<p>因为是个jQuery的插件，原来是用<code>$(document).on(&quot;event&quot;, function)</code>的形式绑定的，结果发现报错。</p>
+<p>看了console输出，发现jQuery对传入处理函数的事件对象有过包装。要用e.originalEvent的形式获得原本的事件对象。</p>
+<p>对jQuery的具体实现不了解，是时候读源码了..<code>_(:з」∠)_</code></p>
+<h1 id="响应式和自适应">响应式和自适应</h1><ul>
+<li>响应式Responsive Web Design</li>
+<li>自适应Adaptive Web Design</li>
+</ul>
+<p>RWD主要是在客户端对页面进行调整，例如用<code>@media screen and(max-width: xxxpx) { ... }</code></p>
+<p>AWD则是在后端接受到用户的请求后，检测客户的设备信息，并根据需求发送适合显示的前端内容。</p>
 
       
     </div>
@@ -297,18 +294,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/04/17/awk/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Awk
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/03/27/echo-happy-birthday-tiny/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">echo &#39;Happy Birthday, Tiny~&#39;</div>
+    <a href="/2015/09/19/前端笔记9-18：jQuery插件编写、正则等/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端笔记9.18：jQuery插件编写、正则等</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -337,7 +325,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="python-image-numpy-notes" data-title="Python Image | numpy Notes" data-url="http://yoursite.com/2015/03/30/python-image-numpy-notes/"></div>
+	<div class="ds-thread" data-thread-key="前端笔记9-21：基本响应式、触摸事件" data-title="前端笔记9.21：响应式和自适应、触摸事件..." data-url="http://yoursite.com/2015/09/21/前端笔记9-21：基本响应式、触摸事件/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
