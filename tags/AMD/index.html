@@ -3,36 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Cross Compiling | TinySymphony</title>
+  <title>Tag: AMD | TinySymphony</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置树莓派交叉编译环境，可以使用git上的工具包：
-git clone git://github.com/raspberrypi/tools.git
-而后在~/.bashrc中加入路径：
-PATH=$PATH:$HOME/Work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf
--raspbian-x64/bin
-source .bashrc
-这样">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Cross Compiling">
-<meta property="og:url" content="http://yoursite.com/2015/04/19/cross-compiling/index.html">
+  <meta name="description" content="我们所过的每一天都是余生中最年轻的一天">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TinySymphony">
+<meta property="og:url" content="http://yoursite.com/tags/AMD/index.html">
 <meta property="og:site_name" content="TinySymphony">
-<meta property="og:description" content="配置树莓派交叉编译环境，可以使用git上的工具包：
-git clone git://github.com/raspberrypi/tools.git
-而后在~/.bashrc中加入路径：
-PATH=$PATH:$HOME/Work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf
--raspbian-x64/bin
-source .bashrc
-这样">
-<meta property="og:updated_time" content="2015-07-17T01:29:24.021Z">
+<meta property="og:description" content="我们所过的每一天都是余生中最年轻的一天">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cross Compiling">
-<meta name="twitter:description" content="配置树莓派交叉编译环境，可以使用git上的工具包：
-git clone git://github.com/raspberrypi/tools.git
-而后在~/.bashrc中加入路径：
-PATH=$PATH:$HOME/Work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf
--raspbian-x64/bin
-source .bashrc
-这样">
+<meta name="twitter:title" content="TinySymphony">
+<meta name="twitter:description" content="我们所过的每一天都是余生中最年轻的一天">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -230,126 +211,47 @@ source .bashrc
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-cross-compiling" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/04/19/cross-compiling/" class="article-date">
-  	<time datetime="2015-04-19T14:48:09.000Z" itemprop="datePublished">2015-04-19</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/09/23/前端笔记9-23：AMD与CMD/" class="archive-article-date">
+  	<time datetime="2015-09-23T01:41:11.000Z" itemprop="datePublished">Sep 23</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Cross Compiling
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        </div>
+    	 
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cross-compiling/">cross-compiling</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rpi/">rpi</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AMD/">AMD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CMD/">CMD</a></li></ul>
 	</div>
 
-        
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Embedded-System/">Embedded System</a>
-	</div>
+          
 
-
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>配置树莓派交叉编译环境，可以使用git上的工具包：</p>
-<p><code>git clone git://github.com/raspberrypi/tools.git</code></p>
-<p>而后在~/.bashrc中加入路径：</p>
-<p><code>PATH=$PATH:$HOME/Work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf
--raspbian-x64/bin</code></p>
-<p><code>source .bashrc</code></p>
-<p>这样就可以使用arm-linux-gnueabihf-gcc 进行编译。</p>
-<p>——————————————————————————————————————————</p>
-<p>原来是安装arm-linux-gnueabihf-gcc-4.8包的，利用-mcpu=xxx参数修改目标cpu从而交叉编译，能支持许多版本的cpu.</p>
-<p>但一直没找到合适的，所以换了包。</p>
-<p>ps: −mcpu=cortex−a7可适用于pcDuino</p>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/05/21/rf-kill/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          RF-kill &amp; psk
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/04/17/awk/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Awk</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="cross-compiling" data-title="Cross Compiling" data-url="http://yoursite.com/2015/04/19/cross-compiling/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -375,9 +277,9 @@ source .bashrc
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}
