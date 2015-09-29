@@ -14,7 +14,7 @@ define([], function(){
 			init: function(){
 
 			}
-		};
+		}
 	})();
 
 	var resetTags = function(){
@@ -25,7 +25,7 @@ define([], function(){
 			tags[i].className = "";
 			tags.eq(i).addClass("color"+num);
 		}
-	;
+	}
 
 	var slide = function(idx){
 		var $wrap = $(".switch-wrap");
@@ -34,7 +34,7 @@ define([], function(){
 		});
 		$(".icon-wrap").addClass("hide");
 		$(".icon-wrap").eq(idx).removeClass("hide");
-	};
+	}
 
 	var bind = function(){
 		var switchBtn = $("#myonoffswitch");
@@ -86,7 +86,7 @@ define([], function(){
 			slide(idx);
 			Tips.hide();
 		});
-	};
+	}
 
 
 
@@ -96,5 +96,5 @@ define([], function(){
 			bind();
 			Tips.init();
 		}
-	};
+	}
 });
