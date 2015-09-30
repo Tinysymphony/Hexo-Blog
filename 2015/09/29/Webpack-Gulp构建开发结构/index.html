@@ -26,7 +26,7 @@ Webpack-Starter ：用以搭">
 
 Webpack-Starter ：用以搭">
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/BlogPicSelection_063.png">
-<meta property="og:updated_time" content="2015-09-29T16:24:10.746Z">
+<meta property="og:updated_time" content="2015-09-30T08:32:41.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack+Gulp构建开发结构">
 <meta name="twitter:description" content="在浏览各厂的招聘信息时，对“前端工程师”这个词不太习惯，太抬举我们这帮写页面的，甚至觉得有点侮辱“工程师”这词。
@@ -299,7 +299,7 @@ Webpack-Starter ：用以搭">
 <p>另一个render.js是针对React而增加的渲染入口文件，整合src里面所有的React组件。</p>
 <p>templates里面则是以后可能会用的的模板文件（暂时没用到）</p>
 <p>至于<code>prebuild</code>和<code>build</code>里的文件，采用简单的html + css文件夹 + js文件夹，用映射文件声明对应关系。</p>
-<h2 id="0x02前端工具选择">0x02前端工具选择</h2><p>Gulp能通过各种的插件完成几乎所有的工作，我们的主角时它，而webpack在这个搭建中更像是一个配角，或“gulp插件”</p>
+<h2 id="0x02前端工具选择">0x02前端工具选择</h2><p>Gulp能通过各种的插件完成几乎所有的工作，我们的主角是它，而webpack在这个搭建中更像是一个配角，或“gulp插件”</p>
 <p>两个工具有很多重叠的功能，我的体感是，webpack做的更优雅的是CJS风格的资源打包，而Gulp的文件流在压缩文件时有优势。</p>
 <p>（说实话webpack的压缩感觉不是很舒服）</p>
 <p>捋一捋流程：</p>
@@ -314,14 +314,33 @@ Webpack-Starter ：用以搭">
 <h2 id="0x03Gulpfile-js编写">0x03Gulpfile.js编写</h2><p>因为gulp插件很多，开头定义一堆的<code>var xxxPlugin = require(&#39;gulp-xxxPlugin&#39;)</code>还是挺烦的。建议用这个包<a href="https://www.npmjs.com/package/gulp-load-plugins" target="_blank" rel="external">gulp-load-plugins</a></p>
 <p>具体用法：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</span><br><span class="line">    webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>),</span><br><span class="line">    gulpWebpack = <span class="built_in">require</span>(<span class="string">'webpack-stream'</span>),</span><br><span class="line">    webpackConfig = <span class="built_in">require</span>(<span class="string">'./webpack.config'</span>),</span><br><span class="line">    gulpLoadPlugins = <span class="built_in">require</span>(<span class="string">'gulp-load-plugins'</span>),</span><br><span class="line">    plugins = gulpLoadPlugins();</span><br><span class="line"></span><br><span class="line"><span class="comment">//gulp-load-plugins 会按需求加载插件，不会全部加载  </span></span><br><span class="line"><span class="comment">//之后只要使用plugins.xxxPlugin即可调用，要遵守驼峰命名</span></span><br><span class="line"><span class="comment">//例如：.pipe(plugins.revReplace) 调用了gulp-rev-replace</span></span><br></pre></td></tr></table></figure>
-<p>贴一个今天遇到的坑，gulp-rev插件用于在文件打包时根据版本生成hash文件名，按文档说法是只要使用’.pipe(rev.manifest({merge: true}))’即可开启merge，不会覆盖已经存在的json文件。由于分别处理js和css，最后的merge还是很重要的。然而这种写法会导致文件无法merge到指定路径。</p>
+<p>贴一个今天遇到的坑，gulp-rev插件用于在文件打包时根据版本生成hash文件名，按文档说法是只要使用<code>.pipe(rev.manifest({merge: true}))</code>即可开启merge，不会覆盖已经存在的json文件。由于分别处理js和css，最后的merge还是很重要的。然而这种写法会导致文件无法merge到指定路径。</p>
 <p>详见这个：<a href="https://github.com/sindresorhus/gulp-rev/issues/83" target="_blank" rel="external">gulp-rev/issue#83</a></p>
 <p>采用如下写法可以解决这个问题</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//proecess all the js file in prebuild</span></span><br><span class="line">gulp.task(<span class="string">'js'</span>, [<span class="string">'webpack'</span>],  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'./prebuild/js/*.js'</span>)</span><br><span class="line">    .pipe(plugins.jshint())</span><br><span class="line">    .pipe(plugins.uglify())</span><br><span class="line">    .pipe(plugins.rev())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'build/js'</span>))</span><br><span class="line">    .pipe(plugins.rev.manifest(<span class="string">'build/rev-manifest.json'</span>, &#123; <span class="comment">//注意这里</span></span><br><span class="line">      base: process.cwd() + <span class="string">'/build'</span>,</span><br><span class="line">      merge: <span class="literal">true</span></span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'build'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//process all the css file in prebuild/</span></span><br><span class="line">gulp.task(<span class="string">'css'</span>, [<span class="string">'webpack'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(process.cwd());</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">'./prebuild/css/*.css'</span>)</span><br><span class="line">    .pipe(plugins.minifyCss())</span><br><span class="line">    .pipe(plugins.rev())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'build/css'</span>))</span><br><span class="line">    .pipe(plugins.rev.manifest(<span class="string">'build/rev-manifest.json'</span>, &#123; <span class="comment">//注意这里</span></span><br><span class="line">      base: process.cwd() + <span class="string">'/build'</span>,</span><br><span class="line">      merge: <span class="literal">true</span></span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'build'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="0x04webpack-dev-server">0x04webpack-dev-server</h2><p>依旧使用这个作为简易后端服务器，可以配置React-hot-loader做组件热插拔。<br>其实最近感觉这个也没那么玄乎了…还有些其他的包也能做到类似的事。</p>
-<h2 id="0x05Watch——更加自动化">0x05Watch——更加自动化</h2><p>待添加一个完整的watch链条，比如在src上的修改—-&gt;prebuild更新—-&gt;build更新</p>
+<h2 id="0x04Browser-Sync">0x04Browser-Sync</h2><p>抛弃原来的webpack-dev-server，使用browser-sync</p>
+<p>注意：依旧能使用原来的<code>node webpack-dev-server.js</code>作为简易后端服务器，注意要去掉<code>webpack.config.js</code>里的注释配置</p>
+<p>介绍下这个：<strong>browser-sync</strong></p>
+<p>非常强大的热替换，不需要浏览器插件，可以作为前端开发的简易服务器。</p>
+<p>最强大的是，他可以同步多个浏览器的操作，比如开着FF，Chrome，Opera，然后修改了一个文件，三个都会自动更新；如果点击了FF上一个链接，或是滚动了界面，其他两个也会执行相同的动作。想想看，同网段下，用pad和手机配合pc端开三个页面，同时可看到效果，感觉还是挺爽的。</p>
+<p>browser-sync可以直接全局安装，然后在CLI下开启。当然，也可以结合gulp，将其写入gulpfile.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'browser-sync'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> files = [</span><br><span class="line">    <span class="string">'prebuild/*.html'</span>,</span><br><span class="line">    <span class="string">'prebuild/js/*.js'</span>,</span><br><span class="line">    <span class="string">'prebuild/css/*.css'</span></span><br><span class="line">  ];</span><br><span class="line">  browserSync(files, &#123;</span><br><span class="line">    server: &#123;</span><br><span class="line">      baseDir: <span class="string">'./prebuild'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>CLI下<code>gulp server</code>即可开启</p>
+<p>目前的缺陷也很明显，就是他只适合载入经过打包和编译的前端资源，所以最好在上层加入自动打包编译，也就是常说的watch。</p>
+<p>因为要等待编译结果，偶尔会抽风，需要手动刷新….</p>
+<h2 id="0x05watch——更加自动化">0x05watch——更加自动化</h2><p>我添加了下面的watch</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//每当src下文件发生变化时进行打包</span></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  gulp.watch(<span class="string">'src/**/*.*'</span>, [<span class="string">'webpack'</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这么做是有缺点的，因为很小的修改会引发webpack对全部资源的查询，查询到脏的文件，重新打包那部分，但相比与手动引入零碎的资源，这点开销也是可以接受的。</p>
 <h2 id="0x06Shell——一个模板的应有素养">0x06Shell——一个模板的应有素养</h2><p>可以看下github里面的readme，可以执行这个start.sh快速地用这个结构搭建自己的空项目。</p>
-<h2 id="0x07主要的问题">0x07主要的问题</h2><p>npm install后这个workflow的搭建器带来120m+的node_moules文件夹….</p>
+<h2 id="0x07目前的问题">0x07目前的问题</h2><p>npm install后这个workflow的搭建器带来120m+的node_moules文件夹….</p>
+<p>全局定义的样式变量引入还是有问题，比如我们在basic.scss里面写点颜色变量，components里面的scss不能引用这个我们希望是全局的值。</p>
+<p><br><br><br><br><br></p>
+<h2 id="Update_at_9-30">Update at 9.30</h2><p>今天在google webpack配合browser-sync时，发现一个react-starter-kit..</p>
+<p>他做的比我更全更详细，是基于Webpack，React，Flux，Babel这些东西的…</p>
+<p>世界真大…容我star一发，安静地跪舔这只歪果大佬…..</p>
+<blockquote>
+<p><a href="https://github.com/kriasoft/react-starter-kit" target="_blank" rel="external">kriasoft / react-starter-kit</a></p>
+</blockquote>
 <hr>
 <p><br><br><br><br><br></p>
 <p>最近因为秋招的事情还是挺焦虑的，喜欢下面这句话，继续加油！</p>
