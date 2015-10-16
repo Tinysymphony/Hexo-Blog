@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>笔试&amp;面试笔记 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="国庆结束后，每天都是笔试+面试混杂的日子，一会儿城西一会儿城南，或者电脑前做笔试的智商题、OJ、性格测试、阅读题、计算机基础…仔细想想的话，这段时间的压力都是自作自受。前几年更努力些、投入些、或者更早地发现自己想做的事（前端），或许就没今日这样的窘迫。
+今天没有什么安排，就记一下一周来踩过的坑，大部分还是基础不够扎实。混杂一些最近的学习笔记，不一定是前端的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔试&面试笔记">
+<meta property="og:url" content="http://yoursite.com/2015/10/15/笔试-面试笔记/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="国庆结束后，每天都是笔试+面试混杂的日子，一会儿城西一会儿城南，或者电脑前做笔试的智商题、OJ、性格测试、阅读题、计算机基础…仔细想想的话，这段时间的压力都是自作自受。前几年更努力些、投入些、或者更早地发现自己想做的事（前端），或许就没今日这样的窘迫。
+今天没有什么安排，就记一下一周来踩过的坑，大部分还是基础不够扎实。混杂一些最近的学习笔记，不一定是前端的。">
+<meta property="og:updated_time" content="2015-10-15T01:19:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔试&面试笔记">
+<meta name="twitter:description" content="国庆结束后，每天都是笔试+面试混杂的日子，一会儿城西一会儿城南，或者电脑前做笔试的智商题、OJ、性格测试、阅读题、计算机基础…仔细想想的话，这段时间的压力都是自作自受。前几年更努力些、投入些、或者更早地发现自己想做的事（前端），或许就没今日这样的窘迫。
+今天没有什么安排，就记一下一周来踩过的坑，大部分还是基础不够扎实。混杂一些最近的学习笔记，不一定是前端的。">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="http://fonts.useso.com/css?family=Raleway:400,500,700&amp;subset=latin,latin-ext" rel="stylesheet">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">WyTiny</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://www.wytiny.com">TinyMint</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="douban" target="_blank" href="http://www.douban.com/people/45963589/" title="douban">douban</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gamil.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/webpack/" style="font-size: 12.5px;">webpack</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Lkx</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">Zec_iiii</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">WyTiny</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/Selection_015.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">WyTiny</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://www.wytiny.com">TinyMint</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="douban" target="_blank" href="http://www.douban.com/people/45963589/" title="douban">douban</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gamil.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-笔试-面试笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/15/笔试-面试笔记/" class="article-date">
+  	<time datetime="2015-10-14T23:19:27.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      笔试&amp;面试笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>国庆结束后，每天都是笔试+面试混杂的日子，一会儿城西一会儿城南，或者电脑前做笔试的智商题、OJ、性格测试、阅读题、计算机基础…仔细想想的话，这段时间的压力都是自作自受。前几年更努力些、投入些、或者更早地发现自己想做的事（前端），或许就没今日这样的窘迫。</p>
+<p>今天没有什么安排，就记一下一周来踩过的坑，大部分还是基础不够扎实。混杂一些最近的学习笔记，不一定是前端的。</p>
+<a id="more"></a>
+<h3 id="各种js">各种js</h3><p>函数声明提升<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line">a(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// [Function: a]</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure></p>
+<p>运算符<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>, b = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> c = a+++b; <span class="comment">// c = 5</span></span><br></pre></td></tr></table></figure></p>
+<p>IIFE 多个函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="string">'1'</span>;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;)();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a); <span class="comment">//number</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="CSS选择器优先级">CSS选择器优先级</h3><p>important &gt; 内联 &gt; ID &gt; 类 &gt; 标签 | 属性 | 伪类 &gt; 伪对象 &gt; * &gt; 继承</p>
+<h3 id="CSS选择器效率">CSS选择器效率</h3><p>ID &gt; 类 &gt; 标签 &gt; 相邻 &gt; 子选择器 &gt; 后代选择器 &gt; * &gt; 属性 &gt; 伪类</p>
+<h3 id="object-propertyIsEnumerable(xxx)">object.propertyIsEnumerable(xxx)</h3><p>判断对象中是否有xxx属性，并且能通过for in枚举，如Array对象的length是不可枚举的</p>
+<h3 id="判断数组">判断数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(arr) === <span class="string">'[Object Array]'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="单例">单例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Singleton = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> instance;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">createInstance</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> propertyA = xxx;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">method1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//code here</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">method2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//code here</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            method1: method1,</span><br><span class="line">            method2: method2,</span><br><span class="line">            propertyA: propertyA</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(!instance)&#123;</span><br><span class="line">            instance = createInstance();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        getInstance: getInstance</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> singleA = Singleton.getInstance();</span><br><span class="line"><span class="keyword">var</span> singleB = Singleton.getInstance();</span><br><span class="line"><span class="built_in">console</span>.log(singleA === singleB); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h3 id="盒模型">盒模型</h3><p>正常width和height指内容，padding和border会撑开盒子。</p>
+<p>如果在<code>box-sizing: border-box</code>的设定下，width和height是指盒子的大小（不含margin），padding和border会在盒子内部体现。</p>
+<p>如下为采用border-box的通用写法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">-webkit-box-sizing</span>:<span class="value"> border-box</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">-moz-box-sizing</span>:<span class="value"> border-box</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="positoin">positoin</h4><p>四个值relative，absolute，fixed，inherit，static（默认）</p>
+<p>static: 方位属性无效化，并且忽略z-index</p>
+<p>relative：用方位属性（left,top,right,bottom）会使其偏离</p>
+<p>absolute：根据祖先节点中最近的一个非static做相对定位</p>
+<p>fixed：根据窗口位置定位</p>
+<h3 id="Webpack相关">Webpack相关</h3><h5 id="AMD和CJS支持">AMD和CJS支持</h5><p>发现不少公司其实是在用AMD管理前端模块的，深入使用过webpack的面试官还没遇到，所以在面试时谈到这个都会介绍一番。</p>
+<p>Webpack是允许自己管理的资源中混合AMD和CJS风格的引入，直接可以采用<code>define(&#39;name&#39;, [list], function(args))；</code>这样的写法，其实看webpack未压缩的打包js可以发现它会将AMD全部转成CJS风格。</p>
+<h5 id="配合Bower">配合Bower</h5><p>这是官方文档的写法，亲测可用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    resolve: &#123;</span><br><span class="line">        root: [path.join(__dirname, <span class="string">"bower_components"</span>)]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.ResolverPlugin(</span><br><span class="line">            <span class="keyword">new</span> webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(<span class="string">"bower.json"</span>, [<span class="string">"main"</span>])</span><br><span class="line">        )</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="重合代码提取">重合代码提取</h5><p>使用webpack插件就可以</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(common chunk name, common chunk filename, minChunks, chunks);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="xargs">xargs</h3><p>shell命令，当参数太长时，将参数分割传递给其他命令(会去掉换行符)</p>
+<p>例如：</p>
+<blockquote>
+<p>ps aux | awk ‘{print $2}’ | xargs echo<br>find /path -type -f | xargs rm</p>
+</blockquote>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/29/Webpack-Gulp构建开发结构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Webpack+Gulp构建开发结构</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="笔试-面试笔记" data-title="笔试&amp;面试笔记" data-url="http://yoursite.com/2015/10/15/笔试-面试笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 WyTiny
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
