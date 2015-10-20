@@ -3,38 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>B/S Note6.6 Redis Security | Frontend version1.0 | TinySymphony</title>
+  <title>React:Render() | TinySymphony</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。
-本机上试了下：
-
-redis-cli -h xxx.xxx.xxx.xxx
-
-果然keys *能看到所有数据，还是太naive…
-redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）">
+  <meta name="description" content="用React写页面的时候，经常会采用嵌套组件的结构，不同的组件间会有父子关系。
+简单而言，在组件A的Render函数中如果出现了另一个组件B，则A的这个实例是B实例的父组件。
+React构建的页面是基于单向数据流，不像Angular那样做双向绑定，所以数据的流向只能单向从父—&amp;gt;子（设置子组件的props，类似传参），也可以子—&amp;gt;父（给子组件传入自身函数的引用，类似回调）。
+但是在实际做">
 <meta property="og:type" content="article">
-<meta property="og:title" content="B/S Note6.6 Redis Security | Frontend version1.0">
-<meta property="og:url" content="http://yoursite.com/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/index.html">
+<meta property="og:title" content="React:Render()">
+<meta property="og:url" content="http://yoursite.com/2015/10/20/React-Render/index.html">
 <meta property="og:site_name" content="TinySymphony">
-<meta property="og:description" content="想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。
-本机上试了下：
-
-redis-cli -h xxx.xxx.xxx.xxx
-
-果然keys *能看到所有数据，还是太naive…
-redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）">
-<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_121.png">
-<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_122.png">
-<meta property="og:updated_time" content="2015-10-14T12:01:32.000Z">
+<meta property="og:description" content="用React写页面的时候，经常会采用嵌套组件的结构，不同的组件间会有父子关系。
+简单而言，在组件A的Render函数中如果出现了另一个组件B，则A的这个实例是B实例的父组件。
+React构建的页面是基于单向数据流，不像Angular那样做双向绑定，所以数据的流向只能单向从父—&amp;gt;子（设置子组件的props，类似传参），也可以子—&amp;gt;父（给子组件传入自身函数的引用，类似回调）。
+但是在实际做">
+<meta property="og:updated_time" content="2015-10-20T07:12:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="B/S Note6.6 Redis Security | Frontend version1.0">
-<meta name="twitter:description" content="想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。
-本机上试了下：
-
-redis-cli -h xxx.xxx.xxx.xxx
-
-果然keys *能看到所有数据，还是太naive…
-redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 （但是每次访问都要加个端口太麻烦了所以偷懒没改）">
+<meta name="twitter:title" content="React:Render()">
+<meta name="twitter:description" content="用React写页面的时候，经常会采用嵌套组件的结构，不同的组件间会有父子关系。
+简单而言，在组件A的Render函数中如果出现了另一个组件B，则A的这个实例是B实例的父组件。
+React构建的页面是基于单向数据流，不像Angular那样做双向绑定，所以数据的流向只能单向从父—&amp;gt;子（设置子组件的props，类似传参），也可以子—&amp;gt;父（给子组件传入自身函数的引用，类似回调）。
+但是在实际做">
   
     <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
   
@@ -232,11 +221,11 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-bs-note6-6-redis-security-frontend-version1-0" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-React-Render" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/" class="article-date">
-  	<time datetime="2015-06-06T00:34:39.000Z" itemprop="datePublished">2015-06-06</time>
+      <a href="/2015/10/20/React-Render/" class="article-date">
+  	<time datetime="2015-10-20T06:11:59.000Z" itemprop="datePublished">2015-10-20</time>
 </a>
     </div>
   
@@ -249,7 +238,7 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
         
   
     <h1 class="article-title" itemprop="name">
-      B/S Note6.6 Redis Security | Frontend version1.0
+      React:Render()
     </h1>
   
 
@@ -258,14 +247,10 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mixins/">Mixins</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Render/">Render</a></li></ul>
 	</div>
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Database/">Database</a><a class="article-category-link" href="/categories/Database/Fronter/">Fronter</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -273,40 +258,33 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>想到redis.conf还没有好好配置过，仔细一想目前这个状态是外部可以直接访问数据库的，完全暴露。</p>
-<p>本机上试了下：</p>
-<blockquote>
-<p>redis-cli -h xxx.xxx.xxx.xxx</p>
-</blockquote>
-<p>果然keys *能看到所有数据，还是太naive…</p>
-<p>redis.conf修改默认port并把requirepass的注释去掉，后面追加访问密码即可 <del datetime="2015-06-05T23:52:09+00:00">（但是每次访问都要加个端口太麻烦了所以偷懒没改）</del></p>
+        <p>用React写页面的时候，经常会采用嵌套组件的结构，不同的组件间会有父子关系。</p>
+<p>简单而言，在组件A的Render函数中如果出现了另一个组件B，则A的这个实例是B实例的父组件。</p>
+<p>React构建的页面是基于单向数据流，不像Angular那样做双向绑定，所以数据的流向只能单向从父—&gt;子（设置子组件的props，类似传参），也可以子—&gt;父（给子组件传入自身函数的引用，类似回调）。</p>
+<p>但是在实际做时，一旦关联了父子数据，我们会发现React的Render方法有点鬼畜。</p>
 <a id="more"></a>
-<p>追加修改到nodejs的redis 数据库连接：</p>
 <blockquote>
-<p>var redisPassword = “yourpassword”;<br>var redisOptions = {auth_pass: redisPassword};<br>var db = require(‘redis’).createClient(6379, “127.0.0.1”, redisOptions);</p>
+<p>参考此文：<a href="https://www.codementor.io/reactjs/tutorial/understanding-react-js-rendering" target="_blank" rel="external">understanding-react-js-rendering</a></p>
 </blockquote>
-<p>这样就没问题啦</p>
-<hr>
-<p>&nbsp;</p>
-<p>昨天完成用户登陆后的dashboard前端第一版~</p>
-<p><del datetime="2015-06-05T23:52:09+00:00">东拼西凑各种模仿的悲惨前端初学者</del></p>
-<p>先放图（最近在用七牛做图床感觉良好）</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_121.png" alt=""></p>
-<p>&nbsp;</p>
-<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/TinyPicSelection_122.png" alt=""></p>
-<p>&nbsp;</p>
-<p>其实在纠结要不要用bootsrap/foundation之流的框架</p>
-<p>感觉学的时候应该自己写写看这些自适应还有流行的网格布局<del datetime="2015-06-05T23:52:09+00:00">（因为课程作业想省个时间）</del></p>
-<p>左边是自己写的简陋navigation，右边用了bootstrap的网格</p>
-<p>Mints界面：</p>
-<p>每一个网页设计作品是采用自Codrops的一个购物模板，原来是商品Orz….</p>
-<p>上面三个是自己提供的网页模板，相当于用户教学，下方的add按钮可以让用户自己选择模板并编辑</p>
-<p>Account Info界面：</p>
-<p>input栏是采用Codrops上一个日本大神的作品（贪婪地把一系列的input css都放到项目中..）</p>
-<p>修改个人信息以及密码啥的…</p>
-<p>还需要追加头像更换什么的功能</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
+<p>我们的jsx中可能会经常这么写：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//data from server</span></span><br><span class="line"><span class="keyword">var</span> childrenList = [&#123;text: <span class="string">"xxx"</span>&#125;, &#123;text: <span class="string">"yyy"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Child = React.createClass(&#123;</span><br><span class="line">  handleClick: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//code here</span></span><br><span class="line">    <span class="keyword">this</span>.props.callback(xxx);</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">onClick</span>=<span class="value">&#123;handleClick&#125;</span>&gt;</span>&#123;this.props.text&#125;<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>)</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Father = React.createClass(&#123;</span><br><span class="line">  getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;index: <span class="number">0</span>&#125;;</span><br><span class="line">	&#125;,</span><br><span class="line">  changeState: <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;index: a&#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> children = childrenList.map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="title">Child</span> <span class="attribute">text</span>=<span class="value">&#123;item.text&#125;</span> <span class="attribute">callback</span>=<span class="value">&#123;this.changeState&#125;</span>/&gt;</span>;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"children-list"</span>&gt;</span>&#123;children&#125;<span class="tag">&lt;/<span class="title">div</span>&gt;</span>)</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>Father中会有若干个Child实例作为子组件，Father的函数<code>changeState</code>作为参数传入Child.<br>而在Child处理完自身的点击事件（可能是样式修改）后，会利用props获取的引用，调用父组件的方法，改变父组件的状态。</p>
+<h2 id="疯狂的Render">疯狂的Render</h2><p>看起来很完美，但是我们会发现之前对子组件做的样式修改是无效的。</p>
+<p>实际上，在我们修改父组件的状态时，不仅父组件的render方法被调用，所有子组件的render也会被调用，又被渲染回最初的状态。子组件自身的状态修改不会触发父组件的render.</p>
+<p>如果一个app中有五层的组件嵌套，那么在最顶层父组件render时，下面的子组件也要render，其中最底层会render五次。</p>
+<p>这听起来挺影响性能，官网的解释是前端的性能瓶颈在于dom操作，而不是js的执行速度。</p>
+<h2 id="强迫症">强迫症</h2><p>然而我不相信存在没有强迫症的前端工程师….</p>
+<p>为了剔除那些无用的Render，可以这么做：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Child = React.createClass(&#123;</span><br><span class="line">  shouldComponentUpdate: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//other code here</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这个自带API可以阻止上层更新引起的重新渲染操作。</p>
+<p>也可以更简练一些，使用react的addon，强行减少两行代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Child = React.createClass(&#123;</span><br><span class="line">  mixins: [React.addons.PureRenderMixin],</span><br><span class="line">  <span class="comment">//other code here</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="When_does_React_Render_Components?">When does React Render Components?</h2><p>总结一下Render触发的情况：</p>
+<ol>
+<li>页面上挂载组件时</li>
+<li>本身状态发生改变，即<code>this.setState({})</code>被调用</li>
+<li>上层的状态发生改变</li>
+<li>上层传入的props发生改变</li>
+</ol>
 
       
     </div>
@@ -316,18 +294,9 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
     
 <nav id="article-nav">
   
-    <a href="/2015/06/21/rpi-lab8-led-matrix/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          RPi Lab8 LED Matrix
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/06/05/bs-note-6-4-redisnodejsnginx/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">B/S Note 6.4 | Redis+Nodejs+NginX</div>
+    <a href="/2015/10/15/笔试-面试笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">笔试&amp;面试笔记</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -356,7 +325,7 @@ redis.conf修改默认port并把requirepass的注释去掉，后面追加访问�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="bs-note6-6-redis-security-frontend-version1-0" data-title="B/S Note6.6 Redis Security | Frontend version1.0" data-url="http://yoursite.com/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/"></div>
+	<div class="ds-thread" data-thread-key="React-Render" data-title="React:Render()" data-url="http://yoursite.com/2015/10/20/React-Render/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
