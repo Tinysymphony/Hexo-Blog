@@ -15,7 +15,7 @@
 <meta property="og:description" content="回顾上半年，好像一直在玉泉养老来着，嗑瓜子看看上世纪的アニメ。最近补完了UC高达的主要作品，最喜欢的还是Z和独角兽（跑题中…）
 好像上半年最主要的前端经历，一个是在实习公司用Electron做了个内部桌面应用，另一个是毕设写了一坨Angular. 虽然两个都想好好记一记，不过感觉理解还比较浅显，干货不太多，暂时未能成文。
 想起来学前端已经有一年了，眼看也快毕业入职。最近像是在重走初学时的路一样看起">
-<meta property="og:updated_time" content="2016-05-26T07:30:22.000Z">
+<meta property="og:updated_time" content="2016-05-26T14:50:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记5.26">
 <meta name="twitter:description" content="回顾上半年，好像一直在玉泉养老来着，嗑瓜子看看上世纪的アニメ。最近补完了UC高达的主要作品，最喜欢的还是Z和独角兽（跑题中…）
@@ -28,8 +28,9 @@
     <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link href="http://fonts.useso.com/css?family=Raleway:400,500,700&amp;subset=latin,latin-ext" rel="stylesheet">
+  <link href="http://fonts.useso.com/css?family=Lato:400,500,700&amp;subset=latin,latin-ext" rel="stylesheet">
 </head>
+
 <body>
   <div id="container">
     <div class="left-col">
@@ -271,7 +272,9 @@
 <h3 id="0x08_Parse_Boolean">0x08 Parse Boolean</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">var</span> isTrue = <span class="built_in">Boolean</span>(wtf);</span><br><span class="line"><span class="comment">// cooler</span></span><br><span class="line">isTrue = !!wtf;</span><br></pre></td></tr></table></figure>
 <h3 id="0x09_Save_this">0x09 Save this</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="0x0A_Cooler_IIFE">0x0A Cooler IIFE</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;();</span><br><span class="line">+<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;();</span><br><span class="line"><span class="comment">// ! - + ~</span></span><br></pre></td></tr></table></figure>
-<p>IIFE的一般写法是<code>(function(){})();</code>，上述写法用低优先级的一元运算符让函数定义被当做函数表达式处理，和括号包裹的原理是一样的。<br>但这有个副作用，如果匿名函数有返回值的话，会被运算符处理…..所以老老实实写括号多好….</p>
+<p>IIFE的一般写法是<code>(function(){})();</code>，上述写法用低优先级的一元运算符让函数定义被当做函数表达式处理，和括号包裹的原理是一样的。<br>但这有个副作用，如果匿名函数有返回值的话，会被运算符处理…..所以憋装13，老老实实写括号多好….[微笑]:smile:</p>
+<h3 id="0x0B_arguments_&amp;_ES6_default_parameters">0x0B arguments &amp; ES6 default parameters</h3><p>逛拳皇博客看到的，这个案例告诉我们远离<code>arguments</code>…<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">funA</span>(<span class="params">a, b, c</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a, b, c); <span class="comment">// 1, 2, undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// [1, 2]</span></span><br><span class="line">    b = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// [1, 3]</span></span><br><span class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6: default parameter</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">funB</span>(<span class="params">a, b, c = 3</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a, b, c); <span class="comment">// 1, 2, 3</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// [1, 2]</span></span><br><span class="line">    b = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">// [1, 2]</span></span><br><span class="line">&#125;)(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure></p>
+<p>可以看到在使用ES6的默认参数特性后，<code>arguments</code>好像和参数就「解绑」了，并且使用默认参数时<code>arguments</code>也将其视为未定义。虽然修改参数本身就是一种不好的实践，但<code>arguments</code>这种不一致性确实需要避免。也许在未来版本会得到修正。</p>
 
       
     </div>
@@ -370,7 +373,6 @@
 
 
 
-
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
@@ -390,6 +392,7 @@ MathJax.Hub.Queue(function() {
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+
 
 
   </div>
