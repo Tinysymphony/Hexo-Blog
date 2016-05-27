@@ -725,6 +725,8 @@ blockquote {
   padding-right: 60px;
   border-bottom: 1px solid #eee;
   background: #fff;
+  -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
 }
 .archives-wrap:first-child {
   margin-top: 30px;
@@ -853,7 +855,7 @@ blockquote {
   font-size: 12px;
 }
 .body-wrap {
-  margin-bottom: 160px;
+  margin-bottom: 200px;
 }
 .article {
   margin: 30px;
@@ -1343,6 +1345,8 @@ blockquote {
   padding-right: 60px;
   border-bottom: 1px solid #eee;
   background: #fff;
+  -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
 }
 .archives-wrap:first-child {
   margin-top: 30px;
