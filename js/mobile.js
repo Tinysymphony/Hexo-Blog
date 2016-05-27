@@ -129,21 +129,26 @@ define([], function(){
 		}, false);
 	};
 
+	var hashString = function(str) {
+		var hash = 0,
+			len = str.length,
+			i, chr;
+		for(i = 0; i < len; i++) {
+			chr = str.charCodeAt(i);
+			hash = ((hash << 5) - hash) + chr;
+			hash |= 0;
+		}
+		return Math.abs(hash);
+	}
+
 	var resetTags = function(){
 		var tags = $(".tagcloud a");
 		tags.css({"font-size": "12px"});
 		for(var i=0,len=tags.length; i<len; i++){
-			var num = tags.eq(i).html().length % 5 +1;
+			var num = hashString(tags.eq(i).html()) % 7 + 1;
 			tags[i].className = "";
 			tags.eq(i).addClass("color"+num);
 		}
-	}
-
-	var setTitleFont = function() {
-		var title = $(".js-mobile-header");
-		var author = $(".header-author");
-		title.css("font-family", "'Raleway'");
-		author.css("font-family", "'Raleway'");
 	}
 
 	return{
@@ -156,7 +161,6 @@ define([], function(){
 			combine();
 			bindDOM();
 			resetTags();
-			setTitleFont();
 		}
 	};
 });
