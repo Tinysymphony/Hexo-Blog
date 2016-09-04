@@ -137,7 +137,7 @@ body,
   height: 100%;
 }
 body {
-  font-family: "Lato", "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   background: #fff;
   color: rgba(0,0,0,0.6);
@@ -150,7 +150,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lato", "Hiragino Sans GB", "WenQuanYi Micro Hei", "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
 }
 h1,
 h2,
@@ -199,7 +199,7 @@ a {
   display: none;
 }
 blockquote {
-  font-family: "Lato", "Hiragino Sans GB", "WenQuanYi Micro Hei", "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "微软雅黑", "Microsoft YaHei", Arial, sans-serif;
 }
 @media screen and (max-width: 1040px) {
   .inner {
@@ -487,7 +487,7 @@ blockquote {
 .header-author {
   text-align: center;
   margin: 0.67em 0;
-  font-family: Lato, "Lato", serif;
+  font-family: "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", "Arial", serif;
   font-size: 30px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -866,6 +866,28 @@ blockquote {
   box-shadow: 2px 2px 8px rgba(0,0,0,0.06);
   -webkit-transition: all 0.2s ease-in;
 }
+.article .fancy-ctn {
+  position: relative;
+  font-size: 0;
+}
+.article .fancy-ctn::after {
+  content: '';
+  width: 0;
+  height: 6px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: rgba(43,184,170,0.6);
+}
+.article .fancy-ctn:hover::after {
+  left: 0;
+  width: 100%;
+}
 .article.show {
   visibility: visible;
   -webkit-animation: cd-bounce-1 0.6s;
@@ -880,6 +902,16 @@ blockquote {
 }
 .article img {
   max-width: 100%;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.article img:hover {
+  -webkit-box-shadow: 0 6px 8px rgba(0,0,0,0.24), 0 8px 12px rgba(0,0,0,0.36);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.24), 0 8px 12px rgba(0,0,0,0.36);
 }
 @-webkit-keyframes cd-bounce-1 {
   0% {
