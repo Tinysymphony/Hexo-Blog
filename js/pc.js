@@ -1,1 +1,111 @@
-define([],function(){var n=function(){var n=$(".tips-box");return{show:function(){n.removeClass("hide")},hide:function(){n.addClass("hide")},init:function(){}}}(),i=function(n){var i,e,t=0,s=n.length;for(i=0;i<s;i++)e=n.charCodeAt(i),t=(t<<5)-t+e,t|=0;return Math.abs(t)},e=function(){var n=$(".tagcloud a");n.css({"font-size":"12px"});for(var e=0,t=n.length;e<t;e++){var s=i(n.eq(e).html())%7+1;n[e].className="",n.eq(e).addClass("color"+s)}},t=function(n){var i=$(".switch-wrap");i.css({transform:"translate(-"+100*n+"%, 0 )"}),$(".icon-wrap").addClass("hide"),$(".icon-wrap").eq(n).removeClass("hide")},s=function(){var i=$("#myonoffswitch"),s=$(".second-part"),o=$(".first-part");i.click(function(){i.hasClass("clicked")?(i.removeClass("clicked"),s.removeClass("turn-left"),o.removeClass("turn-left")):(i.addClass("clicked"),s.addClass("turn-left"),o.addClass("turn-left"),e())});var a=!1,r=!1;$(".icon").bind("mouseenter",function(){a=!0,n.show()}).bind("mouseleave",function(){a=!1,setTimeout(function(){r||n.hide()},100)}),$(".tips-box").bind("mouseenter",function(){r=!0,n.show()}).bind("mouseleave",function(){r=!1,setTimeout(function(){a||n.hide()},100)}),$(".tips-inner li").bind("click",function(){var i=$(this).index();t(i),n.hide()})};return{init:function(){e(),s(),n.init()}}});
+define([], function () {
+
+    var Tips = (function () {
+
+        var $tipBox = $(".tips-box");
+
+        return {
+            show: function () {
+                $tipBox.removeClass("hide");
+            },
+            hide: function () {
+                $tipBox.addClass("hide");
+            },
+            init: function () {
+
+            }
+        }
+    })();
+
+	var hashString = function(str) {
+		var hash = 0,
+			len = str.length,
+			i, chr;
+		for(i = 0; i < len; i++) {
+			chr = str.charCodeAt(i);
+			hash = ((hash << 5) - hash) + chr;
+			hash |= 0;
+		}
+		return Math.abs(hash);
+	}
+
+    var resetTags = function () {
+        var tags = $(".tagcloud a");
+        tags.css({"font-size": "12px"});
+        for (var i = 0, len = tags.length; i < len; i++) {
+            var num = hashString(tags.eq(i).html()) % 7 + 1;
+            tags[i].className = "";
+            tags.eq(i).addClass("color" + num);
+        }
+    }
+
+    var slide = function (idx) {
+        var $wrap = $(".switch-wrap");
+        $wrap.css({
+            "transform": "translate(-" + idx * 100 + "%, 0 )"
+        });
+        $(".icon-wrap").addClass("hide");
+        $(".icon-wrap").eq(idx).removeClass("hide");
+    }
+
+    var bind = function () {
+        var switchBtn = $("#myonoffswitch");
+        var tagcloud = $(".second-part");
+        var navDiv = $(".first-part");
+        switchBtn.click(function () {
+            if (switchBtn.hasClass("clicked")) {
+                switchBtn.removeClass("clicked");
+                tagcloud.removeClass("turn-left");
+                navDiv.removeClass("turn-left");
+            } else {
+                switchBtn.addClass("clicked");
+                tagcloud.addClass("turn-left");
+                navDiv.addClass("turn-left");
+                resetTags();
+            }
+        });
+
+        var timeout;
+        var isEnterBtn = false;
+        var isEnterTips = false;
+
+        $(".icon").bind("mouseenter", function () {
+            isEnterBtn = true;
+            Tips.show();
+        }).bind("mouseleave", function () {
+            isEnterBtn = false;
+            setTimeout(function () {
+                if (!isEnterTips) {
+                    Tips.hide();
+                }
+            }, 100);
+        });
+
+        $(".tips-box").bind("mouseenter", function () {
+            isEnterTips = true;
+            Tips.show();
+        }).bind("mouseleave", function () {
+            isEnterTips = false;
+            setTimeout(function () {
+                if (!isEnterBtn) {
+                    Tips.hide();
+                }
+            }, 100);
+        });
+
+        $(".tips-inner li").bind("click", function () {
+            var idx = $(this).index();
+            slide(idx);
+            Tips.hide();
+        });
+    }
+
+
+    return {
+        init: function () {
+            resetTags();
+            bind();
+            Tips.init();
+        }
+    }
+});

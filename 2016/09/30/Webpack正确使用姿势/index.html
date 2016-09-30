@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <noscript>
+    <style media="screen">
+      body {display: none;}
+    </style>
+    <meta http-equiv="refresh" content="0; URL=http://nojs.wytiny.com/">
+  </noscript>
+  
+  <title>Webpack+React正确使用姿势 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言在去年的夏天折腾了一波React开发环境，研究了下Webpack和Gulp工具，最终选择混用两者。当时Github上的外国大佬koistya也用类似的方式实现了比较完善的React脚手架。可是两个工具的功能重叠十分尴尬，冗余的感觉一直刺激着强迫症…尤其是当时发现热加载功能好像经常出问题 ( 没看明白文档 )，干脆就换用了每次webpack bundle完写磁盘，让browser-sync自动刷">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack+React正确使用姿势">
+<meta property="og:url" content="http://yoursite.com/2016/09/30/Webpack正确使用姿势/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="前言在去年的夏天折腾了一波React开发环境，研究了下Webpack和Gulp工具，最终选择混用两者。当时Github上的外国大佬koistya也用类似的方式实现了比较完善的React脚手架。可是两个工具的功能重叠十分尴尬，冗余的感觉一直刺激着强迫症…尤其是当时发现热加载功能好像经常出问题 ( 没看明白文档 )，干脆就换用了每次webpack bundle完写磁盘，让browser-sync自动刷">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/dir.png">
+<meta property="og:updated_time" content="2016-09-30T03:11:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Webpack+React正确使用姿势">
+<meta name="twitter:description" content="前言在去年的夏天折腾了一波React开发环境，研究了下Webpack和Gulp工具，最终选择混用两者。当时Github上的外国大佬koistya也用类似的方式实现了比较完善的React脚手架。可是两个工具的功能重叠十分尴尬，冗余的感觉一直刺激着强迫症…尤其是当时发现热加载功能好像经常出问题 ( 没看明白文档 )，干脆就换用了每次webpack bundle完写磁盘，让browser-sync自动刷">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script type="text/javascript">
+  !function(t,e){t.LS={tag:"/*LSLOADER*/",jsQueue:[],jsmap:{},cssmap:{},getItem:function(e){var s="";try{s=t.localStorage.getItem(e)}catch(t){s=""}return s},removeItem:function(e){try{t.localStorage.removeItem(e)}catch(t){}},setItem:function(e,s){try{t.localStorage.setItem(e,s)}catch(t){}},load:function(t,e,s){var i=this.getItem(t);if(s=s||this.noop,!i)return this.loadFromSource(t,e,s);var n=i.split(this.tag)[0],o=i.split(this.tag)[1];return n==e&&o?void(/\.js$/.test(n)?(this.jsQueue.push({id:t,code:o,status:"unload"}),this.insertJS(t,o,s)):/\.css$/.test(n)?this.insertCSS(t,o,s):this.loadFromSource(t,e,s)):this.loadFromSource(t,e,s)},insertJS:function(t,e,s){if(s=s||this.noop,t&&e)for(var i in this.jsQueue)this.jsQueue[i].id===t&&(this.jsQueue[i].code=e);var n=document.getElementsByTagName("script")[0],o=document.createElement("script");if(this.jsQueue.length>0&&this.jsQueue[0].code&&"failed"!=this.jsQueue[0].status)o.appendChild(document.createTextNode(this.jsQueue[0].code)),n.parentNode.appendChild(o),s(),this.jsQueue.shift(),this.jsQueue.length>0&&this.insertJS();else if(this.jsQueue.length>0&&"failed"===this.jsQueue[0].status){var u=this;o.src=u.jsQueue[0].url,o.id=u.jsQueue[0].id,o.onload=function(){s(),u.jsQueue.shift(),u.jsQueue.length>0&&u.insertJS()},this.jsQueue.status="loading",n.parentNode.appendChild(o)}},insertCSS:function(t,e,s){document.getElementById(t).appendChild(document.createTextNode(e)),s()},loadFromSource:function(t,e,s){/\.js$/.test(e)?this.loadJS(t,e):/\.css$/.test(e)&&this.loadCSS(t,e,s)},loadJS:function(t,e){var s=this;s.jsQueue.push({id:t,url:e,code:""}),s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),s.insertJS(t,i)},function(){s.tagLoadJS(t,e)})},loadCSS:function(t,e){var s=this;s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),document.getElementById(t).appendChild(document.createTextNode(i))},function(){s.tagLoadCSS(t,e)})},tagLoadJS:function(t,e){if(!this.jsmap[t]){this.jsmap[t]=!0;for(var s in this.jsQueue)this.jsQueue[s].id==t&&(this.jsQueue[s].code="",this.jsQueue[s].status="failed",this.jsQueue[s].url=e);this.insertJS()}},tagLoadCSS:function(t,e,s){if(!this.cssmap[t]){this.cssmap[t]=!0;var i=document.createElement("link"),n=document.getElementsByTagName("head")[0];i.rel="stylesheet",i.href=e,i.charset="utf-8",i.onload=i.onerror=s||this.noop,n.appendChild(i)}},xhrLoad:function(t,e,s){e=e||this.noop,s=s||this.noop;var i=new XMLHttpRequest;try{i.open("get",t,!0),i.onreadystatechange=function(){4==i.readyState&&((i.status>=200&&i.status<300||304==i.status)&&""!=i.response&&e(i.response),s())},i.send()}catch(t){s()}},noop:function(){}}}(window,document);
+  </script>
+  <script type="text/javascript">
+    // LS.load('/css/style.css', );
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/avatar-100kb.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">WyTiny</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://www.wytiny.com">TinyMint</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mixins/" style="font-size: 10px;">Mixins</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Render/" style="font-size: 10px;">Render</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/wytiny/" style="font-size: 10px;">wytiny</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/强缓存/" style="font-size: 10px;">强缓存</a> <a href="/tags/校招/" style="font-size: 10px;">校招</a> <a href="/tags/流水账/" style="font-size: 10px;">流水账</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/移动端WEB/" style="font-size: 10px;">移动端WEB</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xn--l4tn57c.xn--fiqs8s/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xjp.in/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">WyTiny</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/avatar-100kb.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">WyTiny</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://www.wytiny.com">TinyMint</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Webpack正确使用姿势" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/30/Webpack正确使用姿势/" class="article-date">
+  	<time datetime="2016-09-30T00:05:52.000Z" itemprop="datePublished">2016-09-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Webpack+React正确使用姿势
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言">前言</h2><p>在去年的夏天折腾了一波React开发环境，研究了下Webpack和Gulp工具，最终选择混用两者。当时Github上的外国大佬koistya也用类似的方式实现了比较完善的React脚手架。可是两个工具的功能重叠十分尴尬，冗余的感觉一直刺激着强迫症…尤其是当时发现热加载功能好像经常出问题 ( 没看明白文档 )，干脆就换用了每次webpack bundle完写磁盘，让browser-sync自动刷新的蛋疼方式。</p>
+<p>今年九月才发现，koistya在<a href="https://github.com/kriasoft/react-starter-kit.git" target="_blank" rel="external">react-starter-kit</a>后来的更新中逐渐地去除了Gulp，完全使用webpack，并且整个工作流优雅地使用了ES6、ES7…容我再次跪舔一发…</p>
+<p>仿照着koistya的做法，以及其他Github上开源的webpack+react脚手架，写了一个适合自己的webpack种子项目：<a href="https://github.com/Tinysymphony/webpack-seed.git" target="_blank" rel="external">Github仓库</a></p>
+<p>功能、写法大同小异，折腾的过程中更深入地了解了下这些工具的原理，写这篇文章整理一下。</p>
+<a id="more"></a>
+<blockquote>
+<p>注：本文适合粗略使用过webpack、接触过ES6的同学</p>
+</blockquote>
+<h2 id="前置工作">前置工作</h2><p><strong> 1.使用ES6、ES7</strong><br>这是一个前置工作，旨在从打包任务到项目的编写全面使用ES6、ES7。最省事的方案是安装babel-cli，使用babel-node实时转译运行打包任务代码，之于项目代码的转换交给webpack的babel-loader</p>
+<p><strong> 2.项目目录 </strong><br><img src="http://7xjgb0.com1.z0.glb.clouddn.com/dir.png" alt=""><br>看看就好，后面详述。</p>
+<p><strong> 3.package.json 依赖 </strong><br><a href="https://github.com/Tinysymphony/webpack-seed/blob/master/package.json" target="_blank" rel="external">看这里的文件链接 ≖‿≖✧ ~</a></p>
+<h2 id="webpack-config-js">webpack.config.js</h2><p>接触webpack的同学一定非常熟悉这个文件，webpack想做到的事就是完全依赖一个配置文件帮前端工程师们处理所有的前端资源，理想很丰满。先探讨一下webpack.config的正确编写姿势。</p>
+<p><strong> 1.使用npm script </strong><br>开发时首先会遇到的问题是，如何区分不同的环境，并根据不同的需求改变打包工具的配置。一些混用Gulp和Webpack的方案是在Gulp调用时传参或者修改config. </p>
+<p>推荐是采用npm script来简化这个步骤<br>如下是在package.json中的配置，有部分是TODO <code>_(:з」∠)_</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"start"</span>: <span class="string">"babel-node tools/run start"</span>,</span><br><span class="line">  <span class="string">"pub"</span>: <span class="string">"babel-node tools/run start --no-server --release --no-hmr"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"babel-node tools/run build"</span>,</span><br><span class="line">  <span class="string">"deploy"</span>: <span class="string">"babel-node tools/run deploy"</span>,</span><br><span class="line">  <span class="string">"clean"</span>: <span class="string">"babel-node tools/run clean"</span>,</span><br><span class="line">  <span class="string">"bundle"</span>: <span class="string">"babel-node tools/run start --no-server --no-hmr"</span>,</span><br><span class="line">  <span class="string">"lint"</span>: <span class="string">"eslint src"</span>,</span><br><span class="line">  <span class="string">"koa"</span>: <span class="string">"babel-node server/koa"</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"babel"</span>: &#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    <span class="string">"react"</span>,</span><br><span class="line">    <span class="string">"es2015"</span>,</span><br><span class="line">    <span class="string">"stage-0"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    <span class="string">"transform-runtime"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种写法确保了我们的任务文件可以用ES6语法，所有的任务都由<code>tools/run.js</code>调用，比如在CLI输入<code>npm run pub</code>，就会运行<code>start</code>任务并且传入<code>--no-server</code>(无需启动服务器)，<code>--release</code>(发布)，<code>--no-hmr</code>(无需热加载模块)三个参数，生成压缩混淆后的打包代码。</p>
+<p>接下来在需要判断运行环境的文件中使用类似下面的写法取到命令行参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> DEBUG = !process.argv.includes(<span class="string">'--release'</span>),</span><br><span class="line">  HMR = !process.argv.includes(<span class="string">'--no-hmr'</span>),</span><br><span class="line">  EXTRACT = process.argv.includes(<span class="string">'--no-server'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong> 2.热替换 </strong><br>这是webpack最潮的看家功能，因为使用了babel处理React/ES6/ES7，配置需要增加<code>react-hot-loader</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// configuration里面entry字段里入口文件列表需要新增的项目</span></span><br><span class="line"><span class="keyword">const</span> HOT_ENTRY = [<span class="string">'react-hot-loader/patch'</span>, <span class="string">'webpack-hot-middleware/client'</span>];</span><br><span class="line"><span class="comment">// 在webpack.config.js中添加babel-loader的一些配置</span></span><br><span class="line"><span class="keyword">const</span> babelConfig = <span class="built_in">Object</span>.assign(&#123;&#125;, pkg.babel, &#123;</span><br><span class="line">  babelrc: <span class="literal">false</span>,</span><br><span class="line">  cacheDirectory: HMR,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 除了运行时自动转译还需要添加下面的插件</span></span><br><span class="line"><span class="keyword">if</span> (HMR) babelConfig.plugins.unshift(<span class="string">'react-hot-loader/babel'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    <span class="comment">// 三元表达式+数组解构</span></span><br><span class="line">    index: [...HMR ? HOT_ENTRY : [], path.resolve(__dirname, <span class="string">'../src/index.js'</span>)],</span><br><span class="line">    main: [...HMR ? HOT_ENTRY : [], path.resolve(__dirname, <span class="string">'../src/main.js'</span>)]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.(js|jsx)$/</span>,</span><br><span class="line">      exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">      <span class="comment">// 配置babel-loader (关键!important)</span></span><br><span class="line">      loader: <span class="string">`babel?<span class="subst">$&#123;JSON.stringify(babelConfig)&#125;</span>`</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// ... 其他加载器</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    <span class="comment">// ... 其他插件</span></span><br><span class="line">  ]</span><br><span class="line">  <span class="comment">// ... 其他配置</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> config;</span><br></pre></td></tr></table></figure>
+<p>不过上述一波配置后，刚开始还是无法热加载，查了下github上的issue，需要在入口文件 ( 目前的例子是<code>index</code>和<code>main</code>两个文件末尾添加钩子 )</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">module</span>.hot) &#123;</span><br><span class="line">  <span class="built_in">module</span>.hot.accept();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>好了，终于不再是”刷新浏览器工程师”</p>
+</blockquote>
+<p><strong> 3.使用CSS Module &amp; PostCss &amp; 提取CSS 文件 </strong></p>
+<p>什么是CSS Module？看这篇 <a href="https://github.com/css-modules/css-modules" target="_blank" rel="external">定义文档</a><br>它可以说了css的作用域机制，主要通过给类名增加hash值防止样式污染。<br>可以看下这篇文章的探讨：<a href="https://css-tricks.com/css-modules-part-1-need/" target="_blank" rel="external">What are CSS Modules and why do we need them?</a></p>
+<p>postcss的插件大大方便了css的编写，<code>config</code>对象中可以加下面的字段，添加postcss处理函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">postcss: <span class="function"><span class="keyword">function</span>(<span class="params">bundle</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    <span class="comment">// 处理@import为内联引入</span></span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'postcss-import'</span>)(&#123;</span><br><span class="line">      addDependencyTo: bundle</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="comment">// filter滤镜语法转换成svg</span></span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'pleeease-filters'</span>)(),</span><br><span class="line">    <span class="comment">// 浏览器前缀标识</span></span><br><span class="line">    <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)(&#123;</span><br><span class="line">      browsers: BROWSERS <span class="comment">// BROWSERS是已经定义过的浏览器兼容列表</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>有些同学（包括我）不喜欢webpack将所有的资源全部压在js里，希望提取出css，方便管理。</p>
+<p>上次写<a href="http://www.wytiny.com/2015/09/29/Webpack-Gulp%E6%9E%84%E5%BB%BA%E5%BC%80%E5%8F%91%E7%BB%93%E6%9E%84/" target="_blank" rel="external">Webpack+Gulp构建开发结构</a>时，就提到使用<code>extract-text-webpack-plugin</code>，不过这里也是有个小窍门的。</p>
+<p>可以通过一些配置定制css的打包，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ExtractCssPlugin <span class="keyword">from</span> <span class="string">'extract-text-webpack-plugin'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数CSS_CONF根据接受的布尔值参数及DEBUG标识符，返回Loaders Array</span></span><br><span class="line"><span class="keyword">const</span> CSS_CONF = (isModule) =&gt; [</span><br><span class="line">  <span class="comment">// 模板字符串</span></span><br><span class="line">  <span class="string">`css?<span class="subst">$&#123;JSON.stringify(&#123;</span><br><span class="line">    sourceMap: DEBUG,</span><br><span class="line">    // 是否开启css module</span><br><span class="line">    modules: isModule,</span><br><span class="line">    // css module 类名配置</span><br><span class="line">    localIdentName: DEBUG ? '[name]--[local]--[hash:base64:3]' : '[hash:base64:6]',</span><br><span class="line">    // 是否打包</span><br><span class="line">    minimize: !DEBUG,</span><br><span class="line">    // 处理@import语法</span><br><span class="line">    importLoaders: 1</span><br><span class="line">  &#125;</span>)&#125;`</span>,</span><br><span class="line">  <span class="string">`postcss<span class="subst">$&#123;DEBUG ? '?sourceMap=true' : ''&#125;</span>`</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义不需要CSS Module的公共样式文件路径</span></span><br><span class="line"><span class="keyword">const</span> COMMON_CSS = path.resolve(__dirname, <span class="string">'../src/common'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在配置的两个加载器配置里这么写</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 匹配需要使用CSS module的文件(组件样式)</span></span><br><span class="line">  test: <span class="regexp">/\.(css|scss)$/</span>,</span><br><span class="line">  exclude: COMMON_CSS,</span><br><span class="line">  loader: EXTRACT ? <span class="string">''</span> : ExtractCssPlugin.extract(<span class="string">'style'</span>, CSS_CONF(<span class="literal">true</span>).join(<span class="string">'!'</span>)),</span><br><span class="line">  loaders: EXTRACT ? [<span class="string">'style'</span>].concat(CSS_CONF(<span class="literal">true</span>)) : []</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="comment">// 匹配无需使用CSS Module的文件(公共样式)</span></span><br><span class="line">  test: <span class="regexp">/\.(css|scss)$/</span>,</span><br><span class="line">  include: COMMON_CSS,</span><br><span class="line">  loader: EXTRACT ? <span class="string">''</span> : ExtractCssPlugin.extract(<span class="string">'style'</span>, CSS_CONF(<span class="literal">false</span>).join(<span class="string">'!'</span>)),</span><br><span class="line">  loaders: EXTRACT ? [<span class="string">'style'</span>].concat(CSS_CONF(<span class="literal">false</span>)) : []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意上面css加载器的写法，在开发调试时，我们需要使用<code>sourceMap</code>等工具，并且由于使用<code>dev-middleware</code>，打包生成的内容直接在内存中，不需要使用<code>ExtractCssPlugin</code>(会报错) 所以采用loaders字段用字符串数组写法定义加载器；但在发布时，需要使用插件提取CSS并写入磁盘，但要剔除<code>sourceMap</code>，所以使用loader字段用<code>!</code>连接字符串的写法定义加载器。</p>
+<p><strong> 4.import相对路径配置 </strong></p>
+<p>以前刚开始写node时，觉得<code>require(&#39;../../../xxx/aa.ext&#39;)</code>的写法十分繁琐，而且容易出错。webpack提供了一些路径配置，方便引入前端资源。</p>
+<p>如下是<code>config</code>里的<code>resolve</code>字段<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  root: path.resolve(__dirname, <span class="string">'../src'</span>),</span><br><span class="line">  alias: &#123;</span><br><span class="line">    <span class="string">'@components'</span>: <span class="string">'components'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  modulesDirectories: [<span class="string">'node_modules'</span>],</span><br><span class="line">  <span class="comment">// 如果引入的是一个目录，webpack默认会找package.json文件，按文件配置引入模块</span></span><br><span class="line">  <span class="comment">// directoryDescriptionFiles: &#123;</span></span><br><span class="line">  <span class="comment">//   "package.json": true</span></span><br><span class="line">  <span class="comment">// &#125;,</span></span><br><span class="line">  extensions: EXT  <span class="comment">// EXT是已经定义过的后缀名列表，形如['.js', '.jsx', '.css']</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>比如在任意一个模块中写<code>import AModule from &#39;lib/amodule&#39;</code>会引入项目的<code>./src/lib/amodule</code>，如果是文件名，则匹配后缀；如果是文件夹，则寻找里面的<code>package.json</code>按其定义引入模块。<br>如果在任意模块中写<code>import TinyHeader from &#39;@components/TinyHeader&#39;</code>则会替换别名，在项目目录的<code>./src/components/TinyHeader</code>搜寻合适的模块。<br>我这里采用<code>@components</code>是为了标识这是一个React组件。</p>
+<p><strong> 5.其他小点 </strong></p>
+<ul>
+<li>其他关于js的处理网上资料较多，不赘述</li>
+<li>多页面项目可以采用读取src目录动态生成entry入口的方式</li>
+<li><code>assets-webpack-plugin</code> 能方便生成打包记录</li>
+</ul>
+<h2 id="任务文件">任务文件</h2><p>因为任务文件有时序问题，所以一律使用<code>ES6 Promise</code>或者<code>ES7 async/await</code>写法 ( 只是想体验体验新的js <code>_(:з」∠)_</code> )</p>
+<p><strong> 1.run.js </strong><br>几乎照抄了koistya的写法，是调用其他任务的入口，汇报运行状态，及时报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> run = (task, options) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 引入任务代码</span></span><br><span class="line">  <span class="keyword">const</span> fn = <span class="built_in">require</span>(<span class="string">`./<span class="subst">$&#123;task&#125;</span>.js`</span>).default;</span><br><span class="line">  <span class="keyword">const</span> startTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`[<span class="subst">$&#123;startTime&#125;</span>] Start -<span class="subst">$&#123;fn.name&#125;</span>-`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 统计任务运行时间</span></span><br><span class="line">  <span class="keyword">return</span> fn(options).then(resolve =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> endTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">const</span> duration = endTime.getTime() - startTime.getTime();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`[<span class="subst">$&#123;endTime&#125;</span>] Finished -<span class="subst">$&#123;fn.name&#125;</span>- after <span class="subst">$&#123;duration&#125;</span> ms`</span>);</span><br><span class="line">  &#125;, reject =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> endTime = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">const</span> duration = endTime.getTime() - startTime.getTime();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`[<span class="subst">$&#123;endTime&#125;</span>] Failed -<span class="subst">$&#123;fn.name&#125;</span>- after <span class="subst">$&#123;duration&#125;</span> ms`</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> run;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果直接调用运行如下代码，默认运行start任务</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">require</span>.main === <span class="built_in">module</span> &amp;&amp; process.argv.length &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> task = <span class="string">'start'</span>;</span><br><span class="line">  <span class="keyword">if</span>(process.argv.length &gt; <span class="number">2</span>) task = process.argv[<span class="number">2</span>];</span><br><span class="line">  run(task).catch(err =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.stack);</span><br><span class="line">    process.exit(<span class="number">1</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong> 2.bunlde.js </strong></p>
+<p>打包任务，采用了<code>webpack(config).run(callback(err, stats))</code>API，在打包完成的回调函数中需要用<code>console.log(stats.toString(config.stats));</code>，否则看不到打包详细结果；并且由于没有在webpack引入html，需要手动从打包记录中抓取打包后文件的名字，用<code>html</code>任务渲染ejs生成最终的<code>index.html</code>到目标目录(挺绕的)</p>
+<p><strong> 3.start.js </strong></p>
+<p>这是最主要的任务，逻辑比较简单。<br>先<code>await run(&#39;clean&#39;)</code>清除之前的构建文件。<br>而后判断是否是要发布，发布则调用<code>bundle</code>任务并结束任务。</p>
+<p>如果是调试，需要在第一次bundle完毕后生成html，而后启动Browser-sync，host测试文件夹<code>prebuild</code>，并且在bs实例挂上<code>webpack-dev-middleware</code>和<code>webpack-hot-middleware</code>两个插件；之后watch文件修改时，不重启资源服务器，只重新生成html即可。</p>
+<p>webpack在使用<code>webpack-dev-middleware</code>后，在打包完不会退出，会一直watch文件修改，每次修改(保存<code>src</code>目录下的文件)都会触发新的一次bundle，然后新的bundle文件会带着版本戳在内存中。可以定制一个回调函数去执行结果中取到这些内容。</p>
+<p>因为想使用Browser-sync多端调试页面，需要有一个host目录，目录下必须有一个生成的index.html，所以需要从内存中取出<code>webpack-html-plugin</code>生成的<code>index.html</code>.</p>
+<p>但是由于webpack翔一般的官网文档，回调函数能取到的对象内容没有完全介绍= =、在猜测N次API失败后，去google了一个解决方案，感谢这位歪果仁的<a href="https://gist.github.com/mark-bradshaw/ce2d449e30a856fe3b41" target="_blank" rel="external">代码</a></p>
+<p>即将webpack打包输出的内容丢给<code>memory-fs</code>的示例，用输出文件路径作为字段提出html的Buffer对象，然后写入实际的测试路径。</p>
+<p>想了想还是贴下代码好了 ( 这篇贴的有点多= =  )</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</span><br><span class="line"><span class="keyword">import</span> browserSync <span class="keyword">from</span> <span class="string">'browser-sync'</span>;</span><br><span class="line"><span class="keyword">import</span> webpack <span class="keyword">from</span> <span class="string">'webpack'</span>;</span><br><span class="line"><span class="keyword">import</span> webpackMiddleware <span class="keyword">from</span> <span class="string">'webpack-dev-middleware'</span>;</span><br><span class="line"><span class="keyword">import</span> webpackHotMiddleware <span class="keyword">from</span> <span class="string">'webpack-hot-middleware'</span>;</span><br><span class="line"><span class="keyword">import</span> run <span class="keyword">from</span> <span class="string">'./run'</span>;</span><br><span class="line"><span class="keyword">import</span> html <span class="keyword">from</span> <span class="string">'./html'</span>;</span><br><span class="line"><span class="keyword">import</span> MemoryFileSystem <span class="keyword">from</span> <span class="string">'memory-fs'</span>;</span><br><span class="line"><span class="keyword">import</span> webpackConfig <span class="keyword">from</span> <span class="string">'./webpack.config'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> RUN = !process.argv.includes(<span class="string">'--no-server'</span>),</span><br><span class="line">  DEBUG = !process.argv.includes(<span class="string">'--release'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> run(<span class="string">'clean'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!DEBUG || !RUN) &#123;</span><br><span class="line">    <span class="keyword">await</span> run(<span class="string">'bundle'</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// dev server</span></span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(resolve =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> publicPath = webpackConfig.output.publicPath;</span><br><span class="line">    <span class="keyword">const</span> bundler = webpack(webpackConfig);</span><br><span class="line">    <span class="keyword">const</span> memFs = bundler.outputFileSystem = <span class="keyword">new</span> MemoryFileSystem();</span><br><span class="line">    <span class="keyword">const</span> wpMiddleware = webpackMiddleware(bundler, &#123;</span><br><span class="line">      publicPath: publicPath,</span><br><span class="line">      stats: webpackConfig.stats</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> bs = browserSync.create();</span><br><span class="line">    <span class="keyword">let</span> doneTimes = <span class="number">0</span>;</span><br><span class="line">    bundler.plugin(<span class="string">'done'</span>, (stats) =&gt; &#123;</span><br><span class="line">      <span class="comment">// const files = Object.keys(stats.compilation.assets);</span></span><br><span class="line">      <span class="comment">// html(files);</span></span><br><span class="line">      <span class="keyword">const</span> outPath = path.resolve(__dirname, <span class="string">'../prebuild/index.html'</span>);</span><br><span class="line">      <span class="keyword">const</span> out = memFs.readFileSync(outPath).toString();</span><br><span class="line">      fs.writeFileSync(outPath, out, <span class="string">'utf-8'</span>);</span><br><span class="line">      <span class="keyword">if</span>(++doneTimes === <span class="number">1</span>) &#123;</span><br><span class="line">        bs.init(&#123;</span><br><span class="line">          server: &#123;</span><br><span class="line">            baseDir: path.resolve(__dirname, <span class="string">'../prebuild'</span>),</span><br><span class="line">            middleware: [</span><br><span class="line">              wpMiddleware,</span><br><span class="line">              webpackHotMiddleware(bundler),</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, resolve);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> start;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/04/移动端WEB开发笔记-9-4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端WEB开发笔记 9.4</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Webpack正确使用姿势" data-title="Webpack+React正确使用姿势" data-url="http://yoursite.com/2016/09/30/Webpack正确使用姿势/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wytiny"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 WyTiny
+    	</div>
+      	<div class="footer-right">
+            <p class="footer-theme">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Tinysymphony/hexo-theme-latte" target="_blank">Latte</a> by WyTiny
+            </p>
+            <p class="footer-theme">
+                Based on <a href="https://github.com/litten/hexo-theme-yilia">Yilia</a> (Litten)
+            </p>
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://cdn.bootcss.com/require.js/2.1.6/require.min.js" type="text/javascript"></script>
+<script>
+  // !!LS && LS.load('jquery.min.js', 'http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js');
+  // !!LS && LS.load('require.min.js', 'http://cdn.bootcss.com/require.js/2.1.6/require.min.js');
+
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-78495806-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+  </div>
+</body>
+</html>

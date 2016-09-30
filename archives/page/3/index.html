@@ -28,24 +28,10 @@
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   <script type="text/javascript">
-    //TODO: LS Loader
-    !function(win, doc){
-      win.LS = {
-        loadCSS: function () {
-
-        },
-        loadJS: function () {
-
-        },
-        loadSrc: function () {
-
-        }
-      }
-    }(window, document);
+  !function(t,e){t.LS={tag:"/*LSLOADER*/",jsQueue:[],jsmap:{},cssmap:{},getItem:function(e){var s="";try{s=t.localStorage.getItem(e)}catch(t){s=""}return s},removeItem:function(e){try{t.localStorage.removeItem(e)}catch(t){}},setItem:function(e,s){try{t.localStorage.setItem(e,s)}catch(t){}},load:function(t,e,s){var i=this.getItem(t);if(s=s||this.noop,!i)return this.loadFromSource(t,e,s);var n=i.split(this.tag)[0],o=i.split(this.tag)[1];return n==e&&o?void(/\.js$/.test(n)?(this.jsQueue.push({id:t,code:o,status:"unload"}),this.insertJS(t,o,s)):/\.css$/.test(n)?this.insertCSS(t,o,s):this.loadFromSource(t,e,s)):this.loadFromSource(t,e,s)},insertJS:function(t,e,s){if(s=s||this.noop,t&&e)for(var i in this.jsQueue)this.jsQueue[i].id===t&&(this.jsQueue[i].code=e);var n=document.getElementsByTagName("script")[0],o=document.createElement("script");if(this.jsQueue.length>0&&this.jsQueue[0].code&&"failed"!=this.jsQueue[0].status)o.appendChild(document.createTextNode(this.jsQueue[0].code)),n.parentNode.appendChild(o),s(),this.jsQueue.shift(),this.jsQueue.length>0&&this.insertJS();else if(this.jsQueue.length>0&&"failed"===this.jsQueue[0].status){var u=this;o.src=u.jsQueue[0].url,o.id=u.jsQueue[0].id,o.onload=function(){s(),u.jsQueue.shift(),u.jsQueue.length>0&&u.insertJS()},this.jsQueue.status="loading",n.parentNode.appendChild(o)}},insertCSS:function(t,e,s){document.getElementById(t).appendChild(document.createTextNode(e)),s()},loadFromSource:function(t,e,s){/\.js$/.test(e)?this.loadJS(t,e):/\.css$/.test(e)&&this.loadCSS(t,e,s)},loadJS:function(t,e){var s=this;s.jsQueue.push({id:t,url:e,code:""}),s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),s.insertJS(t,i)},function(){s.tagLoadJS(t,e)})},loadCSS:function(t,e){var s=this;s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),document.getElementById(t).appendChild(document.createTextNode(i))},function(){s.tagLoadCSS(t,e)})},tagLoadJS:function(t,e){if(!this.jsmap[t]){this.jsmap[t]=!0;for(var s in this.jsQueue)this.jsQueue[s].id==t&&(this.jsQueue[s].code="",this.jsQueue[s].status="failed",this.jsQueue[s].url=e);this.insertJS()}},tagLoadCSS:function(t,e,s){if(!this.cssmap[t]){this.cssmap[t]=!0;var i=document.createElement("link"),n=document.getElementsByTagName("head")[0];i.rel="stylesheet",i.href=e,i.charset="utf-8",i.onload=i.onerror=s||this.noop,n.appendChild(i)}},xhrLoad:function(t,e,s){e=e||this.noop,s=s||this.noop;var i=new XMLHttpRequest;try{i.open("get",t,!0),i.onreadystatechange=function(){4==i.readyState&&((i.status>=200&&i.status<300||304==i.status)&&""!=i.response&&e(i.response),s())},i.send()}catch(t){s()}},noop:function(){}}}(window,document);
   </script>
-  <style id="/css/style.css"></style>
   <script type="text/javascript">
-    // LS.loadSrc('/css/style.css', );
+    // LS.load('/css/style.css', );
   </script>
 </head>
 
@@ -149,7 +135,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mixins/" style="font-size: 10px;">Mixins</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Render/" style="font-size: 10px;">Render</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/webpack/" style="font-size: 12.5px;">webpack</a> <a href="/tags/wytiny/" style="font-size: 10px;">wytiny</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/强缓存/" style="font-size: 10px;">强缓存</a> <a href="/tags/校招/" style="font-size: 10px;">校招</a> <a href="/tags/流水账/" style="font-size: 10px;">流水账</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/移动端WEB/" style="font-size: 10px;">移动端WEB</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mixins/" style="font-size: 10px;">Mixins</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Render/" style="font-size: 10px;">Render</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/wytiny/" style="font-size: 10px;">wytiny</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/强缓存/" style="font-size: 10px;">强缓存</a> <a href="/tags/校招/" style="font-size: 10px;">校招</a> <a href="/tags/流水账/" style="font-size: 10px;">流水账</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/移动端WEB/" style="font-size: 10px;">移动端WEB</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
 					</div>
 				</section>
 				
@@ -241,6 +227,37 @@
           <a href="/archives/2015" class="archive-year">2015</a>
         </div>
         <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/07/25/Mongodb-Express-RESTapi设计/" class="archive-article-date">
+  	<time datetime="2015-07-25T04:46:44.000Z" itemprop="datePublished">Jul 25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/07/25/Mongodb-Express-RESTapi设计/">Mongodb + Express &gt; RESTful API设计</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Express/">Express</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mongodb/">Mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST/">REST</a></li></ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
     
     <article class="archive-article archive-type-post">
   <div class="archive-article-inner">
@@ -461,41 +478,6 @@
   </div>
 </article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/" class="archive-article-date">
-  	<time datetime="2015-06-06T00:34:39.000Z" itemprop="datePublished">Jun 6</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/06/06/bs-note6-6-redis-security-frontend-version1-0/">B/S Note6.6 Redis Security | Frontend version1.0</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TinyMint/">TinyMint</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bs/">bs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Database/">Database</a><a class="article-category-link" href="/categories/Database/Fronter/">Fronter</a>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
   
     </div></section>
   
@@ -545,10 +527,12 @@
 </script>
 <script src="http://cdn.bootcss.com/require.js/2.1.6/require.min.js" type="text/javascript"></script>
 <script>
-  // LS.loadSrc('/js/jquery.min.js', 'http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js');
-  // LS.loadSrc('/js/require.min.js', 'http://cdn.bootcss.com/require.js/2.1.6/require.min.js');
+  // !!LS && LS.load('jquery.min.js', 'http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js');
+  // !!LS && LS.load('require.min.js', 'http://cdn.bootcss.com/require.js/2.1.6/require.min.js');
+
 </script>
 <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
 
 <script src="/js/main.js" type="text/javascript"></script>
 
