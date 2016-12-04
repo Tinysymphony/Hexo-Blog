@@ -217,6 +217,65 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-笔试-面试笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/15/笔试-面试笔记/" class="article-date">
+  	<time datetime="2015-10-14T23:19:27.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/笔试-面试笔记/">笔试&amp;面试笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>国庆结束后，每天都是笔试+面试混杂的日子，一会儿城西一会儿城南，或者电脑前做笔试的智商题、OJ、性格测试、阅读题、计算机基础…仔细想想的话，这段时间的压力都是自作自受。前几年更努力些、投入些、或者更早地发现自己想做的事（前端），或许就没今日这样的窘迫。</p>
+<p>今天没有什么安排，就记一下一周来踩过的坑，大部分还是基础不够扎实。混杂一些最近的学习笔记，不一定是前端的。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔试/">笔试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/15/笔试-面试笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Webpack-Gulp构建开发结构" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -699,79 +758,9 @@
 
 
   
-    <article id="post-Mongo-Cluster-Sharding" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/01/Mongo-Cluster-Sharding/" class="article-date">
-  	<time datetime="2015-08-01T15:08:58.000Z" itemprop="datePublished">2015-08-01</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/01/Mongo-Cluster-Sharding/">Mongo Cluster &amp; Sharding</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天尝试了在集群服务器上分片Mongodb数据，做了点mongodb分布式。</p>
-<p>Mongodb自带的分布式工具在架设的时候比较方便，要注意的是以下几个概念：</p>
-<ul>
-<li>Mongod：不同端口运行的mongod是不同的实例，在后台可以看到进程，这是数据分片的基本单位，几个mongod可以搭配成为主从集合或者副本集合（replica set）</li>
-<li>Config Server：启动时指定了configsvr属性的mongod，和普通mongod不同，这里存有所有数据的信息，即哪部分数据在哪个分片上，相当于数据的路由器。</li>
-<li>Mongos：数据库入口，本身不存储数据，在启动的时候获取config server信息，和应用程序交互数据。可以指定多个config server作为路由。</li>
-</ul>
-<p>为了实现高可靠的大批量数据分布存储，通常会将mongod开在不同的机器上，然后数个机器组成一个副本集合（同个集合中的mongod是存着相同数据的），这个副本集合作为一个分片，数个分片搭配一定数量的configsvr（路由），数个mongos（入口）组成一个分布式集群。</p>
-<p>开多个路由是为了提高可靠性，开多个数据入口可以将一些操作分摊到其他机器上，降低负载。（比如一个mongos负责读数据，另一个则负责写）</p>
-<p>今天分成了这个样子：<br><img src="http://7xjgb0.com1.z0.glb.clouddn.com/sharding.png" alt="enter image description here"></p>
-<p>用了6台服务器（性能不同，9/10/11号节点配置稍高一点），7-8-9为一组，10-11-12为一组。</p>
-<p>每台服务器上开了一个副本集合，每个含三个副本mongod，Primary（默认主片）服务器的27002端口，其他两个副本片分别位于组内另外两个服务器上。（不把鸡蛋放在同一个篮子里）</p>
-<p>这种分法有点像raid….<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sharding/">sharding</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/01/Mongo-Cluster-Sharding/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
