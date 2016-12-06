@@ -24,7 +24,7 @@ js scripting —&amp;gt; style —&amp;gt; layout —&amp;gt; paint —&amp;g">
 
 js scripting —&amp;gt; style —&amp;gt; layout —&amp;gt; paint —&amp;g">
 <meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/timeline.png">
-<meta property="og:updated_time" content="2016-12-05T15:35:48.000Z">
+<meta property="og:updated_time" content="2016-12-06T14:32:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Composite Layer & Vue">
 <meta name="twitter:description" content="看过浏览器渲染原理的同学应该可能对composite layer这个名词有所耳闻，有些地方翻译为渲染层。按照Chrome的渲染模式，浏览器将dom按照一定规则分成数个渲染层，分别将每一层绘制为位图后交由GPU处理，最终混合成显示屏上的页面。
@@ -287,6 +287,57 @@ js scripting —&amp;gt; style —&amp;gt; layout —&amp;gt; paint —&amp;g">
 <li>兄弟元素拥有独立渲染层并覆盖在其上面的元素</li>
 </ul>
 <p>所有能涉及GPU加速的因素一定能创建渲染层；所有渲染层的DOM祖宗也是渲染层；妨碍兄弟出人头地的元素他当然也是渲染层……</p>
+<h2 id="Vue">Vue</h2><p>最近在重构部门的商城端项目，原先是FTL的后端渲染配合zepto的刀耕火种。其实对目前的移动端页面开发来说，zepto配合前端模板以及少量的后端直出还是挺多优势，项目的打包结果会比较小，配合一些缓存技术能让首屏有不错的表现。可是，每一个使用Freemarker的前端都是折翼的天使，更主要是目前项目开发得不太规范，导致代码可维护性非常差，影响了开发效率。</p>
+<p>将后台系统 (曾经也是jq= =、感觉这个部门原先是不是没有前端…) 转到ng后，终于有空处理商城端的问题。选型直接上了vue2以及三件套，项目结构是稍微改造的vue-cli webpack版。记一些目前的踩坑经验和想法。</p>
+<h4 id="tap_怎么办">tap 怎么办</h4><p>使用<code>Fastclick</code>或者使用自定义的指令，前者的好处是可以在<code>&lt;template&gt;</code>中使用<code>@click</code>，兼容PC端的写法；后者会有更好的定制性，不过还是偷懒的选择了前者。</p>
+<h4 id="使用_vue_有多重">使用 vue 有多重</h4><p>原先的项目首页 50kb js + 10kb css + 12kb html； 改基于vue的SPA后，仅vue和其三件套 <code>vue-router / vuex / vue-resource</code> 外加 <code>Fastclick</code> 等库文件js打包而成的就有140kb + 20kb css + 60kb 页面渲染及业务逻辑js，html忽略不计。</p>
+<p>看起来是重了不少，不过库文件由于很少会去升级，可以选择 <code>localStorage</code> 的缓存，剩下的也就很可观了。这还是在不使用 <code>require.ensure</code> 语法开启 <code>webpack</code> 的懒加载情况，可以按 <code>vue-rouer</code> 官网的文档，使用如下方式引入页面级组件，避免一次性加载所有页面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HomePage = resolve =&gt; <span class="built_in">require</span>([<span class="string">'@page/HomePage'</span>], resolve)</span><br></pre></td></tr></table></figure>
+<p>但是这有个副作用，就是懒加载后所有页面渲染及业务逻辑js的总和会更大不少，因为 <code>webpack</code> 按照懒加载打包后，如果几个页面共用了同一个组件的代码，它们会重复打包这些组件= =、</p>
+<h4 id="vue_目前的较佳实践">vue 目前的较佳实践</h4><blockquote>
+<p>所有页面的顶层应该是一个“页面级组件”，并且和传统的“积木组件“分开维护</p>
+</blockquote>
+<p>可以明确页面</p>
+<blockquote>
+<p>所有页面级组件最外层可以套一个页面原型组件 (积木组件)</p>
+</blockquote>
+<p>在这个<code>页面原型组件.vue</code> 中做一些各个页面都需要的事情：重置浏览器默认样式、加载全局的样式库（类、动画、字体等）、页面的初始布局、数据的初始化和前后端数据的同步、slot挖坑</p>
+<blockquote>
+<p>一个积木组件如果在不同页面上有不同的样式、轻微布局变化或是逻辑变化，则新建一个以其名字命名的文件夹，里面维护公用的逻辑即mixin.js文件以及其他以形容词命名的.vue文件</p>
+</blockquote>
+<p>方便组件的维护，具体的页面中可能采用形如 <code>import ListItem from &#39;@components/ListItem/Normal&#39;</code> 的方式使用所需的组件。</p>
+<blockquote>
+<p>dom 相关操作使用指令解决 (重用性高的情况下)</p>
+</blockquote>
+<p>不多说、vue 相比 ng 优秀的一点就在于明确了 <code>directive</code> 的作用</p>
+<blockquote>
+<p>所有的数据操作最好经过 vuex action，由 action 组织 commit 操作</p>
+</blockquote>
+<p>方便维护跟踪数据变化</p>
+<blockquote>
+<p>只在 action 中使用 <code>vue-resource</code> </p>
+</blockquote>
+<p>方便维护数据请求</p>
+<blockquote>
+<p>页面数据初始化 (需要后端时)，按需要在页面级或者页面原型组件的 <code>beforeCreate</code> 中 <code>dispatch</code> 请求</p>
+</blockquote>
+<p>在生命周期中 <code>beforeCreate</code> 是最先执行的，并且能获取到 <code>this.$store</code></p>
+<blockquote>
+<p>可以使用 vuex 的 store 避免单向数据流中，子组件操作数据需要使用 props 里的回调函数一层层向上修改父组件的麻烦写法</p>
+</blockquote>
+<p>换句话说就是避免过度使用 <code>data</code> 存储组件数据</p>
+<blockquote>
+<p>对 store 上对象的修改使用 ES6 解构语法</p>
+</blockquote>
+<p>可以看下源码的 <code>getter / setter</code> 机制就能明白了，官网文档中对 <code>data</code> 上属性的操作说明也是这个原因</p>
+<blockquote>
+<p><code>vue-router</code> 在未开启 <code>html5 history</code> 模式时使用动态路由会导致路由变化时，路由参数变化无法被监听</p>
+</blockquote>
+<p>需要使用 watch 属性，定义对 <code>$router</code> 的监听函数，官网有对这个的说明</p>
+<blockquote>
+<p>在写自定义 Directives 时可以尝试写一个工厂，每次调用时返回一个经过配置的 Directive，传给对应的积木组件。此外，使用局部组件会比较好。</p>
+</blockquote>
+<p>总归目前用 Vue 用的还是很舒服的~</p>
 
       
     </div>
