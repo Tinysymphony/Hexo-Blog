@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <noscript>
+    <style media="screen">
+      body {display: none;}
+    </style>
+    <meta http-equiv="refresh" content="0; URL=http://nojs.wytiny.com/">
+  </noscript>
+  
+  <title>花式提升移动端交互体验 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文总结了一些和移动端交互体验相关的小技巧，其实并没有很「花」
+主要的知识点如下：
+
+禁止微信页面及iOS Safari拖动露底效果 (橡皮筋)
+禁止不必要的选择区域
+合理规划用户操作区域
+扩大点击区
+负Margin实现固定栏
+频繁操作使用节流函数
+
+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="花式提升移动端交互体验">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/花式提升移动端交互体验/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="本文总结了一些和移动端交互体验相关的小技巧，其实并没有很「花」
+主要的知识点如下：
+
+禁止微信页面及iOS Safari拖动露底效果 (橡皮筋)
+禁止不必要的选择区域
+合理规划用户操作区域
+扩大点击区
+负Margin实现固定栏
+频繁操作使用节流函数
+
+">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/rubber-effect.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/no-select.png">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/user-area.png">
+<meta property="og:updated_time" content="2016-12-15T15:51:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="花式提升移动端交互体验">
+<meta name="twitter:description" content="本文总结了一些和移动端交互体验相关的小技巧，其实并没有很「花」
+主要的知识点如下：
+
+禁止微信页面及iOS Safari拖动露底效果 (橡皮筋)
+禁止不必要的选择区域
+合理规划用户操作区域
+扩大点击区
+负Margin实现固定栏
+频繁操作使用节流函数
+
+">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script type="text/javascript">
+  !function(t,e){t.LS={tag:"/*LSLOADER*/",jsQueue:[],jsmap:{},cssmap:{},getItem:function(e){var s="";try{s=t.localStorage.getItem(e)}catch(t){s=""}return s},removeItem:function(e){try{t.localStorage.removeItem(e)}catch(t){}},setItem:function(e,s){try{t.localStorage.setItem(e,s)}catch(t){}},load:function(t,e,s){var i=this.getItem(t);if(s=s||this.noop,!i)return this.loadFromSource(t,e,s);var n=i.split(this.tag)[0],o=i.split(this.tag)[1];return n==e&&o?void(/\.js$/.test(n)?(this.jsQueue.push({id:t,code:o,status:"unload"}),this.insertJS(t,o,s)):/\.css$/.test(n)?this.insertCSS(t,o,s):this.loadFromSource(t,e,s)):this.loadFromSource(t,e,s)},insertJS:function(t,e,s){if(s=s||this.noop,t&&e)for(var i in this.jsQueue)this.jsQueue[i].id===t&&(this.jsQueue[i].code=e);var n=document.getElementsByTagName("script")[0],o=document.createElement("script");if(this.jsQueue.length>0&&this.jsQueue[0].code&&"failed"!=this.jsQueue[0].status)o.appendChild(document.createTextNode(this.jsQueue[0].code)),n.parentNode.appendChild(o),s(),this.jsQueue.shift(),this.jsQueue.length>0&&this.insertJS();else if(this.jsQueue.length>0&&"failed"===this.jsQueue[0].status){var u=this;o.src=u.jsQueue[0].url,o.id=u.jsQueue[0].id,o.onload=function(){s(),u.jsQueue.shift(),u.jsQueue.length>0&&u.insertJS()},this.jsQueue.status="loading",n.parentNode.appendChild(o)}},insertCSS:function(t,e,s){document.getElementById(t).appendChild(document.createTextNode(e)),s()},loadFromSource:function(t,e,s){/\.js$/.test(e)?this.loadJS(t,e):/\.css$/.test(e)&&this.loadCSS(t,e,s)},loadJS:function(t,e){var s=this;s.jsQueue.push({id:t,url:e,code:""}),s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),s.insertJS(t,i)},function(){s.tagLoadJS(t,e)})},loadCSS:function(t,e){var s=this;s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),document.getElementById(t).appendChild(document.createTextNode(i))},function(){s.tagLoadCSS(t,e)})},tagLoadJS:function(t,e){if(!this.jsmap[t]){this.jsmap[t]=!0;for(var s in this.jsQueue)this.jsQueue[s].id==t&&(this.jsQueue[s].code="",this.jsQueue[s].status="failed",this.jsQueue[s].url=e);this.insertJS()}},tagLoadCSS:function(t,e,s){if(!this.cssmap[t]){this.cssmap[t]=!0;var i=document.createElement("link"),n=document.getElementsByTagName("head")[0];i.rel="stylesheet",i.href=e,i.charset="utf-8",i.onload=i.onerror=s||this.noop,n.appendChild(i)}},xhrLoad:function(t,e,s){e=e||this.noop,s=s||this.noop;var i=new XMLHttpRequest;try{i.open("get",t,!0),i.onreadystatechange=function(){4==i.readyState&&((i.status>=200&&i.status<300||304==i.status)&&""!=i.response&&e(i.response),s())},i.send()}catch(t){s()}},noop:function(){}}}(window,document);
+  </script>
+  <script type="text/javascript">
+    // LS.load('/css/style.css', );
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/avatar-100kb.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">WyTiny</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="http://www.wytiny.com">TinyMint</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mixins/" style="font-size: 10px;">Mixins</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Render/" style="font-size: 10px;">Render</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/composite-layer/" style="font-size: 10px;">composite layer</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/wytiny/" style="font-size: 10px;">wytiny</a> <a href="/tags/交互/" style="font-size: 10px;">交互</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/强缓存/" style="font-size: 10px;">强缓存</a> <a href="/tags/校招/" style="font-size: 10px;">校招</a> <a href="/tags/流水账/" style="font-size: 10px;">流水账</a> <a href="/tags/浏览器渲染/" style="font-size: 10px;">浏览器渲染</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户体验/" style="font-size: 10px;">用户体验</a> <a href="/tags/瞎想/" style="font-size: 10px;">瞎想</a> <a href="/tags/移动端WEB/" style="font-size: 12.5px;">移动端WEB</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xn--l4tn57c.xn--fiqs8s/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xjp.in/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">WyTiny</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/avatar-100kb.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">WyTiny</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="http://www.wytiny.com">TinyMint</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-花式提升移动端交互体验" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/15/花式提升移动端交互体验/" class="article-date">
+  	<time datetime="2016-12-15T15:11:09.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      花式提升移动端交互体验
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/交互/">交互</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/用户体验/">用户体验</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端WEB/">移动端WEB</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文总结了一些和移动端交互体验相关的小技巧，其实并没有很「花」</p>
+<p>主要的知识点如下：</p>
+<ul>
+<li>禁止微信页面及iOS Safari拖动露底效果 (橡皮筋)</li>
+<li>禁止不必要的选择区域</li>
+<li>合理规划用户操作区域</li>
+<li>扩大点击区</li>
+<li>负Margin实现固定栏</li>
+<li>频繁操作使用节流函数</li>
+</ul>
+<p><br><a id="more"></a></p>
+<h2 id="禁止微信页面及iOS_Safari拖动露底效果_(橡皮筋)">禁止微信页面及iOS Safari拖动露底效果 (橡皮筋)</h2><p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/rubber-effect.png" alt=""></p>
+<p>上图就是露底效果 (橡皮筋效果)</p>
+<p>其实不止iOS，安卓微信也会有这种露底的效果，为了更接近原生app的体验，建议禁止最外层的橡皮筋效果，防止webview或页面露出底部容器。</p>
+<p>仔细使用可以发现，当滑动到顶部，继续往下滑时，容器会暴露；滑动到底部，继续往上滑，容器会暴露。<br>本质是一个 <code>touchmove</code> 事件不断向上冒泡，尝试拉开自身的容器，如果一直无法拉开冒泡到 webview 时，就出现“露底”。<br>解决思路很明显：当容器可以滑动时，若已经在顶部，禁止下滑；若在底部，禁止上滑；容器无法滚动时，禁止上下滑。</p>
+<p>基本实现方式是通过 <code>document</code> 上监听 <code>touchstart</code> 和 <code>touchmove</code> 事件，判断滑动方向；判断滑动事件的触发 target 祖先元素是否有可滑动元素，无则直接阻止冒泡。<br>若有这种祖先元素，判断其状态：<code>offsetHeight &gt;= scrollHeight</code> 高度不够发生滚动，阻止冒泡；若可滚动 <code>scrollTop === 0</code> 即在顶部，阻止下滑的冒泡；若 <code>scrollTop + offsetHeight &gt;= scrollHeight</code> 已经滑到底，阻止上滑的冒泡。</p>
+<p>还需注意的是，要先判断滑动时 x 轴位移是否大于 y 轴 ，即是否是水平滑动，防止“误伤”一些水平滚动的元素。<br>下面是一个示例代码（<code>class=&quot;scroller&quot;</code>的元素被标记为可滚动元素）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'src/util'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> (<span class="params">option</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> scrollSelector = option.scroll || <span class="string">'.scroller'</span></span><br><span class="line">  <span class="keyword">var</span> pos = &#123;</span><br><span class="line">    x: <span class="number">0</span>,</span><br><span class="line">    y: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">stopEvent</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault()</span><br><span class="line">    e.stopPropagation()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">recordPosition</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    pos.x = e.touches[<span class="number">0</span>].clientX</span><br><span class="line">    pos.y = e.touches[<span class="number">0</span>].clientY</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">watchTouchMove</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target = e.target</span><br><span class="line">    <span class="keyword">var</span> parents = _.parents(target, scrollSelector)</span><br><span class="line">    <span class="keyword">var</span> el = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">if</span> (target.classList.contains(scrollSelector)) el = target</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (parents.length) el = parents[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> stopEvent(e)</span><br><span class="line">    <span class="keyword">var</span> dx = e.touches[<span class="number">0</span>].clientX - pos.x</span><br><span class="line">    <span class="keyword">var</span> dy = e.touches[<span class="number">0</span>].clientY - pos.y</span><br><span class="line">    <span class="keyword">var</span> direction = dy &gt; <span class="number">0</span> ? <span class="string">'10'</span> : <span class="string">'01'</span></span><br><span class="line">    <span class="keyword">var</span> scrollTop = el.scrollTop</span><br><span class="line">    <span class="keyword">var</span> scrollHeight = el.scrollHeight</span><br><span class="line">    <span class="keyword">var</span> offsetHeight = el.offsetHeight</span><br><span class="line">    <span class="keyword">var</span> isVertical = <span class="built_in">Math</span>.abs(dx) &lt; <span class="built_in">Math</span>.abs(dy)</span><br><span class="line">    <span class="keyword">var</span> status = <span class="string">'11'</span></span><br><span class="line">    <span class="keyword">if</span> (scrollTop === <span class="number">0</span>) &#123;</span><br><span class="line">      status = offsetHeight &gt;= scrollHeight ? <span class="string">'00'</span> : <span class="string">'01'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (scrollTop + offsetHeight &gt;= scrollHeight) &#123;</span><br><span class="line">      status = <span class="string">'10'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (status !== <span class="string">'11'</span> &amp;&amp; isVertical &amp;&amp; !(<span class="built_in">parseInt</span>(status, <span class="number">2</span>) &amp; <span class="built_in">parseInt</span>(direction, <span class="number">2</span>))) <span class="keyword">return</span> stopEvent(e)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'touchstart'</span>, recordPosition, <span class="literal">false</span>)</span><br><span class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">'touchmove'</span>, watchTouchMove, <span class="literal">false</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h2 id="禁止不必要的选择区域">禁止不必要的选择区域</h2><p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/no-select.png" alt=""></p>
+<p>如上左图，用户在手指停留过久的时候无意间触发了选择动作，但实际上这块区域没有被选择的必要，这影响了用户正常的操作。<br>这些标签可以使用 <code>.no-select { user-select: none; }</code> 解决（前缀交给处理器吧）<br>这个子元素会继承这个属性，所以只需要在稍微顶层的元素写就行，对于一些长文本内容，不应该添加这个属性，用户可能会有选择的需求。</p>
+<p>开发中可以用<code>cmd + a</code>全选页面内容，如上右图，蓝色的即为当前可选区域（截图中的区域应该都禁止选择）</p>
+<p><br></p>
+<h2 id="合理规划用户操作区域">合理规划用户操作区域</h2><p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/user-area.png" alt=""></p>
+<p>用户最方便且单手能操作的区域如上左图蓝色区所示，应该确保用户的大部分点、触、滑、输入操作都集中在这块；更为常用的、高频的操作应该集中在这块。</p>
+<p>如上图的输入框，远离了用户操作的输入区，应该只成为一个入口。所以在这里的交互设计上，选择点击后弹出一个真正的输入区，如右图。（模仿Airbnb）</p>
+<p>如此引导用户进入舒适区做进一步交互。</p>
+<blockquote>
+<p><del>不过左上的关闭按钮也是一个槽点、、、</del></p>
+</blockquote>
+<p><br></p>
+<h2 id="扩大点击区">扩大点击区</h2><p>这个其实在上一篇关于移动端WEB开发的笔记里已经提到过，这里重新说一下。</p>
+<p>移动端页面的点触事件是用户通过手指直接触发的，这和PC页面上鼠标触发的按钮不同，需要给予用户一定的点击容错率。</p>
+<p>我们扩大按钮的实际触发区域，一般情况下可以使用padding去做，缺点在于可能会影响布局；</p>
+<p>另一种方案是使用垫在元素底部的伪类<code>::after / ::before</code>去扩大，不会影响布局，缺点是会增加复合层数量。</p>
+<p>具体使用哪种看取舍。</p>
+<p><br></p>
+<h2 id="负Margin实现固定栏">负Margin实现固定栏</h2><p>负margin可以代替fixed，用正常流布局实现顶部栏 / 底部栏固定。</p>
+<p><br></p>
+<h2 id="频繁操作使用节流函数">频繁操作使用节流函数</h2><p>大部分同学应该都知道节流是个啥，不赘述；要提的一点是，节流函数可以用<code>requestAnimationFrame</code> 或者 <code>requestIdleCallback</code> 去实现。<br>一个节流函数的栗子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_throttle</span> (<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> running = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">let</span> isFrame = <span class="literal">false</span></span><br><span class="line">  <span class="keyword">if</span> (!time) isFrame = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">const</span> getCallback = (self, args) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> () =&gt; &#123;</span><br><span class="line">      fn.apply(self, args)</span><br><span class="line">      running = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (running) <span class="keyword">return</span></span><br><span class="line">    running = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">if</span> (isFrame) &#123;</span><br><span class="line">      <span class="built_in">window</span>.requestAnimationFrame(getCallback(<span class="keyword">this</span>, <span class="built_in">arguments</span>))</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      setTimeout(getCallback(<span class="keyword">this</span>, <span class="built_in">arguments</span>), time)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/05/Composite-Layer-Vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Composite Layer &amp; Vue</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="花式提升移动端交互体验" data-title="花式提升移动端交互体验" data-url="http://yoursite.com/2016/12/15/花式提升移动端交互体验/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wytiny"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 WyTiny
+    	</div>
+      	<div class="footer-right">
+            <p class="footer-theme">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Tinysymphony/hexo-theme-latte" target="_blank">Latte</a> by WyTiny
+            </p>
+            <p class="footer-theme">
+                Based on <a href="https://github.com/litten/hexo-theme-yilia">Yilia</a> (Litten)
+            </p>
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://cdn.bootcss.com/require.js/2.1.6/require.min.js" type="text/javascript"></script>
+<script>
+  // !!LS && LS.load('jquery.min.js', 'http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js');
+  // !!LS && LS.load('require.min.js', 'http://cdn.bootcss.com/require.js/2.1.6/require.min.js');
+
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-78495806-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+  </div>
+</body>
+</html>
