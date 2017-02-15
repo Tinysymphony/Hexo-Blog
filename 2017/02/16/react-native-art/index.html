@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <noscript>
+    <style media="screen">
+      body {display: none;}
+    </style>
+    <meta http-equiv="refresh" content="0; URL=http://nojs.wytiny.com/">
+  </noscript>
+  
+  <title>React Native Art 介绍 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="注： 本文同时发表于鲜果FE团队博客
+
+React Native ART 由来react-art是reactjs团队基于art（一个兼容各个浏览器SVG绘制的API封装）开发的模块，让react开发者能使用jsx语法绘制svg.
+react native团队分别在0.10.0和0.18.0也添加了iOS和Android平台对react-art的支持，RN在本文写稿时已经发版至0.41.0，官网文档">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native Art 介绍">
+<meta property="og:url" content="http://yoursite.com/2017/02/16/react-native-art/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="注： 本文同时发表于鲜果FE团队博客
+
+React Native ART 由来react-art是reactjs团队基于art（一个兼容各个浏览器SVG绘制的API封装）开发的模块，让react开发者能使用jsx语法绘制svg.
+react native团队分别在0.10.0和0.18.0也添加了iOS和Android平台对react-art的支持，RN在本文写稿时已经发版至0.41.0，官网文档">
+<meta property="og:image" content="http://7xjgb0.com1.z0.glb.clouddn.com/artAnimationStars.gif">
+<meta property="og:updated_time" content="2017-02-15T16:36:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native Art 介绍">
+<meta name="twitter:description" content="注： 本文同时发表于鲜果FE团队博客
+
+React Native ART 由来react-art是reactjs团队基于art（一个兼容各个浏览器SVG绘制的API封装）开发的模块，让react开发者能使用jsx语法绘制svg.
+react native团队分别在0.10.0和0.18.0也添加了iOS和Android平台对react-art的支持，RN在本文写稿时已经发版至0.41.0，官网文档">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script type="text/javascript">
+  !function(t,e){t.LS={tag:"/*LSLOADER*/",jsQueue:[],jsmap:{},cssmap:{},getItem:function(e){var s="";try{s=t.localStorage.getItem(e)}catch(t){s=""}return s},removeItem:function(e){try{t.localStorage.removeItem(e)}catch(t){}},setItem:function(e,s){try{t.localStorage.setItem(e,s)}catch(t){}},load:function(t,e,s){var i=this.getItem(t);if(s=s||this.noop,!i)return this.loadFromSource(t,e,s);var n=i.split(this.tag)[0],o=i.split(this.tag)[1];return n==e&&o?void(/\.js$/.test(n)?(this.jsQueue.push({id:t,code:o,status:"unload"}),this.insertJS(t,o,s)):/\.css$/.test(n)?this.insertCSS(t,o,s):this.loadFromSource(t,e,s)):this.loadFromSource(t,e,s)},insertJS:function(t,e,s){if(s=s||this.noop,t&&e)for(var i in this.jsQueue)this.jsQueue[i].id===t&&(this.jsQueue[i].code=e);var n=document.getElementsByTagName("script")[0],o=document.createElement("script");if(this.jsQueue.length>0&&this.jsQueue[0].code&&"failed"!=this.jsQueue[0].status)o.appendChild(document.createTextNode(this.jsQueue[0].code)),n.parentNode.appendChild(o),s(),this.jsQueue.shift(),this.jsQueue.length>0&&this.insertJS();else if(this.jsQueue.length>0&&"failed"===this.jsQueue[0].status){var u=this;o.src=u.jsQueue[0].url,o.id=u.jsQueue[0].id,o.onload=function(){s(),u.jsQueue.shift(),u.jsQueue.length>0&&u.insertJS()},this.jsQueue.status="loading",n.parentNode.appendChild(o)}},insertCSS:function(t,e,s){document.getElementById(t).appendChild(document.createTextNode(e)),s()},loadFromSource:function(t,e,s){/\.js$/.test(e)?this.loadJS(t,e):/\.css$/.test(e)&&this.loadCSS(t,e,s)},loadJS:function(t,e){var s=this;s.jsQueue.push({id:t,url:e,code:""}),s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),s.insertJS(t,i)},function(){s.tagLoadJS(t,e)})},loadCSS:function(t,e){var s=this;s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),document.getElementById(t).appendChild(document.createTextNode(i))},function(){s.tagLoadCSS(t,e)})},tagLoadJS:function(t,e){if(!this.jsmap[t]){this.jsmap[t]=!0;for(var s in this.jsQueue)this.jsQueue[s].id==t&&(this.jsQueue[s].code="",this.jsQueue[s].status="failed",this.jsQueue[s].url=e);this.insertJS()}},tagLoadCSS:function(t,e,s){if(!this.cssmap[t]){this.cssmap[t]=!0;var i=document.createElement("link"),n=document.getElementsByTagName("head")[0];i.rel="stylesheet",i.href=e,i.charset="utf-8",i.onload=i.onerror=s||this.noop,n.appendChild(i)}},xhrLoad:function(t,e,s){e=e||this.noop,s=s||this.noop;var i=new XMLHttpRequest;try{i.open("get",t,!0),i.onreadystatechange=function(){4==i.readyState&&((i.status>=200&&i.status<300||304==i.status)&&""!=i.response&&e(i.response),s())},i.send()}catch(t){s()}},noop:function(){}}}(window,document);
+  </script>
+  <script type="text/javascript">
+    // LS.load('/css/style.css', );
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay">
+
+</div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/maki-400x400.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">TinySymphony</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu" id="J-menu">
+						<ul>
+							
+								
+									<li><a href="/" class="menu-item">主页</a></li>
+								
+					    
+								
+									<li><a href="/archives" class="menu-item">所有文章</a></li>
+								
+					    
+								
+									<li><a href="javascript:;" class="menu-item modal-item" id="J-demo">DEMO</a></li>
+								
+					    
+								
+									<li><a href="javascript:;" class="menu-item modal-item" id="J-tags">LINKS</a></li>
+								
+					    
+								
+									<li><a href="javascript:;" class="menu-item modal-item" id="J-about">About Me</a></li>
+								
+					    
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mixins/" style="font-size: 10px;">Mixins</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Render/" style="font-size: 10px;">Render</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/art/" style="font-size: 10px;">art</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/composite-layer/" style="font-size: 10px;">composite layer</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsfiddle/" style="font-size: 10px;">jsfiddle</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/wytiny/" style="font-size: 10px;">wytiny</a> <a href="/tags/交互/" style="font-size: 10px;">交互</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/强缓存/" style="font-size: 10px;">强缓存</a> <a href="/tags/校招/" style="font-size: 10px;">校招</a> <a href="/tags/流水账/" style="font-size: 10px;">流水账</a> <a href="/tags/浏览器渲染/" style="font-size: 10px;">浏览器渲染</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户体验/" style="font-size: 10px;">用户体验</a> <a href="/tags/瞎想/" style="font-size: 10px;">瞎想</a> <a href="/tags/移动端WEB/" style="font-size: 12.5px;">移动端WEB</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xn--l4tn57c.xn--fiqs8s/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xjp.in/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <canvas id="canvas-points"></canvas>
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">TinySymphony</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xjgb0.com1.z0.glb.clouddn.com/maki-400x400.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">TinySymphony</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+          
+            
+              <li><a href="/" class="m-menu-item">主页</a></li>
+            
+          
+            
+              <li><a href="/archives" class="m-menu-item">所有文章</a></li>
+            
+          
+            
+              <li><a href="javascript:;" class="m-menu-item" id="J-demo">DEMO</a></li>
+            
+          
+            
+              <li><a href="javascript:;" class="m-menu-item" id="J-tags">LINKS</a></li>
+            
+          
+            
+              <li><a href="javascript:;" class="m-menu-item" id="J-about">About Me</a></li>
+            
+          
+          <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-react-native-art" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/16/react-native-art/" class="article-date">
+  	<time datetime="2017-02-15T16:31:05.000Z" itemprop="datePublished">2017-02-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header ">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React Native Art 介绍
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/art/">art</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>注： 本文同时发表于<a href="http://xgfe.github.io/" target="_blank" rel="external">鲜果FE团队博客</a></p>
+</blockquote>
+<h3 id="React_Native_ART_由来">React Native ART 由来</h3><p><code>react-art</code>是reactjs团队基于<code>art</code>（一个兼容各个浏览器SVG绘制的API封装）开发的模块，让react开发者能使用jsx语法绘制svg.</p>
+<p>react native团队分别在0.10.0和0.18.0也添加了iOS和Android平台对react-art的支持，RN在本文写稿时已经发版至<code>0.41.0</code>，官网文档至今对其只字未提。本文旨在介绍安静躺在<code>react-native/Libraries/</code>里的<code>ART</code>，并展示一些实践结果。</p>
+<a id="more"></a>
+<h3 id="ART能干什么">ART能干什么</h3><p>俗话说，<strong>库如其名</strong>，背负着如此具有“艺术感”名字的ART生来就是为了绘制矢量图的，或者说是“画”UI的。</p>
+<p>在web页面开发时想必大部分前端工程师都使用过svg格式的切图，矢量保证了图片的高清无码而且较小的文件体积对页面加载速度十分友好。并且svg绘图的另一个极大优点是其自身在dom树中能绑定事件，为数据可视化领域所青睐。</p>
+<p>React Native开发者是无法直接使用矢量图的，<code>&lt;Image&gt;</code>标签不支持svg格式的资源。目前使用矢量图标的一个选择是<a href="https://github.com/oblador/react-native-vector-icons" target="_blank" rel="external">react-native-vector-icons</a>这种icon font形式的实现。</p>
+<p>另一条路就是ART。ART相比于<code>&lt;Image&gt;</code>标签的最大优势是同步渲染，<code>&lt;Image&gt;</code>标签在官网文档的描述中有这样一句：</p>
+<blockquote>
+<p>Image decoding can take more than a frame-worth of time</p>
+</blockquote>
+<p>图片的解码由于不在主线程中进行，所以不能确保所有图片和内容在同一帧内出现。使用<code>&lt;Image&gt;</code>标签的制作的组件这就很尴尬了，整个组件里的图（比如icon）可能是三三两两“闪现”出来的，让人怀疑是个<code>webview</code>，体验远不如原生。</p>
+<p>此外ART和icon-font一样，让开发者摆脱了针对<code>&lt;Image&gt;</code>提供<code>@2x</code>/<code>@3x</code>图的麻烦。</p>
+<h3 id="上手ART">上手ART</h3><blockquote>
+<p>注：本文所用RN版本<code>0.40.0</code></p>
+</blockquote>
+<h4 id="事先准备">事先准备</h4><ol>
+<li>ART在iOS上使用需要事先导入ART的链接库，找到<code>node_modules/react-native/Libraries/ART/ART.xcdoeproj</code>拖入Xcode对应项目的<code>Libraries</code></li>
+<li>打开<code>General Settings</code>添加<code>libART.a</code>到<code>Linked Frameworks and Libraries</code>列表</li>
+<li><code>cmd+b</code>重新构建项目</li>
+</ol>
+<h4 id="基本API">基本API</h4><blockquote>
+<p><a href="https://github.com/react-native-china/react-native-ART-doc/blob/master/doc.md" target="_blank" rel="external">ART文档 (非官方)</a> 在github上有这样比较全一篇文档，可以选择直接看它了解使用。</p>
+</blockquote>
+<p>ART目前只提供以下几个API（打印属性窥视到的…）：</p>
+<p>前四个属性是以<code>ReactComponent</code>为原型的对象，可推断是作为jsx标签使用的。</p>
+<ul>
+<li><code>Surface</code>标签对应svg中的<code>svg</code>标签，所有ART的jsx内容需要被其包含</li>
+<li><code>Group</code>标签对应<code>g</code>标签</li>
+<li><code>Shape</code>标签对应<code>path</code>标签</li>
+<li><code>Text</code>标签对应<code>text</code>标签</li>
+<li><code>Transform</code>做图形变换的API</li>
+<li><code>Path</code>绘制路径API</li>
+<li><code>LinearGradient</code>创建线性渐变API</li>
+<li><code>RadialGradient</code>创建径向渐变API</li>
+<li><code>Pattern</code>疑似<code>pattern</code>标签做图片填充的API，使用标准格式推测为<code>new Pattern(url, width, height, left, top)</code></li>
+<li><code>ClippingRectangle</code>意义不明，可能和<code>clipPath</code>接近，定义一个蒙版</li>
+</ul>
+<p>可以看到ART和svg还是有不同的，有点像是阉割后的svg，没有诸如<code>path</code>/<code>rect</code>/<code>animate</code>/<code>circle</code>/<code>ellipse</code>的标签。</p>
+<p>当然已经有开发者做了实现，可以方便地使用svg标签写ART =&gt; <a href="https://github.com/react-native-community/react-native-svg" target="_blank" rel="external">react-native-svg</a></p>
+<p>不过本文后续的例子还是使用原原本本的ART实践。</p>
+<h4 id="ART基础使用栗子">ART基础使用栗子</h4><p>基本的几个案例如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后面例子的引入会省略</span></span><br><span class="line"><span class="keyword">import</span> &#123;ART&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  Surface,</span><br><span class="line">  Group,</span><br><span class="line">  Shape,</span><br><span class="line">  Path,</span><br><span class="line">  Transform</span><br><span class="line">&#125; = ART;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绘制ART图像</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawVector</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">Surface</span> <span class="attribute">width</span>=<span class="value">&#123;300&#125;</span> <span class="attribute">height</span>=<span class="value">&#123;400&#125;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">Group</span> <span class="attribute">x</span>=<span class="value">&#123;0&#125;</span> <span class="attribute">y</span>=<span class="value">&#123;0&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">Shape</span></span><br><span class="line">          <span class="attribute">scale</span>=<span class="value">&#123;1.0&#125;</span></span><br><span class="line">          <span class="attribute">stroke</span>=<span class="value">&#123;"#ff0"&#125;</span></span><br><span class="line">          <span class="attribute">strokeWidth</span>=<span class="value">&#123;4&#125;</span></span><br><span class="line">          <span class="attribute">d</span>=<span class="value">&#123;generateSvgPath()&#125;</span></span><br><span class="line">          <span class="attribute">transform</span>=<span class="value">&#123;new</span> <span class="attribute">Transform</span>()<span class="attribute">.translate</span>(<span class="attribute">150</span>, <span class="attribute">150</span>)<span class="attribute">.rotate</span>(<span class="attribute">30</span>, <span class="attribute">100</span>, <span class="attribute">100</span>)<span class="attribute">.scale</span>(<span class="attribute">3</span>, <span class="attribute">2</span>)&#125;</span><br><span class="line">        /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">Group</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">Surface</span>&gt;</span></span><br><span class="line">  )</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Surface</code>必须是ART内容的父层，并且其中不能包含非ART标签（否则直接闪退…），需要指定宽高。</p>
+<p><code>Group</code>可有可无，当绘制内容较多时可以用其统一管理，可以把它当做<code>View</code>标签使用，可制定内容在画布绘制的起点。</p>
+<p><code>Shape</code>是目前ART绘制的一把手，<code>d</code>属性对标svg的<code>path</code>标签上的<code>d</code>属性。</p>
+<p>所有的ART标签都可以使用<code>transform</code>属性做变换，值是由 <code>Transform</code> API 生成的，上面链式调用就是确定其移动位置/旋转/缩放。</p>
+<p>由于ART和svg的区别，如果需要从svg图转成ART代码，这个svg图最好全由path组成或者全部转成路径的写法。<br>这点其实很尴尬，也是开源社区出现上节提到的那个模块的主要原因。不过估计RN团队之后可能会做新的ART标签支持。</p>
+<p>上面例子中的<code>generateSvgPath</code>是一个插值计算、返回路径字符串的一个函数，如果有现成的svg代码可以选择这么做，下面的例子则是利用ART的 <code>Path</code> API 构造一段路径，更有绘制的感觉。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用Path生成圆形</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">circlePathRender</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> path = Path().moveTo(<span class="number">0</span>,<span class="number">100</span>)</span><br><span class="line">    .arc(<span class="number">0</span>, radius * <span class="number">2</span>, radius)</span><br><span class="line">    .arc(<span class="number">0</span>, radius * -<span class="number">2</span>, radius)</span><br><span class="line">    .close(); <span class="comment">// 闭合路径</span></span><br><span class="line">  <span class="comment">// 构造而成的path可以直接复制给d属性</span></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="title">Shape</span> <span class="attribute">d</span>=<span class="value">&#123;path&#125;</span> <span class="attribute">fill</span>=<span class="value">&#123;'#2ba'&#125;</span>/&gt;</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绘制多边形</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">polygonPathRender</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> path = Path().moveTo(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">    .lineTo(<span class="number">20</span>, <span class="number">30</span>)</span><br><span class="line">    .lineTo(<span class="number">30</span>, <span class="number">40</span>)</span><br><span class="line">    .lineTo(<span class="number">10</span>, <span class="number">60</span>)</span><br><span class="line">    .lineTo(<span class="number">0</span>, <span class="number">50</span>)</span><br><span class="line">    .lineTo(-<span class="number">20</span>, <span class="number">40</span>)</span><br><span class="line">    .close(); <span class="comment">// 闭合路径</span></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="title">Shape</span> <span class="attribute">d</span>=<span class="value">&#123;path&#125;</span> <span class="attribute">fill</span>=<span class="value">&#123;'#00a'&#125;</span> <span class="attribute">stroke</span>=<span class="value">"yellow"</span> <span class="attribute">strokeWidth</span>=<span class="value">&#123;4&#125;</span>/&gt;</span></span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p><code>Path</code>的各种方法很接近svg标准，除了上面出现的<code>lineTo</code>/<code>moveTo</code>/<code>arc</code>之外，还有<code>arcTo</code>/<code>curve</code>/<code>line</code>等API<br>满足日常绘制需求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绘制文字</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">textRender</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">Text</span></span><br><span class="line">      <span class="attribute">font</span>=<span class="value">&#123;`bold</span> <span class="attribute">13px</span> "<span class="attribute">Helvetica</span> <span class="attribute">Neue</span>", "<span class="attribute">Helvetica</span>", <span class="attribute">Arial</span>`&#125;</span><br><span class="line">      <span class="attribute">fill</span>=<span class="value">"#749"</span></span><br><span class="line">      <span class="attribute">x</span>=<span class="value">&#123;0&#125;</span></span><br><span class="line">      <span class="attribute">y</span>=<span class="value">&#123;0&#125;</span></span><br><span class="line">    &gt;</span></span><br><span class="line">      Lorem ipsum dolor sit amet</span><br><span class="line">    <span class="tag">&lt;/<span class="title">Text</span>&gt;</span></span><br><span class="line">  )</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子绘制文本，<code>font</code>属性可以选择使用对象<code>{fontWeight: &#39;bold&#39;, fontSize: 13, fontFamily: &#39;Helvetica,Neue Helvetica,Arial&#39;}</code>代替。</p>
+<p>目前都使用一个固定的rgb值填充ART图像，<code>LinearGradient</code>和<code>RadialGradient</code>给我们像css一样用渐变色的选择。</p>
+<ul>
+<li>线性渐变</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// linearGradient 可赋值给Path或者Text标签的fill属性</span></span><br><span class="line"><span class="keyword">var</span> linearGradient = <span class="keyword">new</span> ART.LinearGradient(&#123;</span><br><span class="line">  <span class="string">"0"</span>: <span class="string">"#2ba"</span>,</span><br><span class="line">  <span class="string">".5"</span>: <span class="string">"#f90"</span>,</span><br><span class="line">  <span class="string">"0.7"</span>: <span class="string">"#aa4422"</span>,</span><br><span class="line">  <span class="string">"1"</span>: <span class="string">"rgba(255,255,255,0.5)"</span></span><br><span class="line">&#125;, <span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">200</span>);</span><br></pre></td></tr></table></figure>
+<p><code>LinearGradient</code>构造函数第一个参数是设定渐变色的对象，使用诸如<code>0.3</code>/<code>.52</code>/<code>1</code>这样的属性表示<code>30%</code>/<code>52%</code>/<code>100%</code>，值为颜色值，不符合要求的键值对会被忽略。<br>后面四个参数分别表示：起点x，起点y，终点x，终点y.</p>
+<ul>
+<li>径向渐变</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// radialGradient 可赋值给Path或者Text标签的fill属性</span></span><br><span class="line"><span class="keyword">var</span> radialGradient = <span class="keyword">new</span> ART.RadialGradient(&#123;</span><br><span class="line">  <span class="string">".1"</span>: <span class="string">"#2fb000"</span>,</span><br><span class="line">  <span class="string">".9"</span>: <span class="string">"#a080f0"</span>,</span><br><span class="line">&#125;, <span class="number">300</span>, <span class="number">200</span>, <span class="number">400</span>, <span class="number">400</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br></pre></td></tr></table></figure>
+<p><code>RadialGradient</code>构造函数第一个参数是和线性渐变相同的，后续六个分别表示：焦点x，焦点y，x半轴长，y半轴长，原点x，原点y.</p>
+<h4 id="ART动画">ART动画</h4><p>绘制矢量图标通过上述API的组合基本能实现，下面来讲讲动画效果的制作 (Kira☆~)</p>
+<blockquote>
+<p>首先感谢Jason Brown的ART动画分享~ 本节内容主要源自他的博文:<br><a href="http://browniefed.com/blog/react-native-morphing-svg-paths-with-react-art/" target="_blank" rel="external">art Morph动画</a><br><a href="http://browniefed.com/blog/react-native-how-to-create-twitter-exploding-hearts/" target="_blank" rel="external">art Animated动画</a></p>
+</blockquote>
+<p>第一个方法是使用ART它爷爷<code>art</code>库中的的<code>Morph</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为ART有art库的依赖，所以可以直接import</span></span><br><span class="line"><span class="keyword">import</span> Morph <span class="keyword">from</span> <span class="string">'art/morph/path'</span></span><br></pre></td></tr></table></figure>
+<p>Morph的基本API是<code>Morph.Tween(startSvg, endSvg)</code>，指定了一个渐变的过程对象，该对象可以直接复制给<code>Shape</code>标签的<code>d</code>属性。</p>
+<p>调用<code>Morph.Tween(startSvg, endSvg).tween(percentage)</code>可以指定其渐变的程度，从0到1.0的动画展示便是startSvg路径变换到endSvg路径的过程。</p>
+<p>使用<code>requestAnimationFrame</code>修改保存在state中渐变对象的渐变程度可以方便地做出动画渐变的效果，具体可以看Jason Brown的<a href="(http://browniefed.com/blog/react-native-morphing-svg-paths-with-react-art/">博文</a>)。</p>
+<hr>
+<p>其实鉴于ART中无法使用RN其他标签这点，使用最老土的<code>state</code>绑定制作动画和<code>Animated</code>制作动画在笔者的测试中性能差别并不大。<br>因为ART在动画的过程中基本上整体都需要重绘，并不像一般RN标签做动画会牵扯到许多实际上无重绘需求的子节点。</p>
+<p>不过<code>state</code>和动画样式耦合一般是不推荐的方式，且<code>Animated</code>提供的<code>sequence</code>/<code>parallel</code>/<code>spring</code>/<code>delay</code>/<code>event</code>等API为制作更复杂的动画提供了便利，所以更推荐大家使用<code>Animated</code>配合ART制作动画。</p>
+<p>首先通过<code>Animated</code>为ART标签提供动画加持~</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;ART, Animated&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">const</span> &#123;Shape, Group&#125; = ART;</span><br><span class="line"><span class="keyword">const</span> AnimatedShape = Animated.createAnimatedComponent(Shape);</span><br><span class="line"><span class="keyword">const</span> AnimatedGroup = Animated.createAnimatedComponent(Group);</span><br></pre></td></tr></table></figure>
+<p>可以让<code>AnimatedGroup</code>标签负责基于xy属性的移动动画</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一颗星星的SVG代码</span></span><br><span class="line"><span class="keyword">const</span> STAR = <span class="string">'M 0.000 10.000 L 11.756 16.180 L 9.511 3.090 L 19.021 -6.180 L 5.878 -8.090 L 0.000 -20.000 L -5.878 -8.090 L -19.021 -6.180 L -9.511 3.090 L -11.756 16.180 L 0.000 10.000'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 某组件中...</span></span><br><span class="line">constructor (props) &#123;</span><br><span class="line">  <span class="keyword">super</span>(props);</span><br><span class="line">  <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    <span class="comment">// 设定Animated.Value初值</span></span><br><span class="line">    value: <span class="keyword">new</span> Animated.Value(<span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.infiniteAnimate = <span class="keyword">this</span>.infiniteAnimate.bind(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount () &#123;</span><br><span class="line">  <span class="keyword">this</span>.infiniteAnimate();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 无限循环动画</span></span><br><span class="line">infiniteAnimate () &#123;</span><br><span class="line">  Animated.timing(<span class="keyword">this</span>.state.value, &#123;</span><br><span class="line">    duration: <span class="number">1000</span>,</span><br><span class="line">    toValue: <span class="number">1</span></span><br><span class="line">  &#125;).start(() =&gt; &#123;</span><br><span class="line">    Animated.timing(<span class="keyword">this</span>.state.value, &#123;</span><br><span class="line">      duration: <span class="number">2000</span>,</span><br><span class="line">      toValue: <span class="number">0</span></span><br><span class="line">    &#125;).start(<span class="keyword">this</span>.infiniteAnimate);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">render () &#123;</span><br><span class="line">  <span class="comment">// 不断缩小放大的星星</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="title">View</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">Surface</span> <span class="attribute">width</span>=<span class="value">&#123;width&#125;</span> <span class="attribute">height</span>=<span class="value">&#123;height&#125;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">AnimatedShape</span></span><br><span class="line">          <span class="attribute">d</span>=<span class="value">&#123;STAR&#125;</span></span><br><span class="line">          <span class="attribute">x</span>=<span class="value">&#123;30&#125;</span></span><br><span class="line">          <span class="attribute">y</span>=<span class="value">&#123;30&#125;</span></span><br><span class="line">          <span class="attribute">fill</span>=<span class="value">&#123;"#280"&#125;</span></span><br><span class="line">          <span class="attribute">scale</span>=<span class="value">&#123;this.state.value&#125;</span></span><br><span class="line">        /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="title">Surface</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">View</span>&gt;</span></span><br><span class="line">  )</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>做了这样一个demo：</p>
+<p><img src="http://7xjgb0.com1.z0.glb.clouddn.com/artAnimationStars.gif" width="300"></p>
+<p></p>
+
+<p>具体的使用和<code>Animated.View</code>之类相同，更复杂的例子看<a href="http://browniefed.com/blog/react-native-animated-with-react-art-firework-show/" target="_blank" rel="external">这篇文章</a></p>
+<h3 id="目前ART相关的项目">目前ART相关的项目</h3><ul>
+<li><a href="https://github.com/react-native-community/react-native-svg" target="_blank" rel="external">react-native-svg</a> 让ART支持所有svg标签</li>
+<li><a href="https://github.com/matc4/react-native-svg-uri" target="_blank" rel="external">react-native-svg-uri</a> 依赖上面的<code>react-native-svg</code>让<code>&lt;Image&gt;</code>标签的source可使用svg的uri</li>
+<li><a href="https://github.com/oblador/react-native-progress" target="_blank" rel="external">react-native-progress</a> ART做的进度条组件</li>
+<li><a href="https://github.com/xgfe/react-native-grading" target="_blank" rel="external">react-native-grading</a> 笔者学习ART时做的一个评分组件</li>
+</ul>
+<h3 id="总结">总结</h3><p>React Native ART让RN开发者使用类svg语法绘制矢量图形，优点在于同步渲染/高清无码，并且可绘制简单的动画。<br>目前的坑在于未实现所有svg标签支持、安卓模拟器使用易奔溃、动画和绘制的开发效率不一定很高（相比于最近火爆酷炫的<a href="https://github.com/airbnb/lottie-react-native" target="_blank" rel="external">lottie</a>)<br>ART动画的性能在安卓真机上也堪忧，不过这更多的应该是RN平台的问题，相信日后会有所改善。</p>
+<p>另外需要注意的是，ART不支持目前RN团队推荐的<code>jest</code> snapshot测试，还是老老实实用<code>enzyme</code>吧</p>
+<p>不太建议在C端等用户体验要求较高的项目中使用ART动画（<del>不过C端有敢用RN的么</del>）</p>
+<p>总而言之，ART其“画”UI的能力确实给了开发者很大的自定义空间。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/04/jsfiddle/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一次jsfiddle测试引发的血案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="react-native-art" data-title="React Native Art 介绍" data-url="http://yoursite.com/2017/02/16/react-native-art/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wytiny"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 TinySymphony
+    	</div>
+      	<div class="footer-right">
+            <p class="footer-theme">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Tinysymphony/hexo-theme-latte" target="_blank">Latte</a> by WyTiny
+            </p>
+            <p class="footer-theme">
+                Based on <a href="https://github.com/litten/hexo-theme-yilia">Yilia</a> (Litten)
+            </p>
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://cdn.bootcss.com/require.js/2.1.6/require.min.js" type="text/javascript"></script>
+<script>
+  // !!LS && LS.load('jquery.min.js', 'http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js');
+  // !!LS && LS.load('require.min.js', 'http://cdn.bootcss.com/require.js/2.1.6/require.min.js');
+
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-78495806-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+<div id="tiny-mask">
+  <div id="J-top-modal" class="top-panel"></div>
+</div>
+
+<script type="text/javascript">
+  var mask = document.getElementById('tiny-mask'),
+    menu = document.getElementById('J-menu'),
+    modal = document.getElementById('J-top-modal'),
+    html = document.documentElement,
+    offClass = 'modal-off',
+    onClass = 'modal-on';
+
+  menu.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('modal-item')) return;
+    modal.innerHTML = e.target.innerHTML;
+    html.classList.add(onClass);
+  }, false);
+
+  mask.addEventListener('animationend', function (e) {
+    if(e.target !== mask || !html.classList.contains(offClass)) return;
+    html.classList.remove(onClass);
+    html.classList.remove(offClass);
+  }, false);
+
+  mask.addEventListener('click', function (e) {
+    if(e.target !== mask) return;
+    html.classList.add(offClass);
+  }, false);
+</script>
+
+  </div>
+</body>
+</html>
