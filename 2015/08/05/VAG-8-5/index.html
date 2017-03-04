@@ -15,7 +15,7 @@
 mongodb分片的条件是片键，片键拥有更高的基数时，分片也会越均匀。最近是用时间作为片键，但问题是，时间的基数虽然很大，但是仍然会有chunk太大无法移动的报错。一个解释是，使用的数据在一段时间内比较集中，制造了jumbo chunk原来是愚蠢的我在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VAG 8.5">
-<meta property="og:url" content="http://yoursite.com/2015/08/05/VAG-8-5/index.html">
+<meta property="og:url" content="http://wytiny.com/2015/08/05/VAG-8-5/index.html">
 <meta property="og:site_name" content="TinySymphony">
 <meta property="og:description" content="在上次做完分布式后插入了8000w+数据量做测试。Mongos会调节所有shard，使每个shard有相同的chunk数目，而不是平衡分片的大小。
 mongodb分片的条件是片键，片键拥有更高的基数时，分片也会越均匀。最近是用时间作为片键，但问题是，时间的基数虽然很大，但是仍然会有chunk太大无法移动的报错。一个解释是，使用的数据在一段时间内比较集中，制造了jumbo chunk原来是愚蠢的我在">
