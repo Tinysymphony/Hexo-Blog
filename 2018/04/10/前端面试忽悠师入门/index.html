@@ -31,7 +31,7 @@
 如何正确地 尬聊
 常用题库及使用姿势
 一些常见情况的应对方式">
-<meta property="og:updated_time" content="2018-04-14T04:10:29.000Z">
+<meta property="og:updated_time" content="2018-04-14T16:38:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试忽悠师入门">
 <meta name="twitter:description" content="去年回杭后，除了在新的公司沉迷业务开发、业余吹水之外，趁着人手不足顺便做了些电话和现场面试的工作（ 当然主要是面向初级前端岗候选人 ）
@@ -330,7 +330,7 @@
 <li><code>@import</code> 加载样式有什么缺点 → 怎么避开这个缺点</li>
 <li><code>@media</code> 媒体查询有用过么  →  如何用这个做响应式  →  max-xxx &amp; min-xxx 是开区间么？（这个是调戏）</li>
 <li>哪些样式会触发回流、重绘？→ font-size 会不会触发回流 → 容易回流的样式修改如何优化</li>
-<li><code>BFC</code> 的概念及生成 哪些样式会新建 <code>composite layer</code> → BFC 与 composite layer 的关系 → composite layer 过多的优化</li>
+<li><code>BFC</code> 的概念及生成 → 哪些样式会新建 <code>composite layer</code> → BFC 与 composite layer 的关系 → composite layer 过多的优化</li>
 <li><code>icon-font</code> 有了解么  → 怎么使用自定义的中文字体 → 怎么减少开销</li>
 <li><code>Data URI Scheme</code> 可以表示哪些类型的数据  → 性能有了解么</li>
 </ul>
@@ -376,7 +376,7 @@
 <li><code>正则表达式</code> → 贪婪匹配与非贪婪 → 怎么写邮箱的正则匹配</li>
 <li>如何判断数组 → 常用数组原生方法有哪些 → 哪些会修改数组 → <code>map reduce forEach</code> 第二个参数是干啥的 (不推荐API细节) → 原生 <code>sort</code> 使用的是哪种排序算法</li>
 <li>原生事件绑定 → 第三个参数如果是布尔值表示什么 （<code>事件模型</code>）→ 第三个参数如果是对象呢，<code>passive</code>事件是否有了解</li>
-<li>ES6 是否有使用，常用哪些语法 → 监听函数和普通函数的区别 （ <code>arguments</code> 什么的 ） → <code>Promise</code> 相关</li>
+<li>ES6 是否有使用，常用哪些语法 → 箭头函数和普通函数的区别 （ <code>arguments</code> 什么的 ） → <code>Promise</code> 相关</li>
 <li><code>Proxy</code> 能做什么</li>
 <li><code>async await</code> 解决了什么问题，和 <code>generator yield</code> 那套的异同点</li>
 <li>跨域请求怎么写 → <code>jsonp</code> 最主要的原理 / cors 怎么做 / <code>iframe</code> 跨域 / 标签 src 跨域…… 细节</li>
@@ -428,6 +428,26 @@
 </blockquote>
 <p>其实题目基本源于自己的工作经验、学习内容，还是要多提升自己~~</p>
 <p>然后建议是无论电话、视频、现场，都控制时间在 30——40min，有编程题的适当延长。</p>
+<p><strong><code>编程题或开脑洞的题</code></strong></p>
+<p>这类题目基本是自己遇到过或是解决过的问题……</p>
+<blockquote>
+<ol>
+<li>写一个解析 url 的函数，输入字符串，返回形如 { protocol, host, path, queryObject, hash } 对象 （考察字符串处理，url 规范等，比较基础但是可以看出候选人的编码素质）</li>
+<li>挑几个 <code>lodash</code> 里的方法，让候选人手写一下 （ 比如 <code>throttle / debounce / 深拷贝 / isEqual</code> ）</li>
+<li>实现原生 js <code>sort</code> 方法，已知数组长度小于 10 时会采用插入排序，反之采用快排</li>
+<li>用原生 js 写一个轮播组件 ( 有查 api 的倾向，待商榷 )</li>
+<li>设计一个事件模型，要求实现 <code>function on(event, callback)</code> / <code>function trigger(event, data)</code> / <code>function off(event)</code> / <code>function once(event, callback)</code> 等方法</li>
+<li>封装文字轮播组件，不使用 js 定时器，支持轮播速度控制之类的自定义配置 （ 最好支持查询 css API ）</li>
+<li>设计一个页面事件埋点的工具库，捕获用户所有行为</li>
+<li>设计一个前端路由组件，分 hash 和 history 两种模式  ( 有查 api 的倾向，待商榷 )</li>
+<li>已知 <code>LazyArray(arr).filter(func1).filter(func2).filter(func3).map(map1).map(map2).exec()</code> 中的 <code>LazyArray</code> 可以优化数组的操作，减少遍历次数，请实现它</li>
+<li>将一系列 callback 模式的异步方法串行或并行地执行，要求返回 Promise，then 中回调函数的首个参数为异步结果列表</li>
+<li>长列表上下翻页怎么写，预加载和异步加载？</li>
+<li>如何设计一个 <code>Button</code> 组件，会考虑哪些方面的问题 → 那么 <code>Dialog</code> 组件呢</li>
+<li>如何判断用户看到的一个字体和 css 实际设置的字体效果完全一样</li>
+<li>设计一个简单的模块加载机制，功能形如 <code>define(name, deps, factory) / require([deps], execWithModules)</code> → 避免循环引用</li>
+</ol>
+</blockquote>
 <p>（有空再补充一些编程题）</p>
 <h3 id="一些常见情况的应对方式"><strong>一些常见情况的应对方式</strong></h3><blockquote>
 <p>Ps.在目前公司是这么做的，不同公司、团队流程不一样</p>
