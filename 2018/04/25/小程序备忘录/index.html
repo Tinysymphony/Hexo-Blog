@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <noscript>
+    <style media="screen">
+      body {display: none;}
+    </style>
+    <meta http-equiv="refresh" content="0; URL=http://nojs.wytiny.com/">
+  </noscript>
+  
+  <title>小程序备忘录 | TinySymphony</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在公司开发小程序的时候总会冒出写篇总结的想法，思前想后还是觉得没太多干货作罢。突然又想开始写点什么倒是因为最近工作变动，转向数据可视化，大概短时间内不会再接触小程序的开发，还是憋个小备忘吧。
+前段时间的面试，大抵看到简历上有候选人标注过小程序开发经验的时候，我都会抛下面这串问题：
+
+小程序的开发体验你觉得怎么样？有没有遇到什么问题？有想过哪些解决方案？
+
+拉黑标准是：TA回了一句 「挺好的」「挺简">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序备忘录">
+<meta property="og:url" content="http://wytiny.com/2018/04/25/小程序备忘录/index.html">
+<meta property="og:site_name" content="TinySymphony">
+<meta property="og:description" content="在公司开发小程序的时候总会冒出写篇总结的想法，思前想后还是觉得没太多干货作罢。突然又想开始写点什么倒是因为最近工作变动，转向数据可视化，大概短时间内不会再接触小程序的开发，还是憋个小备忘吧。
+前段时间的面试，大抵看到简历上有候选人标注过小程序开发经验的时候，我都会抛下面这串问题：
+
+小程序的开发体验你觉得怎么样？有没有遇到什么问题？有想过哪些解决方案？
+
+拉黑标准是：TA回了一句 「挺好的」「挺简">
+<meta property="og:updated_time" content="2018-04-29T16:11:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序备忘录">
+<meta name="twitter:description" content="在公司开发小程序的时候总会冒出写篇总结的想法，思前想后还是觉得没太多干货作罢。突然又想开始写点什么倒是因为最近工作变动，转向数据可视化，大概短时间内不会再接触小程序的开发，还是憋个小备忘吧。
+前段时间的面试，大抵看到简历上有候选人标注过小程序开发经验的时候，我都会抛下面这串问题：
+
+小程序的开发体验你觉得怎么样？有没有遇到什么问题？有想过哪些解决方案？
+
+拉黑标准是：TA回了一句 「挺好的」「挺简">
+  
+    <link rel="alternative" href="/atom.xml" title="TinySymphony" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script type="text/javascript">
+  !function(t,e){t.LS={tag:"/*LSLOADER*/",jsQueue:[],jsmap:{},cssmap:{},getItem:function(e){var s="";try{s=t.localStorage.getItem(e)}catch(t){s=""}return s},removeItem:function(e){try{t.localStorage.removeItem(e)}catch(t){}},setItem:function(e,s){try{t.localStorage.setItem(e,s)}catch(t){}},load:function(t,e,s){var i=this.getItem(t);if(s=s||this.noop,!i)return this.loadFromSource(t,e,s);var n=i.split(this.tag)[0],o=i.split(this.tag)[1];return n==e&&o?void(/\.js$/.test(n)?(this.jsQueue.push({id:t,code:o,status:"unload"}),this.insertJS(t,o,s)):/\.css$/.test(n)?this.insertCSS(t,o,s):this.loadFromSource(t,e,s)):this.loadFromSource(t,e,s)},insertJS:function(t,e,s){if(s=s||this.noop,t&&e)for(var i in this.jsQueue)this.jsQueue[i].id===t&&(this.jsQueue[i].code=e);var n=document.getElementsByTagName("script")[0],o=document.createElement("script");if(this.jsQueue.length>0&&this.jsQueue[0].code&&"failed"!=this.jsQueue[0].status)o.appendChild(document.createTextNode(this.jsQueue[0].code)),n.parentNode.appendChild(o),s(),this.jsQueue.shift(),this.jsQueue.length>0&&this.insertJS();else if(this.jsQueue.length>0&&"failed"===this.jsQueue[0].status){var u=this;o.src=u.jsQueue[0].url,o.id=u.jsQueue[0].id,o.onload=function(){s(),u.jsQueue.shift(),u.jsQueue.length>0&&u.insertJS()},this.jsQueue.status="loading",n.parentNode.appendChild(o)}},insertCSS:function(t,e,s){document.getElementById(t).appendChild(document.createTextNode(e)),s()},loadFromSource:function(t,e,s){/\.js$/.test(e)?this.loadJS(t,e):/\.css$/.test(e)&&this.loadCSS(t,e,s)},loadJS:function(t,e){var s=this;s.jsQueue.push({id:t,url:e,code:""}),s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),s.insertJS(t,i)},function(){s.tagLoadJS(t,e)})},loadCSS:function(t,e){var s=this;s.xhrLoad(e,function(i){s.setItem(t,e+s.tag+i),document.getElementById(t).appendChild(document.createTextNode(i))},function(){s.tagLoadCSS(t,e)})},tagLoadJS:function(t,e){if(!this.jsmap[t]){this.jsmap[t]=!0;for(var s in this.jsQueue)this.jsQueue[s].id==t&&(this.jsQueue[s].code="",this.jsQueue[s].status="failed",this.jsQueue[s].url=e);this.insertJS()}},tagLoadCSS:function(t,e,s){if(!this.cssmap[t]){this.cssmap[t]=!0;var i=document.createElement("link"),n=document.getElementsByTagName("head")[0];i.rel="stylesheet",i.href=e,i.charset="utf-8",i.onload=i.onerror=s||this.noop,n.appendChild(i)}},xhrLoad:function(t,e,s){e=e||this.noop,s=s||this.noop;var i=new XMLHttpRequest;try{i.open("get",t,!0),i.onreadystatechange=function(){4==i.readyState&&((i.status>=200&&i.status<300||304==i.status)&&""!=i.response&&e(i.response),s())},i.send()}catch(t){s()}},noop:function(){}}}(window,document);
+  </script>
+  <script type="text/javascript">
+    // LS.load('/css/style.css', );
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay">
+
+</div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://i.loli.net/2018/03/18/5aae4e1aadbdc.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">TinySymphony</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu" id="J-menu">
+						<ul>
+							
+								
+									<li><a href="/" class="menu-item">主页</a></li>
+								
+					    
+								
+									<li><a href="/archives" class="menu-item">所有文章</a></li>
+								
+					    
+								
+									<li><a href="javascript:;" class="menu-item modal-item" id="J-demo">DEMO</a></li>
+								
+					    
+								
+									<li><a href="javascript:;" class="menu-item modal-item" id="J-tags">LINKS</a></li>
+								
+					    
+								
+									<li><a href="javascript:;" class="menu-item modal-item" id="J-about">About Me</a></li>
+								
+					    
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+					        
+								<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+					        
+								<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Anime/" style="font-size: 10px;">Anime</a> <a href="/tags/Backup/" style="font-size: 10px;">Backup</a> <a href="/tags/CMD/" style="font-size: 10px;">CMD</a> <a href="/tags/Cluster/" style="font-size: 10px;">Cluster</a> <a href="/tags/Express/" style="font-size: 10px;">Express</a> <a href="/tags/Mixins/" style="font-size: 10px;">Mixins</a> <a href="/tags/Mongodb/" style="font-size: 15px;">Mongodb</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/Postgresql/" style="font-size: 10px;">Postgresql</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/React-js/" style="font-size: 10px;">React.js</a> <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/Render/" style="font-size: 10px;">Render</a> <a href="/tags/Responsive-Design/" style="font-size: 10px;">Responsive Design</a> <a href="/tags/TinyMint/" style="font-size: 12.5px;">TinyMint</a> <a href="/tags/Touch-Events/" style="font-size: 10px;">Touch Events</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/art/" style="font-size: 10px;">art</a> <a href="/tags/async/" style="font-size: 12.5px;">async</a> <a href="/tags/atom/" style="font-size: 12.5px;">atom</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/bs/" style="font-size: 12.5px;">bs</a> <a href="/tags/composite-layer/" style="font-size: 10px;">composite layer</a> <a href="/tags/cross-compiling/" style="font-size: 10px;">cross-compiling</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/css3动画/" style="font-size: 10px;">css3动画</a> <a href="/tags/electron/" style="font-size: 10px;">electron</a> <a href="/tags/frontend/" style="font-size: 10px;">frontend</a> <a href="/tags/gpio/" style="font-size: 10px;">gpio</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsfiddle/" style="font-size: 10px;">jsfiddle</a> <a href="/tags/lindoe/" style="font-size: 10px;">lindoe</a> <a href="/tags/linux/" style="font-size: 17.5px;">linux</a> <a href="/tags/localStorage/" style="font-size: 10px;">localStorage</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/pgxl/" style="font-size: 10px;">pgxl</a> <a href="/tags/pyQuery/" style="font-size: 10px;">pyQuery</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react-native</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/rpi/" style="font-size: 20px;">rpi</a> <a href="/tags/scss/" style="font-size: 10px;">scss</a> <a href="/tags/sharding/" style="font-size: 10px;">sharding</a> <a href="/tags/tiny/" style="font-size: 12.5px;">tiny</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/wytiny/" style="font-size: 10px;">wytiny</a> <a href="/tags/交互/" style="font-size: 10px;">交互</a> <a href="/tags/前端/" style="font-size: 12.5px;">前端</a> <a href="/tags/单页面workflow/" style="font-size: 10px;">单页面workflow</a> <a href="/tags/小程序/" style="font-size: 10px;">小程序</a> <a href="/tags/强缓存/" style="font-size: 10px;">强缓存</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/校招/" style="font-size: 10px;">校招</a> <a href="/tags/流水账/" style="font-size: 10px;">流水账</a> <a href="/tags/浏览器渲染/" style="font-size: 10px;">浏览器渲染</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/用户体验/" style="font-size: 10px;">用户体验</a> <a href="/tags/瞎想/" style="font-size: 10px;">瞎想</a> <a href="/tags/移动端WEB/" style="font-size: 12.5px;">移动端WEB</a> <a href="/tags/笔试/" style="font-size: 10px;">笔试</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+					</div>
+				</section>
+				
+
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://xn--l4tn57c.xn--fiqs8s/">xl</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.xjp.in/">xjp</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">浙江大学12级点歪科技树的CS学生，前端设计爱好者，Linux教徒…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <canvas id="canvas-points"></canvas>
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">TinySymphony</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://i.loli.net/2018/03/18/5aae4e1aadbdc.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">TinySymphony</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">一樹の陰一河の流れも他生の縁</p>
+			
+			<nav class="header-menu">
+				<ul>
+          
+            
+              <li><a href="/" class="m-menu-item">主页</a></li>
+            
+          
+            
+              <li><a href="/archives" class="m-menu-item">所有文章</a></li>
+            
+          
+            
+              <li><a href="javascript:;" class="m-menu-item" id="J-demo">DEMO</a></li>
+            
+          
+            
+              <li><a href="javascript:;" class="m-menu-item" id="J-tags">LINKS</a></li>
+            
+          
+            
+              <li><a href="javascript:;" class="m-menu-item" id="J-about">About Me</a></li>
+            
+          
+          <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/Tinysymphony" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/3164958577/home?wvr=5" title="weibo">weibo</a>
+			        
+						<a class="pixiv" target="_blank" href="http://www.pixiv.net/member.php?id=13382232" title="pixiv">pixiv</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/TinySymphony" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:zjutiny@gmail.com" title="mail">mail</a>
+			        
+						<a class="twitter" target="_blank" href="https://twitter.com/zjutiny" title="twitter">twitter</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/view?id=387499142&trk=nav_responsive_tab_profile" title="linkedin">linkedin</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-小程序备忘录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/25/小程序备忘录/" class="article-date">
+  	<time datetime="2018-04-25T14:58:32.000Z" itemprop="datePublished">2018-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header ">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小程序备忘录
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小程序/">小程序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在公司开发小程序的时候总会冒出写篇总结的想法，思前想后还是觉得没太多干货作罢。<br>突然又想开始写点什么倒是因为最近工作变动，转向数据可视化，大概短时间内不会再接触小程序的开发，还是憋个小备忘吧。</p>
+<p>前段时间的面试，大抵看到简历上有候选人标注过小程序开发经验的时候，我都会抛下面这串问题：</p>
+<blockquote>
+<p>小程序的开发体验你觉得怎么样？有没有遇到什么问题？有想过哪些解决方案？</p>
+</blockquote>
+<p>拉黑标准是：TA回了一句 「挺好的」「挺简单的」「没遇到什么问题」之类的话。<br>正儿八经写过点线上应用的旁友想必有很多其他的话要说。</p>
+<p><em>（ 鉴于在下只有三四个月小程序业务开发经验，下文若有不当之处请多指教~ 欢迎传授更舒服的开发姿势<code>_(:з」∠)_</code> ）</em></p>
+<p><strong>惯例上大纲</strong></p>
+<ul>
+<li>边界</li>
+<li>原生开发体验</li>
+<li>走过的套路</li>
+<li>更科学的路子怎么走</li>
+</ul>
+<a id="more"></a>
+<p><br></p>
+<h2 id="边界"><strong>边界</strong></h2><p>被问到过一个问题: <code>jsbridge</code> / <code>React Native</code> / <code>Weex</code> / <code>Electron</code> / 小程序等这些有着 “跨界” 概念的技术，他们与 <strong><code>Native</code></strong> 的边界在哪里。</p>
+<p>1) <code>jsbridge</code> 我们一般是发起一个特定协议的网络请求，带着特定的字符串作为参数让 Native 的逻辑层捕获；或是直接调 Native 在初始化 <code>Webview</code> 时在 <code>window</code> 上安置的全局函数，这是我理解的“边界”。Native 的视图层还是由自身的逻辑代码控制，js 做的无非是触发与传参。一般的场景是一个 h5 页面内嵌到 App 中并且需要一些 Native 的功能 （比如拉起分享、App 页面跳转、调起弹层之类）。总的来说，一个基于 webview 环境下的 js 通信桥梁（bridge）.</p>
+<p>2) <code>React Native</code> 和 <code>Weex</code> 是将 js 写的渲染逻辑和视图层结构对应到 Native 的视图。和上面不同的是，这个 Native 是需要运行这些 js 的，有独立线程，并不是丢到 webview 中运行。Native 需要依赖这个 js 线程的计算结果做渲染。可以理解成前者的终极进化版：花式“传参”，视图层全部是 Native 组件且 js 可控。这类技术框架其实对于 Native 开发同学可玩性是很高的，比如自己写一个原生的组件( Native 代码)，开放足够多的配置口子丢给 js 调用方使用。它们的边界在于 <code>Java / OC / Swift</code> 中 <code>NativeComponent</code> 的实现和通信机制。</p>
+<p>3) <code>Electron</code> 之流本身还是浏览器那套，视图和逻辑全是 js 自身可控，只不过给 js 封了更多可触及、定制 Native 的 API…边界在其提供的模块实现里（我们基本是在配置中接触到）</p>
+<p>而小程序视图层是一个 <code>Webview</code>，逻辑层（控制层）是另一个 js 线程（不在视图层的 webview 中），其内部通过类似 <code>jsbridge</code> 的方法触发视图层 webview 的变动（实体就是 <code>setData</code> 方法） &amp; 调用原生提供的功能（分享、跳转、弹层、Toast等挂在 <code>wx</code> 这个对象上的方法） 因为微信对视图层和逻辑层的分割，我们失去了 <code>hybrid</code> 时期那种对 dom 的 “完全控制权”，失去了常用的 <code>web api</code>，进入一个更“黑盒”、更受限的开发环境。</p>
+<p>茫茫多的同学踏入如此“禁欲系”的开发环境，图的是腾讯爹更好的优化和体验。（ 还有流量，划掉 ）<br><br></p>
+<h2 id="原生开发体验"><strong>原生开发体验</strong></h2><p>在前司的工作中，由于一些历史包袱的原因，一直采用的是原生的写法，团队没有 DIY 一个听起来就挺能骗 Star 的“小程序框架”。<br>（最早前端没有人力开发，全部“外包”给了初学 js 的移动端同学，再加上是个商城的应用，代码量庞大且质量层次不齐，捂脸）</p>
+<p>近几个月让前端重新接回来后，没有换用一些市面上的小程序框架。主要是业务一直不断，外加试用过社区最常用的 <code>wepy</code> 后感觉成本高且解决的痛点并不多、还可能引入新问题所以放弃；至于<code>mpvue</code> 是后话了，想法更新颖，还没有好好尝试过一通。</p>
+<p>所以只能扯扯原生开发体验及改进的想法。</p>
+<h3 id="在自定义组件面世之前"><strong>在自定义组件面世之前</strong></h3><p>小程序语法完完全全是个模板引擎 + 单向数据流（虽然我现在也觉得是），相比于常用的框架缺失了很多舒服的设计。我们对于代码的复用是类似于模板的复用，所谓的“业务组件”本质上是一堆模板代码、样式片段、js逻辑片段。业务组件大多是跨页面形式的复用倒还好，还是基础组件心里苦，同一个页面里引用了多个“模板组件”，组件实例的维护变得十分诡异（如生命周期、事件处理等）. 对于事件的区分，我们采用的是模板 view 上携带 <code>data-id</code> 这样的自定义属性做标记，生命周期无解。</p>
+<p>Ps.公司开源的小程序“组件库”，实际上是个 UI 库、样式库，在同性交友网站上坐拥 4k star，想想还是挺羞耻的；不过离职前已经在做自定义组件的转型。</p>
+<p>项目里的代码基本上是这个结构（一个正常的页面入口）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pageA.js</span></span><br><span class="line"><span class="keyword">import</span> Features <span class="keyword">from</span> <span class="string">'./features'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> lifeCycle = &#123; onLoad, onShow, onHide &#125;;</span><br><span class="line">Page(<span class="built_in">Object</span>.assign(&#123;&#125;, data, lifeCycle, ...Features));</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- pageA.wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">import</span> <span class="attribute">src</span>=<span class="value">"/components/A/index.wxml"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">import</span> <span class="attribute">src</span>=<span class="value">"/components/B/index.wxml"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">import</span> <span class="attribute">src</span>=<span class="value">"/components/C/index.wxml"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"page-a"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">template</span> <span class="attribute">is</span>=<span class="value">"comp-a"</span> <span class="attribute">data</span>=<span class="value">"&#123;&#123; data: dataForA &#125;&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">template</span> <span class="attribute">is</span>=<span class="value">"comp-b"</span> <span class="attribute">data</span>=<span class="value">"&#123;&#123; data: dataForB &#125;&#125;"</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">template</span> <span class="attribute">is</span>=<span class="value">"comp-c"</span> <span class="attribute">data</span>=<span class="value">"&#123;&#123; data: dataForC &#125;&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">view</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* pageA.wxss */</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"/components/a/index.wxss"</span></span>;</span><br><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"/components/b/index.wxss"</span></span>;</span><br><span class="line"><span class="at_rule">@<span class="keyword">import</span> <span class="string">"/components/c/index.wxss"</span></span>;</span><br><span class="line"><span class="comment">/* other styles */</span></span><br></pre></td></tr></table></figure>
+<p>引入比较丑陋的问题可以靠打包工具解决（比如写个 <code>loader</code>）<br>但是代码复用做起来就不太优雅，如果不涉及展示层问题不大，一但涉及展示层，基于模板的组件无法完成显示上的自给自足：1. <code>template is=&quot;xxx&quot;</code> 这种写法无法完全区分实例（比如响应函数和 <code>Page</code> 上定义的函数无法一一对应，只能多对一，然后在函数中用自定义属性区分）；2. 组件上的 UI 变更必须通过 <code>setData</code> 方法，所以必须耦合页面的上下文 <code>this</code>. </p>
+<p>这两点引发了几个的问题，比如组件暴露的方法被 “隐晦地” 引入页面对象中（假设我们写成 <code>Page(Object.assign({}, data, life, CompA))</code>），而后在页面的某个逻辑中被 “隐晦地” 通过 <code>this</code> 调用了 <code>CompA</code> 引入的办法，当这种 “隐晦” 的调用越来越多的时候（比如说嵌套地引入，简直地狱），项目维护的成本越来越大。这个例子其实蛮类似之前 React 社区对 <code>mixins</code> 在工程上可维护性的讨论。</p>
+<p>“隐晦”、“不直观”、“surprise” 意味着这是不可阅读、不可维护的垃圾代码。所以我在碰到这种情况时会在调用函数里将 <code>this.methodOfCompA(...args)</code> 改写成 <code>ComA.methodOfCompA.call(this, ...args)</code> ，明确地指出依赖方法的提供方。</p>
+<p>还有个大问题是模板组件的生命周期，只能想办法在现有的页面生命周期上挂钩子去解决，具体方式在后面分享。</p>
+<p>上面的代码示例忘记写 <code>wxs</code> 文件，在微信官方的定义中是存在于文档中的脚本，类似 <code>html</code> 中内嵌的 <code>script</code> 标签，提供一些工具函数之类的。<br>这个一般用来实现类似 <code>vue computed</code> 的语法糖。</p>
+<p><br></p>
+<h3 id="自定义组件面世之后"><strong>自定义组件面世之后</strong></h3><p>解决了上面组件生命周期的痛点，终于有了一个不依赖外部上下文、自给自足、真正意义上的组件系统！（这解决了一部分工程化上的困惑）</p>
+<p>在调试器中，我们很容易发现自定义组件是以一个 <code>shadow dom</code> 的形式出现的，在逼格上和普通的页面标签划清了界限。</p>
+<p>分享下 “新时期” 遇到的痛点，毕竟吹水是没什么输出的。</p>
+<h4 id="魔改组件的样式">魔改组件的样式</h4><p>自定义组件设计之初，很像是一种矫枉过正的产物，比如说其样式完全由自身控制，不受外界影响。这降低了组件的定制性，目前的几个办法：</p>
+<ol>
+<li>传参，比较差的实践，参数一般是控制逻辑或状态的，较多的 UI 参数会很丑且不可扩展（除非改组件代码）</li>
+<li>用自定义组件的 <code>class</code> 语法，即定义哪些字段是外部传入的类，然后这些类会被挂到哪些位置。比前者进步大，不过也是不可扩展。</li>
+<li>使用约定，比如在 <code>comp.wxss</code> 中默认引入某个约定路径的外部样式，形如 <code>@import &quot;/common/hackComponentStyle.wxss&quot;</code>，然后在这里写样式影响原来的组件。</li>
+</ol>
+<p>emmmm，追求可扩展，使用第三条路。但是呢，少量的约定可以快速解决团队合作与规范的问题，当约定多了意味着维护性、阅读性的下降，这是一个取舍。</p>
+<h4 id="组件的交互">组件的交互</h4><p>我们在页面上下文中，只能通过 <code>data</code> 向组件传参，无法获取到实例，在组件开发时，我们会倾向于全部采用抛事件的模式，不会有对外直接暴露的 API. 很简单的 data 进，event 出。</p>
+<p>但这其实限制了一种交互场景：即使用者直接调用组件提供的能力（API）</p>
+<p>举个栗子，我有个分享各类商品图的业务组件。它的作用是在 <code>canvas</code> 上绘制当期商品的图片、名称、活动信息、价格和小程序码，然后在弹层上给到用户预览图，后续有保存、分享的行动按钮。</p>
+<p>这个组件中有个调起弹层的交互流程，在内部我们会写成一个 <code>method</code>. 出于复用性，这个行动的触发组件是不在这个业务组件内部的，需要让使用方自行触发。<br>然后就诞生了个名叫 <code>show</code> 的字段，在其 <code>observer</code> 中控制这个流程（因为没有对外暴露的 API、没有诸如 <code>refs</code> 的语法糖），这让一个指令形式的组件或者代码复用模式变得不够直观，写起来像是一个单纯的 UI 变动。</p>
+<h4 id="组件的管理">组件的管理</h4><p>按照现在小程序的框架，自定义组件和我们在这之前写的“模板组件”都面临一个问题，如何管理与复用。无法做到像正常的前端项目一样用 <code>npm</code> 去管理引入。比较可行的方案还需要在打包流程上做 hack, 比如将 npm 引入的文件从 <code>node_modules</code> 里面拖出来弄到一个特定的目录下，改写路径并在 <code>page.json</code> 里面 <code>usingComponents</code> 对象中注册。</p>
+<p>但对于使用者而言，又需要引入一套他人规定的小程序打包方式，代价太大。</p>
+<h4 id="生命周期的区分">生命周期的区分</h4><p>这其实是个挺难受的点，按 home 键回到主屏、切换页面（非重定向）都会触发 <code>onHide</code> 生命周期函数，问题是这两种 <code>onHide</code> 我们区分不了。<br>同样的例子还发生在 <code>app onShow onHide onLaunch</code> 上，比如进入小程序客服、触发分享时，因为会跳出小程序进入微信自身的页面，app 上挂的生命周期函数会被走一遍，然而这和正常的打开、关闭小程序是一样的。</p>
+<p>假设我们需要统计用户的操作路径，然后中途小程序因为分享或者客服被关掉了，再次打开路径被重置，这显然不能接受。</p>
+<p>现在能做的就是通过本地存储的方式结合启动时的一些区别 <code>hack</code> 地做部分区分。但这实在很不优雅。很推荐生命周期的触发都带有 <code>场景值</code>.</p>
+<blockquote>
+<p>Ps.或许没有近几年这些前端框架的发展，我也会满足于微信提供的这套语法。「嗯，挺好的」</p>
+</blockquote>
+<p><br></p>
+<h2 id="走过的套路"><strong>走过的套路</strong></h2><h4 id="生命周期合并"><strong>生命周期合并</strong></h4><p>我们有一个让用户配置自己小程序商城的编辑器，所见即所得的网店装修，并且同样可以用于配置 h5 商城。</p>
+<p>在技术设计上，后端给到的数据中会是一个 <code>json</code>，里面含有一个数组，记录了用到的组件及配置数据。我们在移动端（h5 / 小程序）上会预先注册好这些组件，根据后端返回的数组做渲染。</p>
+<p>在自定义组件出现前，这些组件都是以模板组件的形式被引入的，组件没有可维护的实例，做不到生命周期的控制。</p>
+<p>因为整个页面的逻辑部分组装是这样的：<code>Page(Object.assign({}, data, lifecycle, pageMethods, ...componentList))</code>，我的改造点是这个 <code>Object.assign</code>，将其改写成一个可定制的对象合并函数，大致逻辑是：将合并对象中指定的生命周期函数（比如 <code>onShow</code>）全部推入一个内部函数数组（比如 <code>__onShowFunctionList</code>），页面上的生命周期函数改写成调用其对应的内部函数数组:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.onShow = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.__onShowFunctionList.forEach(func =&gt; func.apply(<span class="keyword">this</span>, [options]));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以最终我们可以在所有模板组件的逻辑里面随便写小程序页面上的生命周期函数，这些都会被挂到函数数组中，等待调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in template component</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  name: <span class="string">'text-block'</span>,</span><br><span class="line">  onHide() &#123;</span><br><span class="line">    <span class="keyword">this</span>.textBlock__clearTimeout();</span><br><span class="line">  &#125;,</span><br><span class="line">  onShow() &#123;</span><br><span class="line">    <span class="keyword">this</span>.textBlock__initTimeout();</span><br><span class="line">  &#125;,</span><br><span class="line">  textBlock__clearTimeout() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;,</span><br><span class="line">  textBlock__initTimeout() &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// in page</span></span><br><span class="line"><span class="keyword">import</span> ExtendCreator <span class="keyword">from</span> <span class="string">'/utils/extendCreator'</span>;</span><br><span class="line"><span class="keyword">import</span> TextBlock <span class="keyword">from</span> <span class="string">'/path/to/text-block'</span>;</span><br><span class="line"><span class="comment">// configure extend function</span></span><br><span class="line"><span class="keyword">const</span> extend = ExtendCreator(&#123;</span><br><span class="line">  lifeCycle: [<span class="string">'onSHow'</span>, <span class="string">'onHide'</span>],</span><br><span class="line">  exclude: [<span class="string">'name'</span>]</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// configure the page</span></span><br><span class="line"><span class="keyword">const</span> PageObject = &#123; data, lifeCycle, methods &#125;;</span><br><span class="line"><span class="comment">// register template component</span></span><br><span class="line">Page(extend(PageObject, TextBlock));</span><br></pre></td></tr></table></figure>
+<p>大概是上面这个样子。</p>
+<p>这个其实还可以写一个 <code>deepAssign</code> 的功能，主要用于 <code>data</code> 对象，模板组件内部可以写 <code>data</code> 结构。</p>
+<h4 id="多计时器"><strong>多计时器</strong></h4><p>这个场景是页面上可能有多个营销活动，存在倒计时组件，比如说秒杀、拼团、限时折扣之类。一般每个商品的活动时间是不一样的，以为着肯定存在多计时器的情况。</p>
+<p>之前讲 <code>边界</code> 的那章也有提到，我们控制小程序展示层的唯一手段就是 <code>setData</code>，和世面上所有框架的 <code>setBlabla</code> 一样，频繁的设置带来性能问题。在正常的 h5 页面中，我们是直接通过修改 <code>dom</code> 内容更新 UI，小程序中我们所有的计算结果需要用 <code>setData</code> 传递给微信，通过这个中介去修改 <code>webview</code> 的 UI，这其实是一个低效的方式。</p>
+<p>就目前而言，<code>setData</code> 并没有做多次调用的合并优化。</p>
+<p>我的测试是，页面有7个左右的计时器时，低端机器开始卡顿，渲染慢，易跳秒。解决方案是：1. 将计算频率降低到每秒一次（h5 上为了防止跳秒，计算频率往往设置得比这个高）；2. 维护计时器数组，所有的计时器计算结果完成后再执行一次 <code>setData</code>，规避了一部分的卡顿成因。</p>
+<h4 id="canvas绘制"><strong>canvas绘制</strong></h4><p>这个其实不想多说，毕竟那些面向过程的、没有复用性和阅读性的代码…………<br>微信提供的阉割版 api 已经能覆盖到挺多实际使用场景。个人接触到的需求都是转 <code>png</code> 诞生的：1. 商品分享图 2. <code>svg</code> 的展示问题</p>
+<p>需要注意的是微信提供的生成临时图片路径的接口，写在 <code>draw</code> 的回调函数中也不见得一定能绘制成功…… 最好用 <code>setTimeout</code> 推迟一下。并且这种挂在 <code>wx</code> 对象上的 <code>canvas api</code>，同一个时间片中调用容易出错，最好用 <code>promise</code> 串联起来。</p>
+<h4 id="富文本"><strong>富文本</strong></h4><p>最早项目中的富文本采用 github 上的 <code>wxParse</code>，但是仔细阅读源码发现这东西并不靠谱，准确的来说它脱离不开小程序不靠谱的模板设计！</p>
+<ol>
+<li><code>wxParse</code> 解析完 <code>html</code> 字符串后，由于小程序模板无法无限嵌套，它给自己设置了一个13层的嵌套上限……</li>
+<li><code>wxParse</code> 将所有的 <code>html</code> 标签尽可能地换成了小程序支持的标签，但很多 <code>html</code> 标签自带的处理，小程序做不到，比如说 <code>table</code> 中的 <code>rowspan</code> 和 <code>colspan</code></li>
+<li>许多未支持标签没有被略去，或是做完整的 <code>polyfill</code></li>
+</ol>
+<p>幸好之后出现了 <code>rich-text</code> 这个标签，提供了另一套思路：将 <code>html</code> 字符串 parse 成 json 后丢给这个标签。<br>这里有些细节的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// polish html string</span></span><br><span class="line"><span class="keyword">const</span> content = html</span><br><span class="line">  <span class="comment">// delete video</span></span><br><span class="line">  .replace(<span class="regexp">/&lt;a class="video-link".*?\/a&gt;/g</span>, <span class="string">''</span>)</span><br><span class="line">  <span class="comment">// handle svg</span></span><br><span class="line">  .replace(<span class="regexp">/(&lt;svg .*?\/svg&gt;)/g</span>, handleSvg)</span><br><span class="line">  <span class="comment">// delete unsupported tags</span></span><br><span class="line">  .replace(<span class="regexp">/&lt;(canvas|audio|iframe) .*?\/\1&gt;/g</span>, <span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// generate json of dom tree</span></span><br><span class="line"><span class="keyword">const</span> json = parseHtml(content);</span><br><span class="line"><span class="comment">// transform unspported tags to `div`</span></span><br><span class="line">walkDownJson(json, htmlPolyFill);</span><br></pre></td></tr></table></figure>
+<p>这里出的最大问题是 <code>svg</code> 绘制，下文详述。</p>
+<h4 id="SVG"><strong>SVG</strong></h4><p>小程序目前对 <code>svg</code> 都是支持不良的，如果图片直接使用 svg 的外链无法显示（尽管开发者工具上 ok，一到真机就很尬），<code>rich-text</code> 中不支持 svg 标签。</p>
+<p>唯一一种可以在真机上绘制的手段是 <code>Data URI Scheme</code>，就是写成：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.wxml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">image</span> <span class="attribute">src</span>=<span class="value">"data:image/svg+xml;utf8,&#123;&#123; encodedString &#125;&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    encodedString: <span class="built_in">encodeURI</span>(svgHtmlString)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这确实能有效，但问题又来了，这个 svg 图片的大小貌似没那么好控制。。。。<br>使用 svg 作为 <code>Data URI Scheme</code>，其大小不受标签的 <code>width</code> 和 <code>height</code> 属性影响，只能用 <code>scale</code> 这种缩放修改尺寸。<br>(这基本上卡死了那些想把 svg 当成动态大小图来使用的需求)</p>
+<p>在做富文本组件时，我曾经有使用过 <code>canvas</code>。每次解析到 svg 标签后都利用 canvas 画到画布上，然后生成临时路径（相当于转 png 格式）.. 之后去替换 img 标签中的 src…</p>
+<p>emmmm 最终我的结果是，开发者工具上富文本组件完美地支持了 svg，一到真机又跪了。真机的 canvas 画不出 <code>Data URI Scheme</code> 格式下的 svg …… 所以也就无法生成 png 格式的临时图片路径。。。。。</p>
+<p>这个已经和微信开发人员反馈，据说有后续支持计划。</p>
+<p><br></p>
+<h2 id="更科学的路子怎么走"><strong>更科学的路子怎么走</strong></h2><ul>
+<li>开发方式</li>
+</ul>
+<p>之前我是一直觉得需要一个 <code>weapp-loader</code> 配合 <code>webpack</code> 做打包，这个 loader 需要帮开发者完成自动引入依赖，需要支持编译我们重新定义的、更科学的语法及语法糖。拥有这个 loader ，或者魔改一下打包工具应该就可以解决很多问题。</p>
+<p>而后突然杀出个 <code>mpvue</code>，思路和这个完全不一样，前司同事们 fork 了 vue 源码，既然 js 逻辑层与视图层是被微信分开的，那么干脆架空这个不好用的逻辑层。mpvue 完全采用 vue 语法，不同的是，vue 实例的计算结果、更新结果最后都会被映射成小程序的 <code>data</code> 变化，通过 js 逻辑层影响视图层。<br>蛮喜欢这个脑洞的，只是还没测过性能如何。</p>
+<ul>
+<li>编码技巧</li>
+</ul>
+<ol>
+<li>所有的微信异步接口都转成 <code>Promise</code> 返回。</li>
+<li>所有页面最好引用同一个基础页面结构模板，配合自己包装的 Page 函数，extend 函数。这样方便做全局修改和状态维护。</li>
+<li>包装小程序中的事件处理函数，方便埋点。</li>
+<li>跳转、重定向函数做封装</li>
+<li>本地记录下安全域名列表，及时发现非安全域名资源的加载，并告知用户（否则可能用不明白任何信息，只有白屏什么的）</li>
+<li>与后端协作的时候，尽可能复用，避免依赖发版的接口改动。</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/10/前端面试忽悠师入门/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端面试忽悠师入门</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'wytiny'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 TinySymphony
+    	</div>
+      	<div class="footer-right">
+            <p class="footer-theme">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Tinysymphony/hexo-theme-latte" target="_blank">Latte</a> by WyTiny
+            </p>
+            <p class="footer-theme">
+                Based on <a href="https://github.com/litten/hexo-theme-yilia">Yilia</a> (Litten)
+            </p>
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="https://cdn.bootcss.com/require.js/2.1.6/require.min.js" type="text/javascript"></script>
+<script>
+  // !!LS && LS.load('jquery.min.js', 'http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js');
+  // !!LS && LS.load('require.min.js', 'http://cdn.bootcss.com/require.js/2.1.6/require.min.js');
+
+</script>
+<script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-78495806-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+
+<div id="tiny-mask">
+  <div id="J-top-modal" class="top-panel"></div>
+</div>
+
+<script type="text/javascript">
+  var mask = document.getElementById('tiny-mask'),
+    menu = document.getElementById('J-menu'),
+    modal = document.getElementById('J-top-modal'),
+    html = document.documentElement,
+    offClass = 'modal-off',
+    onClass = 'modal-on';
+
+  menu.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('modal-item')) return;
+    modal.innerHTML = e.target.innerHTML;
+    html.classList.add(onClass);
+  }, false);
+
+  mask.addEventListener('animationend', function (e) {
+    if(e.target !== mask || !html.classList.contains(offClass)) return;
+    html.classList.remove(onClass);
+    html.classList.remove(offClass);
+  }, false);
+
+  mask.addEventListener('click', function (e) {
+    if(e.target !== mask) return;
+    html.classList.add(offClass);
+  }, false);
+</script>
+
+  </div>
+</body>
+</html>
